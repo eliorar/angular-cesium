@@ -1,14 +1,13 @@
 {
-  "name": "angular-cesium",
-  "version": "0.0.75",
+  "name": "@eliorar/angular-cesium",
+  "version": "11.0.1",
   "license": "MIT",
   "description": "Angular library for working with Cesium.",
-  "repository": "https://github.com/articodeltd/angular-cesium",
+  "repository": "https://github.com/eliorar/angular-cesium",
   "keywords": [
     "Angular",
     "Cesium",
-    "Angular Cesium",
-    "Angular2 Cesium"
+    "Angular Cesium"
   ],
   "scripts": {
     "ng": "ng",
