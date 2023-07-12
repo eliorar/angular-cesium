@@ -1,7 +1,7 @@
 # Angular-Cesium
 <img src="https://preview.ibb.co/cpDuwF/angular_cesium.png" width=150 alt="Drawing" style="margin:10"/>
 
-[![npm version](https://img.shields.io/npm/v/angular-cesium.svg?style=flat-square)](https://www.npmjs.com/package/@eliorar/angular-cesium)
+[![npm version](https://img.shields.io/npm/v/@eliorar/angular-cesium.svg?style=flat-square)](https://www.npmjs.com/package/@eliorar/angular-cesium)
 
 **This is a fork of Articode's "angular-cesium", adapted for Cesium v1.103.0 [Angular Cesium](https://github.com/eliorar/angular-cesium)**
 
