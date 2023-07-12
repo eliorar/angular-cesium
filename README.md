@@ -3,7 +3,7 @@
 
 [![npm version](https://img.shields.io/npm/v/angular-cesium.svg?style=flat-square)](https://www.npmjs.com/package/@eliorar/angular-cesium)
 
-**This is a fork of Articode's "angular-cesium", adapted for Cesium v1.103.0 [Angular Cesium](https://github.com/articodeltd/angular-cesium)**
+**This is a fork of Articode's "angular-cesium", adapted for Cesium v1.103.0 [Angular Cesium](https://github.com/eliorar/angular-cesium)**
 
 Create amazing mapping applications using Cesium and Angular components.
 Angular-Cesium is focused on high performance and simple usage.
@@ -13,7 +13,7 @@ Check out our [Docs](https://docs.angular-cesium.com) and our blog post [Intro t
 #### If you are using Angular CLI, you can add the angular-cesium library using schematics
 + add `angular-cesium`:
   ```bash
-  $ ng add angular-cesium
+  $ ng add @eliorar/angular-cesium
   ```
 #### Manual installation details [here](https://docs.angular-cesium.com/getting-started/installation).
 
@@ -22,7 +22,7 @@ Check out our [Docs](https://docs.angular-cesium.com) and our blog post [Intro t
 + The demo contains many examples, check out the `demo-map.component.ts` file.
 + Run: 
     ```
-    $ git clone https://github.com/articodeltd/angular-cesium.git
+    $ git clone https://github.com/eliorar/angular-cesium.git
     $ cd angular-cesium
     $ yarn
     $ yarn demo:start
@@ -41,7 +41,7 @@ Check out our [Docs](https://docs.angular-cesium.com) and our blog post [Intro t
 + In your HTML file :
   ```html
     <ac-map>
-        <ac-layer acFor="let plane of planes$" [show]="showTracks" [context]="this">
+        <ac-layer acFor="let plane of planes$" [show]="showTxracks" [context]="this">
             <ac-billboard-desc props="{
                       image: plane.image,
                       position: plane.position
@@ -69,25 +69,25 @@ Check out our [Docs](https://docs.angular-cesium.com) and our blog post [Intro t
 For better understading check out the [layer guide](https://docs.angular-cesium.com/core-concepts/ac-layer)
 
 ## Supported Entity types
-+ billboard - [`ac-billboard-desc`](https://articodeltd.github.io/angular-cesium/components/AcBillboardDescComponent.html) / [`ac-billboard`](https://articodeltd.github.io/angular-cesium/components/AcBillboardComponent.html) / [`ac-billboard-primitive-desc`](https://articodeltd.github.io/angular-cesium/components/AcBillboardPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-billboard-example?embed=1&file=src/app/billboard-layer-example/billboard-layer-example.component.ts)
-+ label - [`ac-label-desc`](https://articodeltd.github.io/angular-cesium/components/AcLabelDescComponent.html) / [`ac-label`](https://articodeltd.github.io/angular-cesium/components/AcLabelComponent.html) / [`ac-label-primitive-desc`](https://articodeltd.github.io/angular-cesium/components/AcLabelPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-label-example?embed=1&file=src/app/label-layer-example/label-layer-example.component.ts)
-+ polyline - [`ac-polyline-desc`](https://articodeltd.github.io/angular-cesium/components/AcPolylineDescComponent.html) / [`ac-polyline`](https://articodeltd.github.io/angular-cesium/components/AcPolylineComponent.html) / [`ac-polyline-primitive-desc`](https://articodeltd.github.io/angular-cesium/components/AcPolylinePrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polyline-example?embed=1&file=src/app/polyline-layer-example/polyline-layer-example.component.ts)
-+ point - [`ac-point-desc`](https://articodeltd.github.io/angular-cesium/components/AcPointDescComponent.html) / [`ac-point`](https://articodeltd.github.io/angular-cesium/components/AcPointComponent.html) / [`ac-primitive-point`](https://articodeltd.github.io/angular-cesium/components/AcPointPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-point-example?embed=1&file=src/app/point-layer-example/mock-data-provider.service.ts)
-+ ellipse - [`ac-ellipse-desc`](https://articodeltd.github.io/angular-cesium/components/AcEllipseDescComponent.html) / [`ac-ellipse`](https://articodeltd.github.io/angular-cesium/components/AcEllipseComponent.html) - [stackbliz](https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts)
-+ circle - [`ac-circle-desc`](https://articodeltd.github.io/angular-cesium/components/AcCircleDescComponent.html) / [`ac-circle`](https://articodeltd.github.io/angular-cesium/components/AcCircleComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts) *Same API as ellipse, but accepting a radius instead of semiMajorAxis and semiMinorAxis - [stackblitz](https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts)
-+ polygon - [`ac-polygon-desc`](https://articodeltd.github.io/angular-cesium/components/AcPolygonDescComponent.html) / [`ac-polygon`](https://articodeltd.github.io/angular-cesium/components/AcPolygonComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polygon-example?embed=1&file=src/app/polygon-layer-example/polygon-layer-example.component.ts) 
-+ model - [`ac-model-desc`](https://articodeltd.github.io/angular-cesium/components/AcModelDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-model-example?embed=1&file=src/app/models-layer-example/models-layer-example.component.ts)
-+ box - [`ac-box-desc`](https://articodeltd.github.io/angular-cesium/components/AcBoxDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-box-example?embed=1&file=src/app/boxes-layer/boxes-layer.component.ts)
-+ corridor -[`ac-corridor-desc`](https://articodeltd.github.io/angular-cesium/components/AcCorridorDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo?embed=1&file=src/app/hippodrome-layer/hippodrome-layer-example.component.ts)
-+ cylinder - [`ac-cylinder-desc`](https://articodeltd.github.io/angular-cesium/components/AcCylinderDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-cylinder-example?embed=1&file=src/app/cylinder-layer-example/cylinder-layer-example.component.ts)
-+ ellipsoid - [`ac-ellipsoid-desc`](https://articodeltd.github.io/angular-cesium/components/AcEllipsoidDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-ellipsoid-example?embed=1&file=src/app/ellipsoid-layer-example/ellipsoid-layer-example.component.ts)
-+ polyline volume - [`ac-polyline-volume-desc`](https://articodeltd.github.io/angular-cesium/components/AcPolylineVolumeDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polyline-volume-example?embed=1&file=src/app/polyline-volume-layer-example/polyline-volume-layer-example.component.ts)
-+ wall - [`ac-wall-desc`](https://articodeltd.github.io/angular-cesium/components/AcWallDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-wall-example?embed=1&file=src/app/wall-layer-example/wall-layer-example.component.ts)
-+ rectangle -[`ac-rectangle-decc`](https://articodeltd.github.io/angular-cesium/components/AcRectangleDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-rectangle-example?embed=1&file=src/app/rectangle-layer-example/rectangle-layer-example.component.ts)
-* html - [`ac-html-desc`](https://articodeltd.github.io/angular-cesium/components/AcHtmlDescComponent.html) / [`ac-html`](https://articodeltd.github.io/angular-cesium/components/AcHtmlComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-html-example?embed=1&file=src/app/html-layer/html-example.component.ts)
-+ arc -[`ac-arc-dec`](https://articodeltd.github.io/angular-cesium/components/AcArcDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-arc-example?embed=1&file=src/app/arc-layer/arc-layer-example.component.ts)
-* array - [`ac-array-desc`](https://articodeltd.github.io/angular-cesium/components/AcArrayDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-arrays?embed=1&file=src/app/entities-with-arrays/entities-with-arrays-example.component.ts)
-* czmlPacket - [`ac-czml-desc`](https://articodeltd.github.io/angular-cesium/components/AcCzmlDescComponent.html)
++ billboard - [`ac-billboard-desc`](https://eliorar.github.io/angular-cesium/components/AcBillboardDescComponent.html) / [`ac-billboard`](https://eliorar.github.io/angular-cesium/components/AcBillboardComponent.html) / [`ac-billboard-primitive-desc`](https://eliorar.github.io/angular-cesium/components/AcBillboardPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-billboard-example?embed=1&file=src/app/billboard-layer-example/billboard-layer-example.component.ts)
++ label - [`ac-label-desc`](https://eliorar.github.io/angular-cesium/components/AcLabelDescComponent.html) / [`ac-label`](https://eliorar.github.io/angular-cesium/components/AcLabelComponent.html) / [`ac-label-primitive-desc`](https://eliorar.github.io/angular-cesium/components/AcLabelPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-label-example?embed=1&file=src/app/label-layer-example/label-layer-example.component.ts)
++ polyline - [`ac-polyline-desc`](https://eliorar.github.io/angular-cesium/components/AcPolylineDescComponent.html) / [`ac-polyline`](https://eliorar.github.io/angular-cesium/components/AcPolylineComponent.html) / [`ac-polyline-primitive-desc`](https://eliorar.github.io/angular-cesium/components/AcPolylinePrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polyline-example?embed=1&file=src/app/polyline-layer-example/polyline-layer-example.component.ts)
++ point - [`ac-point-desc`](https://eliorar.github.io/angular-cesium/components/AcPointDescComponent.html) / [`ac-point`](https://eliorar.github.io/angular-cesium/components/AcPointComponent.html) / [`ac-primitive-point`](https://eliorar.github.io/angular-cesium/components/AcPointPrimitiveDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-point-example?embed=1&file=src/app/point-layer-example/mock-data-provider.service.ts)
++ ellipse - [`ac-ellipse-desc`](https://eliorar.github.io/angular-cesium/components/AcEllipseDescComponent.html) / [`ac-ellipse`](https://eliorar.github.io/angular-cesium/components/AcEllipseComponent.html) - [stackbliz](https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts)
++ circle - [`ac-circle-desc`](https://eliorar.github.io/angular-cesium/components/AcCircleDescComponent.html) / [`ac-circle`](https://eliorar.github.io/angular-cesium/components/AcCircleComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts) *Same API as ellipse, but accepting a radius instead of semiMajorAxis and semiMinorAxis - [stackblitz](https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts)
++ polygon - [`ac-polygon-desc`](https://eliorar.github.io/angular-cesium/components/AcPolygonDescComponent.html) / [`ac-polygon`](https://eliorar.github.io/angular-cesium/components/AcPolygonComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polygon-example?embed=1&file=src/app/polygon-layer-example/polygon-layer-example.component.ts) 
++ model - [`ac-model-desc`](https://eliorar.github.io/angular-cesium/components/AcModelDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-model-example?embed=1&file=src/app/models-layer-example/models-layer-example.component.ts)
++ box - [`ac-box-desc`](https://eliorar.github.io/angular-cesium/components/AcBoxDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-box-example?embed=1&file=src/app/boxes-layer/boxes-layer.component.ts)
++ corridor -[`ac-corridor-desc`](https://eliorar.github.io/angular-cesium/components/AcCorridorDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo?embed=1&file=src/app/hippodrome-layer/hippodrome-layer-example.component.ts)
++ cylinder - [`ac-cylinder-desc`](https://eliorar.github.io/angular-cesium/components/AcCylinderDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-cylinder-example?embed=1&file=src/app/cylinder-layer-example/cylinder-layer-example.component.ts)
++ ellipsoid - [`ac-ellipsoid-desc`](https://eliorar.github.io/angular-cesium/components/AcEllipsoidDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-ellipsoid-example?embed=1&file=src/app/ellipsoid-layer-example/ellipsoid-layer-example.component.ts)
++ polyline volume - [`ac-polyline-volume-desc`](https://eliorar.github.io/angular-cesium/components/AcPolylineVolumeDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-polyline-volume-example?embed=1&file=src/app/polyline-volume-layer-example/polyline-volume-layer-example.component.ts)
++ wall - [`ac-wall-desc`](https://eliorar.github.io/angular-cesium/components/AcWallDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-wall-example?embed=1&file=src/app/wall-layer-example/wall-layer-example.component.ts)
++ rectangle -[`ac-rectangle-decc`](https://eliorar.github.io/angular-cesium/components/AcRectangleDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-rectangle-example?embed=1&file=src/app/rectangle-layer-example/rectangle-layer-example.component.ts)
+* html - [`ac-html-desc`](https://eliorar.github.io/angular-cesium/components/AcHtmlDescComponent.html) / [`ac-html`](https://eliorar.github.io/angular-cesium/components/AcHtmlComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-html-example?embed=1&file=src/app/html-layer/html-example.component.ts)
++ arc -[`ac-arc-dec`](https://eliorar.github.io/angular-cesium/components/AcArcDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-arc-example?embed=1&file=src/app/arc-layer/arc-layer-example.component.ts)
+* array - [`ac-array-desc`](https://eliorar.github.io/angular-cesium/components/AcArrayDescComponent.html) - [stackblitz](https://stackblitz.com/edit/angular-cesium-demo-arrays?embed=1&file=src/app/entities-with-arrays/entities-with-arrays-example.component.ts)
+* czmlPacket - [`ac-czml-desc`](https://eliorar.github.io/angular-cesium/components/AcCzmlDescComponent.html)
 
 ## Map Events
 `MapEventsManagerService` is a util service for managing all the map events (Click, Mouse_up...), it expose easy API for entity selection, event priority management
