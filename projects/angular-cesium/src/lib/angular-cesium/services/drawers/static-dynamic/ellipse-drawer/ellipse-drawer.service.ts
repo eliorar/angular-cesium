@@ -1,7 +1,7 @@
-import { CesiumService } from '../../../cesium/cesium.service';
-import { EllipseGeometry } from 'cesium';
-import { Injectable } from '@angular/core';
-import { StaticPrimitiveDrawer } from '../static-primitive-drawer/static-primitive-drawer.service';
+import {CesiumService} from '../../../cesium/cesium.service';
+import {EllipseGeometry} from 'cesium';
+import {Injectable} from '@angular/core';
+import {StaticPrimitiveDrawer} from '../static-primitive-drawer/static-primitive-drawer.service';
 
 
 /**

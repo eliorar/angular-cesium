@@ -1,9 +1,9 @@
-import { Cartesian3 } from 'cesium';
-import { EditorObservable } from './editor-observable';
-//import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
-import { EllipseEditUpdate } from './ellipse-edit-update';
-import { PointProps } from './point-edit-options';
-import { EllipseProps } from './ellipse-edit-options';
+import {Cartesian3} from 'cesium';
+import {EditorObservable} from './editor-observable';
+// import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
+import {EllipseEditUpdate} from './ellipse-edit-update';
+import {PointProps} from './point-edit-options';
+import {EllipseProps} from './ellipse-edit-options';
 
 export class EllipseEditorObservable extends EditorObservable<EllipseEditUpdate> {
   setManually: (

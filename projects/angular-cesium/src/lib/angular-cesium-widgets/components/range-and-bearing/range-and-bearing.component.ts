@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Color, Cartesian2, Cartesian3 } from 'cesium';
-import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import { EditActions } from '../../models/edit-actions.enum';
-import { PolylineEditorObservable } from '../../models/polyline-editor-observable';
-import { PolylineEditOptions } from '../../models/polyline-edit-options';
-import { LabelProps, LabelStyle } from '../../models/label-props';
-import { PolylineEditUpdate } from '../../models/polyline-edit-update';
-import { EditModes } from '../../models/edit-mode.enum';
-import { PolylinesEditorService } from '../../services/entity-editors/polyline-editor/polylines-editor.service';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Cartesian2, Cartesian3, Color} from 'cesium';
+import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {EditActions} from '../../models/edit-actions.enum';
+import {PolylineEditorObservable} from '../../models/polyline-editor-observable';
+import {PolylineEditOptions} from '../../models/polyline-edit-options';
+import {LabelProps, LabelStyle} from '../../models/label-props';
+import {PolylineEditUpdate} from '../../models/polyline-edit-update';
+import {EditModes} from '../../models/edit-mode.enum';
+import {PolylinesEditorService} from '../../services/entity-editors/polyline-editor/polylines-editor.service';
 
 /**
  *

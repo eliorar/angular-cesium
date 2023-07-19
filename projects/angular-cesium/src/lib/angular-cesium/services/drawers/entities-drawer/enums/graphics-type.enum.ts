@@ -1,4 +1,5 @@
 import * as Cesium from 'cesium';
+
 export class GraphicsType {
   static ellipse = Cesium.EllipseGraphics;
   static ellipsoid = Cesium.EllipsoidGraphics;

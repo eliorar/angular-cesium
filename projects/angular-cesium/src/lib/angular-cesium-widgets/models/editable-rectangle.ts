@@ -1,12 +1,11 @@
-import { Cartesian3, Cartographic, CallbackProperty, Rectangle } from 'cesium';
-import { AcEntity } from '../../angular-cesium/models/ac-entity';
-import { EditPoint } from './edit-point';
-import { AcLayerComponent } from '../../angular-cesium/components/ac-layer/ac-layer.component';
-import { CoordinateConverter } from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import { GeoUtilsService } from '../../angular-cesium/services/geo-utils/geo-utils.service';
-import { RectangleEditOptions, RectangleProps } from './rectangle-edit-options';
-import { PointProps } from './point-edit-options';
-import { defaultLabelProps, LabelProps } from './label-props';
+import {CallbackProperty, Cartesian3, Cartographic, Rectangle} from 'cesium';
+import {AcEntity} from '../../angular-cesium/models/ac-entity';
+import {EditPoint} from './edit-point';
+import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
+import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {RectangleEditOptions, RectangleProps} from './rectangle-edit-options';
+import {PointProps} from './point-edit-options';
+import {defaultLabelProps, LabelProps} from './label-props';
 
 export class EditableRectangle extends AcEntity {
   private positions: EditPoint[] = [];

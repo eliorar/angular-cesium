@@ -1,5 +1,5 @@
-import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
-import { fixCesiumEntitiesShadows } from './StaticGeometryColorBatch';
+import {Inject, Injectable, InjectionToken, Optional} from '@angular/core';
+import {fixCesiumEntitiesShadows} from './StaticGeometryColorBatch';
 
 export const ANGULAR_CESIUM_CONFIG = new InjectionToken('ANGULAR_CESIUM_CONFIG');
 

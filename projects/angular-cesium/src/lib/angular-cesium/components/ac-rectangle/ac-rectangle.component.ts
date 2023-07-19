@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { RectangleDrawerService } from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
-import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
-import { MapLayersService } from '../../services/map-layers/map-layers.service';
+import {Component} from '@angular/core';
+import {RectangleDrawerService} from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
+import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
+import {MapLayersService} from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is a rectangle implementation.

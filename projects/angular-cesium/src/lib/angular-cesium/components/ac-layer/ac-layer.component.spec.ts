@@ -1,19 +1,19 @@
 /* tslint:disable:no-unused-variable */
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { PrimitiveCollection, DataSource } from 'cesium';
-import { AcLayerComponent } from './ac-layer.component';
-import { LayerService } from '../../services/layer-service/layer-service.service';
-import { PolylineDrawerService } from '../../services/drawers/polyline-drawer/polyline-drawer.service';
-import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
-import { BillboardDrawerService } from '../../services/drawers/billboard-drawer/billboard-drawer.service';
-import { LabelDrawerService } from '../../services/drawers/label-drawer/label-drawer.service';
-import { EllipseDrawerService } from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
-import { CesiumService } from '../../services/cesium/cesium.service';
-import { mockProvider, provider, providerFromMock } from '../../utils/testingUtils';
-import { instance, mock, when } from 'ts-mockito';
-import { of } from 'rxjs';
-import { MapLayersService } from '../../services/map-layers/map-layers.service';
-import { CesiumExtender } from '../../../cesium-extender/extender';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {DataSource, PrimitiveCollection} from 'cesium';
+import {AcLayerComponent} from './ac-layer.component';
+import {LayerService} from '../../services/layer-service/layer-service.service';
+import {PolylineDrawerService} from '../../services/drawers/polyline-drawer/polyline-drawer.service';
+import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
+import {BillboardDrawerService} from '../../services/drawers/billboard-drawer/billboard-drawer.service';
+import {LabelDrawerService} from '../../services/drawers/label-drawer/label-drawer.service';
+import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import {CesiumService} from '../../services/cesium/cesium.service';
+import {mockProvider, provider, providerFromMock} from '../../utils/testingUtils';
+import {instance, mock, when} from 'ts-mockito';
+import {of} from 'rxjs';
+import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import {CesiumExtender} from '../../../cesium-extender/extender';
 
 
 CesiumExtender.extend();

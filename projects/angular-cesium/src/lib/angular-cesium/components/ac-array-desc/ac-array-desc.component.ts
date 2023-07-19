@@ -11,13 +11,13 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { AcNotification } from '../../models/ac-notification';
-import { Subject, Subscription } from 'rxjs';
-import { IDescription } from '../../models/description';
-import { get } from 'lodash';
-import { AcLayerComponent } from '../ac-layer/ac-layer.component';
-import { LayerService } from '../../services/layer-service/layer-service.service';
-import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import {AcNotification} from '@ac/models/ac-notification';
+import {Subject, Subscription} from 'rxjs';
+import {IDescription} from '@ac/models/description';
+import {get} from 'lodash';
+import {AcLayerComponent} from '../ac-layer/ac-layer.component';
+import {LayerService} from '@ac/services/layer-service/layer-service.service';
+import {BasicDesc} from '@ac/services/basic-desc/basic-desc.service';
 
 /**
  *  This is component represents an array under `ac-layer`.

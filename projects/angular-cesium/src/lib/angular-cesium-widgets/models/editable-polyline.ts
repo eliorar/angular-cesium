@@ -1,20 +1,21 @@
 import {
-  Cartesian3,
   CallbackProperty,
-  GroundPolylinePrimitive,
+  Cartesian3,
   ColorGeometryInstanceAttribute,
+  GeometryInstance,
   GroundPolylineGeometry,
-  GeometryInstance, PolylineColorAppearance
+  GroundPolylinePrimitive,
+  PolylineColorAppearance
 } from 'cesium';
-import { AcEntity } from '../../angular-cesium/models/ac-entity';
-import { EditPoint } from './edit-point';
-import { EditPolyline } from './edit-polyline';
-import { AcLayerComponent } from '../../angular-cesium/components/ac-layer/ac-layer.component';
-import { CoordinateConverter } from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import { PointProps } from './point-edit-options';
-import { PolylineEditOptions, PolylineProps } from './polyline-edit-options';
-import { GeoUtilsService } from '../../angular-cesium/services/geo-utils/geo-utils.service';
-import { defaultLabelProps, LabelProps } from './label-props';
+import {AcEntity} from '../../angular-cesium/models/ac-entity';
+import {EditPoint} from './edit-point';
+import {EditPolyline} from './edit-polyline';
+import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
+import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {PointProps} from './point-edit-options';
+import {PolylineEditOptions, PolylineProps} from './polyline-edit-options';
+import {GeoUtilsService} from '../../angular-cesium/services/geo-utils/geo-utils.service';
+import {defaultLabelProps, LabelProps} from './label-props';
 
 export class EditablePolyline extends AcEntity {
   private positions: EditPoint[] = [];

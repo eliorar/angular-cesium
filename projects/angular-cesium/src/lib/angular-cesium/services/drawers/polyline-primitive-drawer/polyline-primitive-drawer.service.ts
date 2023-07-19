@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { PolylineCollection, Color, Material } from 'cesium';
-import { CesiumService } from '../../cesium/cesium.service';
-import { PrimitivesDrawerService } from '../primitives-drawer/primitives-drawer.service';
+import {Injectable} from '@angular/core';
+import {Color, Material, PolylineCollection} from 'cesium';
+import {CesiumService} from '../../cesium/cesium.service';
+import {PrimitivesDrawerService} from '../primitives-drawer/primitives-drawer.service';
 
 /**
  *  This drawer is responsible of drawing polylines as primitives.

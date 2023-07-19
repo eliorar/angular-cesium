@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { AcStaticCircleDescComponent } from './ac-static-circle-desc.component';
-import { PrimitiveCollection } from 'cesium';
-import { CesiumService } from '../../../services/cesium/cesium.service';
-import { StaticCircleDrawerService } from '../../../services/drawers/static-dynamic/static-circle-drawer/static-circle-drawer.service';
-import { LayerService } from '../../../services/layer-service/layer-service.service';
-import { CesiumProperties } from '../../../services/cesium-properties/cesium-properties.service';
-import { ComputationCache } from '../../../services/computation-cache/computation-cache.service';
-import { instance, mock, when } from 'ts-mockito';
+import {AcStaticCircleDescComponent} from './ac-static-circle-desc.component';
+import {PrimitiveCollection} from 'cesium';
+import {CesiumService} from '../../../services/cesium/cesium.service';
+import {StaticCircleDrawerService} from '../../../services/drawers/static-dynamic/static-circle-drawer/static-circle-drawer.service';
+import {LayerService} from '../../../services/layer-service/layer-service.service';
+import {CesiumProperties} from '../../../services/cesium-properties/cesium-properties.service';
+import {ComputationCache} from '../../../services/computation-cache/computation-cache.service';
+import {instance, mock, when} from 'ts-mockito';
 
 xdescribe('AcStaticCircleDescComponent', () => {
   let component: AcStaticCircleDescComponent;

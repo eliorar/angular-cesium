@@ -1,12 +1,12 @@
-import { fromEvent as observableFromEvent, Observable, Subject } from 'rxjs';
+import {fromEvent as observableFromEvent, Observable, Subject} from 'rxjs';
 
-import { map, merge, takeUntil, tap } from 'rxjs/operators';
-import { Inject, Injectable } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { Cartesian3 } from 'cesium';
-import { Vec2 } from '../../angular-cesium/models/vec2';
-import { CoordinateConverter } from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import { MapsManagerService } from '../../angular-cesium/services/maps-manager/maps-manager.service';
+import {map, merge, takeUntil, tap} from 'rxjs/operators';
+import {Inject, Injectable} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {Cartesian3} from 'cesium';
+import {Vec2} from '../../angular-cesium/models/vec2';
+import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {MapsManagerService} from '../../angular-cesium/services/maps-manager/maps-manager.service';
 
 export interface IconDragEvent {
   initialScreenPosition: Vec2;

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
-import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
-import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
-import { CzmlDrawerService } from '../../services/drawers/czml-drawer/czml-drawer.service';
-import { LayerService } from '../../services/layer-service/layer-service.service';
+import {BasicDesc} from '@ac/services/basic-desc/basic-desc.service';
+import {CesiumProperties} from '@ac/services/cesium-properties/cesium-properties.service';
+import {ComputationCache} from '@ac/services/computation-cache/computation-cache.service';
+import {CzmlDrawerService} from '@ac/services/drawers/czml-drawer/czml-drawer.service';
+import {LayerService} from '@ac/services/layer-service/layer-service.service';
 
 /**
  *  This is a czml implementation.

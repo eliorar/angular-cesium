@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
-import { MapMode2D, ScreenSpaceEventType, Cartesian3, HeadingPitchRoll, Cesium3DTileset, IonResource, 
+import { MapMode2D, ScreenSpaceEventType, Cartesian3, HeadingPitchRoll, Cesium3DTileset, IonResource,
          Cesium3DTileStyle
         } from 'cesium';
-import { MapsManagerService, SceneMode, ViewerConfiguration } from '@auscope/angular-cesium';
+import { MapsManagerService, SceneMode, ViewerConfiguration } from 'angular-cesium';
 
 @Component({
   selector: 'main-map',
@@ -11,7 +11,7 @@ import { MapsManagerService, SceneMode, ViewerConfiguration } from '@auscope/ang
   styleUrls: ['./main-map.component.scss']
 })
 export class MainMapComponent implements AfterViewInit {
-  @Input() multiMaps = false
+  @Input() multiMaps = false;
 
   sceneMode3D = SceneMode.SCENE3D;
   sceneMode2D = SceneMode.PERFORMANCE_SCENE2D;
@@ -85,7 +85,7 @@ export class MainMapComponent implements AfterViewInit {
         setTimeout(() => this.mapsManagerService.sync2DMapsCameras([{ id: 'main-map' }, { id: 'sub-map' }]), 2000);
       }, 5000);
 
-      setInterval(() => console.log(this.mapsManagerService.getMap('sub-map').getCesiumViewer().camera.position), 1000)
+      setInterval(() => console.log(this.mapsManagerService.getMap('sub-map').getCesiumViewer().camera.position), 1000);
     }
   }
 }

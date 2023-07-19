@@ -1,4 +1,5 @@
-import {ScreenSpaceEventType } from 'cesium';
+import {ScreenSpaceEventType} from 'cesium';
+
 /**
  * Event options for registration on map-event-manager.
  */

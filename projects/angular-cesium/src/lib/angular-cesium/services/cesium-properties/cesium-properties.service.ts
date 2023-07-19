@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { JsonMapper } from '../json-mapper/json-mapper.service';
-import { Parse } from '@auscope/angular2parse';
-import { SmartAssigner } from '../smart-assigner/smart-assigner.service';
-import { ComputationCache } from '../computation-cache/computation-cache.service';
+import {Injectable} from '@angular/core';
+import {JsonMapper} from '../json-mapper/json-mapper.service';
+import {Parse} from '@auscope/angular2parse';
+import {SmartAssigner} from '../smart-assigner/smart-assigner.service';
+import {ComputationCache} from '../computation-cache/computation-cache.service';
 
 @Injectable()
 export class CesiumProperties {

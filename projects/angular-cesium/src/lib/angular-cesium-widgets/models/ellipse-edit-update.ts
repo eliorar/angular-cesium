@@ -1,8 +1,8 @@
-import { Cartesian3 } from 'cesium';
-//import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
-import { BasicEditUpdate } from './basic-edit-update';
-import { EllipseEditOptions } from './ellipse-edit-options';
-import { EditPoint } from './edit-point';
+import {Cartesian3} from 'cesium';
+// import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
+import {BasicEditUpdate} from './basic-edit-update';
+import {EllipseEditOptions} from './ellipse-edit-options';
+import {EditPoint} from './edit-point';
 
 export interface EllipseEditUpdate extends BasicEditUpdate<EllipseEditUpdate> {
   startDragPosition?: Cartesian3;

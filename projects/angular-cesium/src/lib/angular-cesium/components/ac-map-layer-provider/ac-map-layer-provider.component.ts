@@ -1,8 +1,9 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { buildModuleUrl } from 'cesium';
-import { CesiumService } from '../../services/cesium/cesium.service';
-import { Checker } from '../../utils/checker';
-import { MapLayerProviderOptions } from '../../models';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {buildModuleUrl} from 'cesium';
+import {CesiumService} from '../../services/cesium/cesium.service';
+import {Checker} from '../../utils/checker';
+import {MapLayerProviderOptions} from '../../models';
+
 declare var Cesium: any;
 
 /**

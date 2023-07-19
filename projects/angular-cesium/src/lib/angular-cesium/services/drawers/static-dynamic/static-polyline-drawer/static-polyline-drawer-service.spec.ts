@@ -1,9 +1,9 @@
-import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
-import { ColorGeometryInstanceAttribute, Color, Cartesian3, PolylineColorAppearance, PrimitiveCollection } from 'cesium';
-import { anything, instance, mock, verify, when } from 'ts-mockito';
-import { StaticPolylineDrawerService } from './static-polyline-drawer.service';
-import { CesiumService } from '../../../cesium/cesium.service';
-import { providerFromMock } from '../../../../utils/testingUtils';
+import {fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
+import {Cartesian3, Color, ColorGeometryInstanceAttribute, PolylineColorAppearance, PrimitiveCollection} from 'cesium';
+import {anything, instance, mock, verify, when} from 'ts-mockito';
+import {StaticPolylineDrawerService} from './static-polyline-drawer.service';
+import {CesiumService} from '../../../cesium/cesium.service';
+import {providerFromMock} from '../../../../utils/testingUtils';
 
 describe('StaticPolylineDrawerService', () => {
 

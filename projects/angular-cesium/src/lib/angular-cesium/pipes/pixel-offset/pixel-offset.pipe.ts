@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Cartesian2 } from 'cesium';
+import {Pipe, PipeTransform} from '@angular/core';
+import {Cartesian2} from 'cesium';
 
 /**
  * @example

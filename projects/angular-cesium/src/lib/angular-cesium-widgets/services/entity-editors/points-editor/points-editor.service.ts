@@ -1,23 +1,23 @@
-import { publish, tap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { Color, Cartesian3 } from 'cesium';
-import { MapEventsManagerService } from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { CesiumEvent } from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
-import { PickOptions } from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
-import { EditModes } from '../../../models/edit-mode.enum';
-import { EditActions } from '../../../models/edit-actions.enum';
-import { DisposableObservable } from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
-import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import { EditPoint } from '../../../models/edit-point';
-import { CameraService } from '../../../../angular-cesium/services/camera/camera.service';
-import { PointsManagerService } from './points-manager.service';
-import { LabelProps } from '../../../models/label-props';
-import { generateKey } from '../../utils';
-import { CesiumService } from '../../../../angular-cesium';
-import { PointEditOptions, PointProps } from '../../../models/point-edit-options';
-import { PointEditUpdate } from '../../../models/point-edit-update';
-import { PointEditorObservable } from '../../../models/point-editor-observable';
+import {publish, tap} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Cartesian3, Color} from 'cesium';
+import {MapEventsManagerService} from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {CesiumEvent} from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
+import {PickOptions} from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
+import {EditModes} from '../../../models/edit-mode.enum';
+import {EditActions} from '../../../models/edit-actions.enum';
+import {DisposableObservable} from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
+import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {EditPoint} from '../../../models/edit-point';
+import {CameraService} from '../../../../angular-cesium/services/camera/camera.service';
+import {PointsManagerService} from './points-manager.service';
+import {LabelProps} from '../../../models/label-props';
+import {generateKey} from '../../utils';
+import {CesiumService} from '../../../../angular-cesium';
+import {PointEditOptions, PointProps} from '../../../models/point-edit-options';
+import {PointEditUpdate} from '../../../models/point-edit-update';
+import {PointEditorObservable} from '../../../models/point-editor-observable';
 
 export const DEFAULT_POINT_OPTIONS: PointEditOptions = {
   addLastPointEvent: CesiumEvent.LEFT_CLICK,

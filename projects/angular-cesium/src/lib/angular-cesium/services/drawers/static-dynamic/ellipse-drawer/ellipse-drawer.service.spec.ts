@@ -1,9 +1,9 @@
-import { inject, TestBed } from '@angular/core/testing';
-import { Math as cMath, PrimitiveCollection, Cartesian3, Color, ColorGeometryInstanceAttribute, PerInstanceColorAppearance } from 'cesium';
-import { StaticEllipseDrawerService } from './ellipse-drawer.service';
-import { anything, instance, mock, verify, when } from 'ts-mockito';
-import { CesiumService } from '../../../cesium/cesium.service';
-import { providerFromMock } from '../../../../utils/testingUtils';
+import {inject, TestBed} from '@angular/core/testing';
+import {Cartesian3, Color, ColorGeometryInstanceAttribute, Math as cMath, PerInstanceColorAppearance, PrimitiveCollection} from 'cesium';
+import {StaticEllipseDrawerService} from './ellipse-drawer.service';
+import {anything, instance, mock, verify, when} from 'ts-mockito';
+import {CesiumService} from '../../../cesium/cesium.service';
+import {providerFromMock} from '../../../../utils/testingUtils';
 
 describe('EllipseStaticDrawerService', () => {
   const geometryProps: any = {

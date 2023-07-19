@@ -1,7 +1,7 @@
-//import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
-import { Cartesian3 } from 'cesium';
-import { BasicEditUpdate } from './basic-edit-update';
-import { CircleEditOptions } from './circle-edit-options';
+// import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
+import {Cartesian3} from 'cesium';
+import {BasicEditUpdate} from './basic-edit-update';
+import {CircleEditOptions} from './circle-edit-options';
 
 export interface CircleEditUpdate extends BasicEditUpdate<CircleEditUpdate> {
   startDragPosition?: Cartesian3;

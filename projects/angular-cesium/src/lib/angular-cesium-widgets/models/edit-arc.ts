@@ -1,6 +1,6 @@
-import { Cartesian3 } from 'cesium';
-import { AcEntity } from '../../angular-cesium/models/ac-entity';
-import { PolylineProps } from './polyline-edit-options';
+import {Cartesian3} from 'cesium';
+import {AcEntity} from '../../angular-cesium/models/ac-entity';
+import {PolylineProps} from './polyline-edit-options';
 
 export class EditArc extends AcEntity {
   static counter = 0;

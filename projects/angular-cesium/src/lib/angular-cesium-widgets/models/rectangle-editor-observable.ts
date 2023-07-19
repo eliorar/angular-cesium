@@ -1,8 +1,8 @@
-import { Cartesian3 } from 'cesium';
-import { EditPoint } from './edit-point';
-import { EditorObservable } from './editor-observable';
-import { RectangleEditUpdate } from './rectangle-edit-update';
-import { PointProps } from './point-edit-options';
+import {Cartesian3} from 'cesium';
+import {EditPoint} from './edit-point';
+import {EditorObservable} from './editor-observable';
+import {RectangleEditUpdate} from './rectangle-edit-update';
+import {PointProps} from './point-edit-options';
 
 export class RectangleEditorObservable extends EditorObservable<RectangleEditUpdate> {
   setManually: (

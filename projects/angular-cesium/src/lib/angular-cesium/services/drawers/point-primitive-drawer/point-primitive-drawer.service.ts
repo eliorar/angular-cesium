@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { PointPrimitiveCollection } from 'cesium';
-import { CesiumService } from '../../cesium/cesium.service';
-import { PrimitivesDrawerService } from '../primitives-drawer/primitives-drawer.service';
+import {Injectable} from '@angular/core';
+import {PointPrimitiveCollection} from 'cesium';
+import {CesiumService} from '../../cesium/cesium.service';
+import {PrimitivesDrawerService} from '../primitives-drawer/primitives-drawer.service';
 
 /**
  *  This drawer is responsible of drawing points as primitives.

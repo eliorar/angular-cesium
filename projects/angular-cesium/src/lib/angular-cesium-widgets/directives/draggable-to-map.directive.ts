@@ -1,5 +1,5 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
-import { DraggableToMapService } from '../services/draggable-to-map.service';
+import {Directive, ElementRef, HostListener, Input, OnInit} from '@angular/core';
+import {DraggableToMapService} from '../services/draggable-to-map.service';
 
 /**
  * This directive is used to allow dragging of icons from outside the map over the map

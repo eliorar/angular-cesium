@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { PixelOffsetPipe } from './pixel-offset.pipe';
+import {PixelOffsetPipe} from './pixel-offset.pipe';
 
 describe('PixelOffsetPipe', () => {
   it('create an instance', () => {

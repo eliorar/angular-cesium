@@ -1,9 +1,9 @@
-import { Component, forwardRef } from '@angular/core';
-import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
-import { LayerService } from '../../services/layer-service/layer-service.service';
-import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
-import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
-import { PolylinePrimitiveDrawerService } from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
+import {Component, forwardRef} from '@angular/core';
+import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
+import {LayerService} from '../../services/layer-service/layer-service.service';
+import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
+import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
+import {PolylinePrimitiveDrawerService} from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
 
 /**
  *  This is a polyline primitive implementation.

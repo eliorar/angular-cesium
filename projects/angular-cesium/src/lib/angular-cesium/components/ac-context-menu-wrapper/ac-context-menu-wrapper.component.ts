@@ -8,9 +8,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { ContextMenuService } from '../../services/context-menu/context-menu.service';
-import { Subscription } from 'rxjs';
-import { BasicContextMenu } from '../../models/basic-context-menu';
+import {ContextMenuService} from '@ac/services/context-menu/context-menu.service';
+import {Subscription} from 'rxjs';
+import {BasicContextMenu} from '@ac/models/basic-context-menu';
 
 /**
  * This component is used to inject the component that is passed to the ContextMenuService when opening a context menu.

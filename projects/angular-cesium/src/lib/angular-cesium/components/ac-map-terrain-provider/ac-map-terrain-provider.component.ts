@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
-import { CesiumService } from '../../services/cesium/cesium.service';
-import { Checker } from '../../utils/checker';
-import { MapTerrainProviderOptions } from '../../models/map-terrain-provider-options.enum';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {CesiumService} from '../../services/cesium/cesium.service';
+import {Checker} from '../../utils/checker';
+import {MapTerrainProviderOptions} from '../../models/map-terrain-provider-options.enum';
 
 /**
  *  This component is used for adding a terrain provider service to the map (ac-map)

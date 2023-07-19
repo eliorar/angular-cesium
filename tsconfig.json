@@ -30,7 +30,25 @@
       ],
       "core-js/es7/reflect": [
         "node_modules/core-js/proposals/reflect-metadata"
-      ]
+      ],
+      "http": ["./node_modules/stream-http"],
+      "url": ["./node_modules/url"],
+      "zlib": ["./node_modules/browserify-zlib"],
+      "https": ["./node_modules/https-browserify"],
+      "assert": ["./node_modules/assert"],
+      "stream": ["./node_modules/stream-browserify"],
+      "@ac/*": ["projects/angular-cesium/src/lib/angular-cesium/*"],
+      "@ac/components/*": ["projects/angular-cesium/src/lib/angular-cesium/components/*"],
+      "@ac/directives/*": ["projects/angular-cesium/src/lib/angular-cesium/directives/*"],
+      "@ac/models/*": ["projects/angular-cesium/src/lib/angular-cesium/models/*"],
+      "@ac/pipes/*": ["projects/angular-cesium/src/lib/angular-cesium/pipes/*"],
+      "@ac/services/*": ["projects/angular-cesium/src/lib/angular-cesium/services/*"],
+      "@ac/utils/*": ["projects/angular-cesium/src/lib/angular-cesium/utils/*"],
+      "@acw/*": ["projects/angular-cesium/src/lib/angular-cesium-widgets/*"],
+      "@acw/components/*": ["projects/angular-cesium/src/lib/angular-cesium-widgets/components/*"],
+      "@acw/directives/*": ["projects/angular-cesium/src/lib/angular-cesium-widgets/directives/*"],
+      "@acw/models/*": ["projects/angular-cesium/src/lib/angular-cesium-widgets/models/*"],
+      "@acw/services/*": ["projects/angular-cesium/src/lib/angular-cesium-widgets/services/*"]
     }
   },
   "angularCompilerOptions": {

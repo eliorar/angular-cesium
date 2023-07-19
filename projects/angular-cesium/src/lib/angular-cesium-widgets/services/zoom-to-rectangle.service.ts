@@ -1,9 +1,9 @@
-import { Injectable, Optional } from '@angular/core';
-import { Cartographic, Rectangle } from 'cesium';
-import { MapsManagerService } from '../../angular-cesium/services/maps-manager/maps-manager.service';
-import { CameraService } from '../../angular-cesium/services/camera/camera.service';
-import { CesiumService } from '../../angular-cesium/services/cesium/cesium.service';
-import { AcMapComponent } from '../../angular-cesium/components/ac-map/ac-map.component';
+import {Injectable, Optional} from '@angular/core';
+import {Cartographic, Rectangle} from 'cesium';
+import {MapsManagerService} from '../../angular-cesium/services/maps-manager/maps-manager.service';
+import {CameraService} from '../../angular-cesium/services/camera/camera.service';
+import {CesiumService} from '../../angular-cesium/services/cesium/cesium.service';
+import {AcMapComponent} from '../../angular-cesium/components/ac-map/ac-map.component';
 
 interface ZoomData {
   container: HTMLElement;

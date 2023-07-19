@@ -1,6 +1,6 @@
-import { Input, OnChanges, OnDestroy, OnInit, SimpleChanges, Directive } from '@angular/core';
-import { BasicDrawerService } from '../drawers/basic-drawer/basic-drawer.service';
-import { MapLayersService } from '../map-layers/map-layers.service';
+import {Directive, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {BasicDrawerService} from '../drawers/basic-drawer/basic-drawer.service';
+import {MapLayersService} from '../map-layers/map-layers.service';
 
 /**
  *  Extend this class to create drawing on map components.

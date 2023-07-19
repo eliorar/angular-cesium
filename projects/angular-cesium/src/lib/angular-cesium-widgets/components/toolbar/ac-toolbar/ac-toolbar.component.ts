@@ -2,17 +2,17 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
   OnInit,
-  OnChanges,
-  SimpleChanges,
   Output,
-  EventEmitter
+  SimpleChanges
 } from '@angular/core';
-import { fromEvent as observableFromEvent, Subscription, Observable } from 'rxjs';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { CesiumService } from '../../../../angular-cesium/services/cesium/cesium.service';
+import {fromEvent as observableFromEvent, Observable, Subscription} from 'rxjs';
+import {switchMap, takeUntil, tap} from 'rxjs/operators';
+import {CesiumService} from '../../../../angular-cesium/services/cesium/cesium.service';
 
 
 /**

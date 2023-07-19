@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { EditableCircle } from '../../../models/editable-circle';
-import { AcLayerComponent } from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
-import { CircleEditOptions } from '../../../models/circle-edit-options';
+import {Injectable} from '@angular/core';
+import {EditableCircle} from '../../../models/editable-circle';
+import {AcLayerComponent} from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
+import {CircleEditOptions} from '../../../models/circle-edit-options';
 
 @Injectable()
 export class CirclesManagerService {

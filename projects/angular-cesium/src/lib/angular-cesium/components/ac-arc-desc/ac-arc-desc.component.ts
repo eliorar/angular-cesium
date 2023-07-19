@@ -1,9 +1,9 @@
-import { Component, forwardRef } from '@angular/core';
-import { LayerService } from '../../services/layer-service/layer-service.service';
-import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
-import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
-import { ArcDrawerService } from '../../services/drawers/arc-drawer/arc-drawer.service';
-import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import {Component, forwardRef} from '@angular/core';
+import {LayerService} from '@ac/services/layer-service/layer-service.service';
+import {CesiumProperties} from '@ac/services/cesium-properties/cesium-properties.service';
+import {ComputationCache} from '@ac/services/computation-cache/computation-cache.service';
+import {ArcDrawerService} from '@ac/services/drawers/arc-drawer/arc-drawer.service';
+import {BasicDesc} from '@ac/services/basic-desc/basic-desc.service';
 
 /**
  *  This is an implementation of an arc.

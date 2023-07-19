@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { PolygonGeometry } from 'cesium';
-import { StaticPrimitiveDrawer } from '../static-primitive-drawer/static-primitive-drawer.service';
-import { CesiumService } from '../../../cesium/cesium.service';
+import {Injectable} from '@angular/core';
+import {PolygonGeometry} from 'cesium';
+import {StaticPrimitiveDrawer} from '../static-primitive-drawer/static-primitive-drawer.service';
+import {CesiumService} from '../../../cesium/cesium.service';
 
 /**
  + This drawer is responsible for drawing a polygon over the Cesium map.

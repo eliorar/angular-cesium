@@ -1,10 +1,10 @@
-import { inject, TestBed } from '@angular/core/testing';
-import { Injectable } from '@angular/core';
-import { PrimitiveCollection, GeometryAttribute } from 'cesium';
-import { anything, instance, mock, verify, when } from 'ts-mockito';
-import { providerFromMock } from '../../../utils/testingUtils';
-import { PrimitivesDrawerService } from './primitives-drawer.service';
-import { CesiumService } from '../../cesium/cesium.service';
+import {inject, TestBed} from '@angular/core/testing';
+import {Injectable} from '@angular/core';
+import {GeometryAttribute, PrimitiveCollection} from 'cesium';
+import {anything, instance, mock, verify, when} from 'ts-mockito';
+import {providerFromMock} from '../../../utils/testingUtils';
+import {PrimitivesDrawerService} from './primitives-drawer.service';
+import {CesiumService} from '../../cesium/cesium.service';
 
 @Injectable()
 class SimpleDrawerServiceTestClass extends PrimitivesDrawerService {

@@ -1,6 +1,6 @@
-import { PrimitiveCollection } from 'cesium';
-import { CesiumService } from '../../cesium/cesium.service';
-import { BasicDrawerService } from '../basic-drawer/basic-drawer.service';
+import {PrimitiveCollection} from 'cesium';
+import {CesiumService} from '../../cesium/cesium.service';
+import {BasicDrawerService} from '../basic-drawer/basic-drawer.service';
 
 /**
  *  General primitives drawer responsible of drawing Cesium primitives.

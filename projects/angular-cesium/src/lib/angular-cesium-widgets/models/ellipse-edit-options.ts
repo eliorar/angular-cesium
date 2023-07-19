@@ -1,6 +1,6 @@
-import { CesiumEventModifier } from '../../angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum';
-import { CesiumEvent } from '../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
-import { EditorEditOptions } from './editor-edit-options';
+import {CesiumEventModifier} from '../../angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum';
+import {CesiumEvent} from '../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
+import {EditorEditOptions} from './editor-edit-options';
 
 export interface EllipseProps {
   material?: any;

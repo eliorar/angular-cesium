@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { PolylineCollection, Material } from 'cesium';
-import { CesiumService } from '../../cesium/cesium.service';
-import { PrimitivesDrawerService } from '../primitives-drawer/primitives-drawer.service';
-import { GeoUtilsService } from '../../geo-utils/geo-utils.service';
+import {Injectable} from '@angular/core';
+import {Material, PolylineCollection} from 'cesium';
+import {CesiumService} from '../../cesium/cesium.service';
+import {PrimitivesDrawerService} from '../primitives-drawer/primitives-drawer.service';
+import {GeoUtilsService} from '../../geo-utils/geo-utils.service';
 
 /**
  +  This drawer is responsible for drawing an arc over the Cesium map.

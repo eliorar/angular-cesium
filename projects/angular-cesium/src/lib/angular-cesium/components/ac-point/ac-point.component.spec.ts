@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { PointPrimitiveCollection } from 'cesium';
-import { instance, mock, when } from 'ts-mockito';
-import { CesiumService } from '../../services/cesium/cesium.service';
-import { providerFromMock } from '../../utils/testingUtils';
-import { AcPointComponent } from './ac-point.component';
-import { PointDrawerService } from '../../services/drawers/point-drawer/point-drawer.service';
-import { MapLayersService } from '../../services/map-layers/map-layers.service';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {PointPrimitiveCollection} from 'cesium';
+import {instance, mock, when} from 'ts-mockito';
+import {CesiumService} from '../../services/cesium/cesium.service';
+import {providerFromMock} from '../../utils/testingUtils';
+import {AcPointComponent} from './ac-point.component';
+import {PointDrawerService} from '../../services/drawers/point-drawer/point-drawer.service';
+import {MapLayersService} from '../../services/map-layers/map-layers.service';
 
 describe('AcPointComponent', () => {
   let component: AcPointComponent;

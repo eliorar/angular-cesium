@@ -1,17 +1,17 @@
-import { merge, Observable, of as observableOf, Subject } from 'rxjs';
+import {merge, Observable, of as observableOf, Subject} from 'rxjs';
 
-import { filter, map, mergeMap, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { Entity } from 'cesium';
-import { CesiumService } from '../cesium/cesium.service';
-import { CesiumEventBuilder } from './cesium-event-builder';
-import { EventRegistrationInput, PickConfiguration } from './event-registration-input';
-import { DisposableObservable } from './disposable-observable';
-import { PickOptions } from './consts/pickOptions.enum';
-import { CesiumEvent } from './consts/cesium-event.enum';
-import { PlonterService } from '../plonter/plonter.service';
-import { UtilsService } from '../../utils/utils.service';
-import { CesiumDragDropHelper } from './event-observers/cesium-drag-drop-helper';
+import {filter, map, mergeMap, switchMap, takeUntil, tap} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Entity} from 'cesium';
+import {CesiumService} from '../cesium/cesium.service';
+import {CesiumEventBuilder} from './cesium-event-builder';
+import {EventRegistrationInput, PickConfiguration} from './event-registration-input';
+import {DisposableObservable} from './disposable-observable';
+import {PickOptions} from './consts/pickOptions.enum';
+import {CesiumEvent} from './consts/cesium-event.enum';
+import {PlonterService} from '../plonter/plonter.service';
+import {UtilsService} from '../../utils/utils.service';
+import {CesiumDragDropHelper} from './event-observers/cesium-drag-drop-helper';
 
 class Registration {
   constructor(public observable: Observable<EventResult>,

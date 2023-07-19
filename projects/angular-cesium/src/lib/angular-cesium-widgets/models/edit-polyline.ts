@@ -1,6 +1,6 @@
-import { CallbackProperty, Cartesian3 } from 'cesium';
-import { AcEntity } from '../../angular-cesium/models/ac-entity';
-import { PolylineProps } from './polyline-edit-options';
+import {CallbackProperty, Cartesian3} from 'cesium';
+import {AcEntity} from '../../angular-cesium/models/ac-entity';
+import {PolylineProps} from './polyline-edit-options';
 
 export class EditPolyline extends AcEntity {
   static counter = 0;

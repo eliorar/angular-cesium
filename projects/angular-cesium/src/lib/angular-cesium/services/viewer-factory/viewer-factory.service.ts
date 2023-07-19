@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { Viewer } from 'cesium';
+import {Viewer} from 'cesium';
 
 @Injectable()
 export class ViewerFactory {

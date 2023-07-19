@@ -1,4 +1,4 @@
-import { EditorEditOptions } from './editor-edit-options';
+import {EditorEditOptions} from './editor-edit-options';
 
 export interface HippodromeProps {
   width?: number;

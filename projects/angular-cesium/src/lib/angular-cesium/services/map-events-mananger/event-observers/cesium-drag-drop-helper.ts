@@ -1,4 +1,4 @@
-import { CesiumEvent } from '../consts/cesium-event.enum';
+import {CesiumEvent} from '../consts/cesium-event.enum';
 
 export class CesiumDragDropHelper {
 

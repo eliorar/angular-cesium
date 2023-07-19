@@ -1,6 +1,6 @@
-import { Component, DoCheck, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { SceneTransforms } from 'cesium';
-import { CesiumService } from '../../services/cesium/cesium.service';
+import {Component, DoCheck, ElementRef, Input, OnDestroy, OnInit, Renderer2} from '@angular/core';
+import {SceneTransforms} from 'cesium';
+import {CesiumService} from '../../services/cesium/cesium.service';
 
 /**
  *  This is an html implementation.

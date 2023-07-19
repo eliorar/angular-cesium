@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BillboardCollection} from 'cesium';
-import { CesiumService } from '../../cesium/cesium.service';
-import { PrimitivesDrawerService } from '../primitives-drawer/primitives-drawer.service';
+import {Injectable} from '@angular/core';
+import {BillboardCollection} from 'cesium';
+import {CesiumService} from '../../cesium/cesium.service';
+import {PrimitivesDrawerService} from '../primitives-drawer/primitives-drawer.service';
 
 /**
  *  This drawer is responsible for drawing billboards as primitives.

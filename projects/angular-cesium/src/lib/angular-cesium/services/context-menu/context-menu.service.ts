@@ -1,12 +1,12 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Cartesian3 } from 'cesium';
-import { ContextMenuOptions } from '../../models/context-menu-options';
-import { MapEventsManagerService } from '../map-events-mananger/map-events-manager';
-import { CesiumEvent } from '../map-events-mananger/consts/cesium-event.enum';
-import { PickOptions } from '../map-events-mananger/consts/pickOptions.enum';
-import { DisposableObservable } from '../map-events-mananger/disposable-observable';
-import { BasicContextMenu } from '../../models/basic-context-menu';
-import { Subscription } from 'rxjs';
+import {EventEmitter, Injectable} from '@angular/core';
+import {Cartesian3} from 'cesium';
+import {ContextMenuOptions} from '../../models/context-menu-options';
+import {MapEventsManagerService} from '../map-events-mananger/map-events-manager';
+import {CesiumEvent} from '../map-events-mananger/consts/cesium-event.enum';
+import {PickOptions} from '../map-events-mananger/consts/pickOptions.enum';
+import {DisposableObservable} from '../map-events-mananger/disposable-observable';
+import {BasicContextMenu} from '../../models/basic-context-menu';
+import {Subscription} from 'rxjs';
 
 
 /**
