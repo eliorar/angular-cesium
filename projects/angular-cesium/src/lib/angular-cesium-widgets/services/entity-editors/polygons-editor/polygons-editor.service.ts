@@ -1,5 +1,6 @@
 import { publish, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { Color, ClassificationType, sampleTerrain, Cartographic, HeightReference, Cartesian3 } from 'cesium';
 import { CesiumService } from '../../../../angular-cesium/services/cesium/cesium.service';
 import { MapEventsManagerService } from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -12,7 +13,6 @@ import { DisposableObservable } from '../../../../angular-cesium/services/map-ev
 import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
 import { EditPoint } from '../../../models/edit-point';
 import { CameraService } from '../../../../angular-cesium/services/camera/camera.service';
-import { Cartesian3 } from '../../../../angular-cesium/models/cartesian3';
 import { PolygonsManagerService } from './polygons-manager.service';
 import { PolygonEditorObservable } from '../../../models/polygon-editor-observable';
 import { EditablePolygon } from '../../../models/editable-polygon';
@@ -30,8 +30,8 @@ export const DEFAULT_POLYGON_OPTIONS: PolygonEditOptions = {
   dragShapeEvent: CesiumEvent.LEFT_CLICK_DRAG,
   allowDrag: true,
   pointProps: {
-    color: Cesium.Color.WHITE.withAlpha(0.95),
-    outlineColor: Cesium.Color.BLACK.withAlpha(0.2),
+    color: Color.WHITE.withAlpha(0.95),
+    outlineColor: Color.BLACK.withAlpha(0.2),
     outlineWidth: 1,
     pixelSize: 13,
     virtualPointPixelSize: 8,
@@ -40,17 +40,17 @@ export const DEFAULT_POLYGON_OPTIONS: PolygonEditOptions = {
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   polygonProps: {
-    material: Cesium.Color.CORNFLOWERBLUE.withAlpha(0.4),
+    material: Color.CORNFLOWERBLUE.withAlpha(0.4),
     fill: true,
-    classificationType: Cesium.ClassificationType.BOTH,
+    classificationType: ClassificationType.BOTH,
     zIndex: 0,
   },
   polylineProps: {
-    material: () => Cesium.Color.WHITE,
+    material: () => Color.WHITE,
     width: 3,
     clampToGround: false,
     zIndex: 0,
-    classificationType: Cesium.ClassificationType.BOTH,
+    classificationType: ClassificationType.BOTH,
   },
   clampHeightTo3D: false,
   clampHeightTo3DOptions: {
@@ -69,9 +69,9 @@ export const DEFAULT_POLYGON_OPTIONS: PolygonEditOptions = {
  *
  * + `create` for starting a creation of the shape over the map. Returns a extension of `PolygonEditorObservable`.
  * + `edit` for editing shape over the map starting from a given positions. Returns an extension of `PolygonEditorObservable`.
- * + To stop editing call `dsipose()` from the `PolygonEditorObservable` you get back from `create()` \ `edit()`.
+ * + To stop editing call `dispose()` from the `PolygonEditorObservable` you get back from `create()` \ `edit()`.
  *
- * **Labels over editted shapes**
+ * **Labels over edited shapes**
  * Angular Cesium allows you to draw labels over a shape that is being edited with one of the editors.
  * To add label drawing logic to your editor use the function `setLabelsRenderFn()` that is defined on the
  * `PolygonEditorObservable` that is returned from calling `create()` \ `edit()` of one of the editor services.
@@ -146,9 +146,9 @@ export class PolygonsEditorService {
         // });
       } else {
         const cartographics = points.map(point => this.coordinateConverter.cartesian3ToCartographic(point.getPosition()));
-        Cesium.sampleTerrain(this.cesiumScene.terrainProvider, 11, cartographics).then(updatedPositions => {
+        sampleTerrain(this.cesiumScene.terrainProvider, 11, cartographics).then(updatedPositions => {
           points.forEach((point, index) => {
-            point.setPosition(Cesium.Cartographic.toCartesian(updatedPositions[index]));
+            point.setPosition(Cartographic.toCartesian(updatedPositions[index]));
           });
         });
       }
@@ -544,7 +544,7 @@ export class PolygonsEditorService {
       polygonOptions.allowDrag = false;
       polygonOptions.polylineProps.clampToGround = true;
       polygonOptions.pointProps.heightReference = polygonOptions.clampHeightTo3DOptions.clampToTerrain ?
-        Cesium.HeightReference.CLAMP_TO_GROUND : Cesium.HeightReference.RELATIVE_TO_GROUND;
+        HeightReference.CLAMP_TO_GROUND : HeightReference.RELATIVE_TO_GROUND;
       polygonOptions.pointProps.disableDepthTestDistance = Number.POSITIVE_INFINITY;
     }
     return polygonOptions;

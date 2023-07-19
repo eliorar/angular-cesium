@@ -95,7 +95,6 @@ import { EditablePolygon } from '../../models/editable-polygon';
 })
 export class PolygonsEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: PolygonEditUpdate, labels: LabelProps[]) => LabelProps[];
-  public Cesium = Cesium;
   public editPoints$ = new Subject<AcNotification>();
   public editPolylines$ = new Subject<AcNotification>();
   public editPolygons$ = new Subject<AcNotification>();
@@ -195,8 +194,8 @@ export class PolygonsEditorComponent implements OnDestroy {
       case EditActions.DISPOSE: {
         const polygon = this.polygonsManager.get(update.id);
         if (polygon) {
-          polygon.dispose();
           this.removeEditLabels(polygon);
+          polygon.dispose();
           this.editLabelsRenderFn = undefined;
         }
         break;

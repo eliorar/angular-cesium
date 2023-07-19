@@ -81,7 +81,6 @@ import { EditableHippodrome } from '../../models/editable-hippodrome';
 })
 export class HippodromeEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: HippodromeEditUpdate, labels: LabelProps[]) => LabelProps[];
-  public Cesium = Cesium;
   public editPoints$ = new Subject<AcNotification>();
   public editHippodromes$ = new Subject<AcNotification>();
 
@@ -168,8 +167,8 @@ export class HippodromeEditorComponent implements OnDestroy {
       case EditActions.DISPOSE: {
         const hippodrome = this.hippodromesManager.get(update.id);
         if (hippodrome) {
-          hippodrome.dispose();
           this.removeEditLabels(hippodrome);
+          hippodrome.dispose();
         }
         break;
       }

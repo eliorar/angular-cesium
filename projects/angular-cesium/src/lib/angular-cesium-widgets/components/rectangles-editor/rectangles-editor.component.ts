@@ -85,7 +85,6 @@ import { EditableRectangle } from '../../models/editable-rectangle';
 })
 export class RectanglesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: RectangleEditUpdate, labels: LabelProps[]) => LabelProps[];
-  public Cesium = Cesium;
   public editPoints$ = new Subject<AcNotification>();
   public editRectangles$ = new Subject<AcNotification>();
 
@@ -187,8 +186,8 @@ export class RectanglesEditorComponent implements OnDestroy {
       case EditActions.DISPOSE: {
         const rectangle = this.rectanglesManager.get(update.id);
         if (rectangle) {
-          rectangle.dispose();
           this.removeEditLabels(rectangle);
+          rectangle.dispose();
         }
         this.editLabelsRenderFn = undefined;
         break;
