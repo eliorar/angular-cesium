@@ -8,7 +8,7 @@ import { BasicDrawerService } from '../basic-drawer/basic-drawer.service';
 export abstract class PrimitivesDrawerService extends BasicDrawerService {
   private _show = true;
   private _primitiveCollectionWrap: any;
-  protected _cesiumCollection: any;
+  protected _cesiumCollection: any = new this.drawerType();
   protected _propsAssigner: Function;
 
   constructor(private drawerType: any, private cesiumService: CesiumService) {
