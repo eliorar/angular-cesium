@@ -1,4 +1,11 @@
-import { Cartesian3, CallbackProperty } from 'cesium';
+import {
+  Cartesian3,
+  CallbackProperty,
+  GroundPolylinePrimitive,
+  ColorGeometryInstanceAttribute,
+  GroundPolylineGeometry,
+  GeometryInstance, PolylineColorAppearance
+} from 'cesium';
 import { AcEntity } from '../../angular-cesium/models/ac-entity';
 import { EditPoint } from './edit-point';
 import { EditPolyline } from './edit-polyline';
@@ -135,7 +142,7 @@ export class EditablePolyline extends AcEntity {
 
   private setMiddleVirtualPoint(firstP: EditPoint, secondP: EditPoint): EditPoint {
     const pos1 = firstP.getPosition();
-    const pos2 = secondP.getPosition()
+    const pos2 = secondP.getPosition();
     const midPointCartesian3 = Cartesian3.lerp(new Cartesian3(pos1.x, pos1.y, pos1.z), new Cartesian3(pos2.x, pos2.y, pos2.z), 0.5, new Cartesian3());
     const midPoint = new EditPoint(this.id, midPointCartesian3, this._pointProps);
     midPoint.setVirtualEditPoint(true);
@@ -147,7 +154,7 @@ export class EditablePolyline extends AcEntity {
 
   private updateMiddleVirtualPoint(virtualEditPoint: EditPoint, prevPoint: EditPoint, nextPoint: EditPoint) {
     const pos1 = prevPoint.getPosition();
-    const pos2 = nextPoint.getPosition(); 
+    const pos2 = nextPoint.getPosition();
     const midPointCartesian3 = Cartesian3.lerp(new Cartesian3(pos1.x, pos1.y, pos1.z), new Cartesian3(pos2.x, pos2.y, pos2.z), 0.5, new Cartesian3());
     virtualEditPoint.setPosition(midPointCartesian3);
   }
@@ -175,22 +182,22 @@ export class EditablePolyline extends AcEntity {
         return;
       }
       this.scene.groundPrimitives.remove(this._outlineInstance);
-      const instance = new Cesium.GeometryInstance({
-        geometry: new Cesium.GroundPolylineGeometry({
+      const instance = new GeometryInstance({
+        geometry: new GroundPolylineGeometry({
           positions: this.positions.map(p => p.getPosition()),
           width: this.polylineProps.width,
           loop: false
         }),
         id: 'edit-polygon-outline-' + this.id,
         attributes: {
-          color: Cesium.ColorGeometryInstanceAttribute.fromColor(this.polylineProps.material())
+          color: ColorGeometryInstanceAttribute.fromColor(this.polylineProps.material())
         }
       });
       this._outlineInstance = this.scene.groundPrimitives.add(
-        new Cesium.GroundPolylinePrimitive({
+        new GroundPolylinePrimitive({
           geometryInstances: instance,
           asynchronous: false,
-          appearance: new Cesium.PolylineColorAppearance()
+          appearance: new PolylineColorAppearance()
         })
       );
     } else {
@@ -284,7 +291,7 @@ export class EditablePolyline extends AcEntity {
 
     const delta = GeoUtilsService.getPositionsDelta(this.lastDraggedToPosition, new Cartesian3(draggedToPosition.x, draggedToPosition.y, draggedToPosition.z));
     this.positions.forEach(point => {
-      const pos = point.getPosition()
+      const pos = point.getPosition();
       const newPos = GeoUtilsService.addDeltaToPosition(new Cartesian3(pos.x, pos.y, pos.z), delta, true);
       point.setPosition(newPos);
     });

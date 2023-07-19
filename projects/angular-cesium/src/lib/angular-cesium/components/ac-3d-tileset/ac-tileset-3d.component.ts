@@ -59,7 +59,7 @@ export class AcTileset3dComponent implements OnInit, OnChanges, OnDestroy {
     this.cesiumService.getScene().primitives.add(this._3dtilesCollection);
 
     if (this.show) {
-      this.tilesetInstance = this._3dtilesCollection.add(new Cesium3DTileset(this.options), this.index);
+      this.tilesetInstance = this._3dtilesCollection.add(Cesium3DTileset.fromUrl(this.options.url, {}), this.index);
       if (this.style) {
         this.tilesetInstance.style = new Cesium3DTileStyle(this.style);
       }
@@ -74,7 +74,7 @@ export class AcTileset3dComponent implements OnInit, OnChanges, OnDestroy {
         if (this.tilesetInstance) {
           this._3dtilesCollection.add(this.tilesetInstance, this.index);
         } else {
-          this.tilesetInstance = this._3dtilesCollection.add(new Cesium3DTileset(this.options), this.index);
+          this.tilesetInstance = this._3dtilesCollection.add(Cesium3DTileset.fromUrl(this.options.url, {}), this.index);
           if (this.style) {
             this.tilesetInstance.style = new Cesium3DTileStyle(this.style);
           }

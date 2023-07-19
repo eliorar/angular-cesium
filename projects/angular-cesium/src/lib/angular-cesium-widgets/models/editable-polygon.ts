@@ -1,4 +1,11 @@
-import { Cartesian3, PolygonHierarchy, CallbackProperty } from 'cesium';
+import {
+  Cartesian3,
+  PolygonHierarchy,
+  CallbackProperty,
+  PolylineColorAppearance,
+  GroundPolylinePrimitive,
+  ColorGeometryInstanceAttribute, GeometryInstance, GroundPolylineGeometry
+} from 'cesium';
 import { AcEntity } from '../../angular-cesium/models/ac-entity';
 import { EditPoint } from './edit-point';
 import { EditPolyline } from './edit-polyline';
@@ -177,22 +184,22 @@ export class EditablePolygon extends AcEntity {
         return;
       }
       this.scene.groundPrimitives.remove(this._outlineInstance);
-      const instance = new Cesium.GeometryInstance({
-        geometry: new Cesium.GroundPolylineGeometry({
+      const instance = new GeometryInstance({
+        geometry: new GroundPolylineGeometry({
           positions: this.positions.map(p => p.getPosition()),
           width: this.defaultPolylineProps.width,
           loop: true
         }),
         id: 'edit-ground-primitive-' + this.id,
         attributes: {
-          color: Cesium.ColorGeometryInstanceAttribute.fromColor(this.defaultPolylineProps.material())
+          color: ColorGeometryInstanceAttribute.fromColor(this.defaultPolylineProps.material())
         }
       });
       this._outlineInstance = this.scene.groundPrimitives.add(
-        new Cesium.GroundPolylinePrimitive({
+        new GroundPolylinePrimitive({
           geometryInstances: instance,
           asynchronous: false,
-          appearance: new Cesium.PolylineColorAppearance()
+          appearance: new PolylineColorAppearance()
         })
       );
     } else {

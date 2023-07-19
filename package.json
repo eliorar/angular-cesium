@@ -1,6 +1,6 @@
 {
   "name": "@eliorar/angular-cesium",
-  "version": "11.0.3",
+  "version": "11.0.4",
   "license": "MIT",
   "description": "Angular library for working with Cesium.",
   "repository": {
@@ -62,7 +62,6 @@
     "rxjs": "~6.6.7",
     "ts-mockito": "^2.6.1",
     "tslib": "^2.4.1",
-    "when": "^3.7.8",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
