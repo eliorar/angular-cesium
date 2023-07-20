@@ -1,7 +1,8 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {EntityOnMapComponent} from '@ac/services/entity-on-map/entity-on-map.component';
-import {ArcDrawerService} from '@ac/services/drawers/arc-drawer/arc-drawer.service';
-import {MapLayersService} from '@ac/services/map-layers/map-layers.service';
+import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
+import {ArcDrawerService} from '../../services/drawers/arc-drawer/arc-drawer.service';
+import {MapLayersService} from '../../services/map-layers/map-layers.service';
+
 
 /**
  *  This is an implementation of an arc.

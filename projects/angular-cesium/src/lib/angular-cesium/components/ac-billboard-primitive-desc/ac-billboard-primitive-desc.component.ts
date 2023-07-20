@@ -1,9 +1,9 @@
 import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '@ac/services/basic-desc/basic-desc.service';
-import {LayerService} from '@ac/services/layer-service/layer-service.service';
-import {ComputationCache} from '@ac/services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '@ac/services/cesium-properties/cesium-properties.service';
-import {BillboardPrimitiveDrawerService} from '@ac/services/drawers/billboard-primitive-drawer/billboard-primitive-drawer.service';
+import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
+import {LayerService} from '../../services/layer-service/layer-service.service';
+import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
+import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
+import {BillboardPrimitiveDrawerService} from '../../services/drawers/billboard-primitive-drawer/billboard-primitive-drawer.service';
 
 /**
  *  This is a billboard primitive implementation.

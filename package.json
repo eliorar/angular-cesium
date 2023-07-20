@@ -1,6 +1,6 @@
 {
   "name": "@eliorar/angular-cesium",
-  "version": "11.0.6",
+  "version": "11.0.8",
   "license": "MIT",
   "description": "Angular library for working with Cesium.",
   "repository": {
@@ -96,6 +96,9 @@
     "rimraf": "^2.6.3",
     "ts-node": "^7.0.1",
     "tslint": "~6.1.0",
+    "@types/jest": "^23.3.12",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
     "typescript": "4.6.4"
   },
   "bugs": {

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {PlonterService} from '@ac/services/plonter/plonter.service';
-import {CoordinateConverter} from '@ac/services/coordinate-converter/coordinate-converter.service';
+import {PlonterService} from '../../services/plonter/plonter.service';
+import {CoordinateConverter} from '../../services/coordinate-converter/coordinate-converter.service';
 
 @Component(
   {

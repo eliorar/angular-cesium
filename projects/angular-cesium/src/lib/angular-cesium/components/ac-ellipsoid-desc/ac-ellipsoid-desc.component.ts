@@ -1,9 +1,9 @@
 import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '@ac/services/basic-desc/basic-desc.service';
-import {LayerService} from '@ac/services/layer-service/layer-service.service';
-import {ComputationCache} from '@ac/services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '@ac/services/cesium-properties/cesium-properties.service';
-import {EllipsoidDrawerService} from '@ac/services/drawers/ellipoid-drawer/ellipsoid-drawer.service';
+import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
+import {LayerService} from '../../services/layer-service/layer-service.service';
+import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
+import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
+import {EllipsoidDrawerService} from '../../services/drawers/ellipoid-drawer/ellipsoid-drawer.service';
 
 /**
  *  This is a point implementation.

@@ -11,9 +11,9 @@ import {
 import {AcEntity} from '../../angular-cesium';
 import {EditPoint} from './edit-point';
 import {EditPolyline} from './edit-polyline';
-import {AcLayerComponent} from '@ac/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '@ac/services/coordinate-converter/coordinate-converter.service';
-import {GeoUtilsService} from '@ac/services/geo-utils/geo-utils.service';
+import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
+import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import {GeoUtilsService} from '../../angular-cesium/services/geo-utils/geo-utils.service';
 import {PolygonEditOptions, PolygonProps} from './polygon-edit-options';
 import {PointProps} from './point-edit-options';
 import {PolylineProps} from './polyline-edit-options';

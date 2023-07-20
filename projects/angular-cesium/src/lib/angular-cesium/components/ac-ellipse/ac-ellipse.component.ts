@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {EntityOnMapComponent} from '@ac/services/entity-on-map/entity-on-map.component';
-import {EllipseDrawerService} from '@ac/services/drawers/ellipse-drawer/ellipse-drawer.service';
-import {MapLayersService} from '@ac/services/map-layers/map-layers.service';
+import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
+import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import {MapLayersService} from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is an ellipse implementation.

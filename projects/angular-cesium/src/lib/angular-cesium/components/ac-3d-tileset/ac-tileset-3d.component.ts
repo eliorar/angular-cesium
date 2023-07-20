@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {Cesium3DTileset, Cesium3DTileStyle, PrimitiveCollection} from 'cesium';
-import {CesiumService} from '@ac/services/cesium/cesium.service';
-import {Checker} from '@ac/utils/checker';
+import {CesiumService} from '../../services/cesium/cesium.service';
+import {Checker} from '../../utils/checker';
 
 /**
  *  This component is used for adding a 3d tileset layer to the map (ac-map).
