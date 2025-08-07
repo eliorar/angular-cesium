@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "ng": "ng",
-    "rebuild": "rm -rf node_modules && rm -f package-lock.json && yarn install && npm run lib:build",
+    "rebuild": "rm -rf node_modules && rm -f package-lock.json && rm -f yarn.lock && rm -rf dist && yarn cache clean && yarn install && yarn lib:build",
     "demo:start": "ng serve angular-cesium-demo",
     "demo:build": "ng build angular-cesium-demo --configuration production",
     "landing-page:deploy": "ng build landing-page --configuration production; cp projects/landing-page/now.json dist/landing-page; cd dist/landing-page; now --configuration production",
@@ -52,7 +52,7 @@
     "@types/lodash": "4.17.5",
     "assert": "^2.0.0",
     "browserify-zlib": "^0.2.0",
-    "cesium": "1.104.0",
+    "cesium": "^1.107.0",
     "core-js": "^3.24.1",
     "dataloader": "^1.4.0",
     "geodesy": "^1.1.3",

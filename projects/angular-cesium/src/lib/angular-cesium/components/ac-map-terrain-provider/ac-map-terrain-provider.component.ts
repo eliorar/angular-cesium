@@ -46,8 +46,7 @@ export class AcMapTerrainProviderComponent implements OnInit, OnChanges, OnDestr
 
   ngOnInit(): void {
     if (!Checker.present(this.options.url)
-      && this.provider !== MapTerrainProviderOptions.Ellipsoid
-      && this.provider !== MapTerrainProviderOptions.WorldTerrain) {
+      && this.provider !== MapTerrainProviderOptions.Ellipsoid) {
       throw new Error('options must have a url');
     }
     this.defaultTerrainProvider = this.cesiumService.getViewer().terrainProvider;
@@ -58,9 +57,6 @@ export class AcMapTerrainProviderComponent implements OnInit, OnChanges, OnDestr
       case MapTerrainProviderOptions.VRTheWorld:
       case MapTerrainProviderOptions.Ellipsoid:
         this.terrainProvider = new this.provider(this.options);
-        break;
-      case MapTerrainProviderOptions.WorldTerrain:
-        this.terrainProvider = this.provider(this.options);
         break;
       default:
         console.log('ac-map-terrain-provider: [provider] wasn\'t found. setting OFFLINE provider as default');

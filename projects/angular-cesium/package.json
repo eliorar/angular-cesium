@@ -13,7 +13,7 @@
     "@angular/common": "~13.3.11",
     "@angular/core": "~13.3.11",
     "lodash": "^4.17.21",
-    "cesium": ">= 1.93.0"
+    "cesium": "^1.107.0"
   },
   "dependencies": {
     "@auscope/angular2parse": "^2.0.4",
@@ -27,6 +27,7 @@
     "heatmap.js": "^2.0.5"
   },
   "scripts": {
+    "rebuild": "rm -rf node_modules && rm -f package-lock.json && rm -f yarn.lock && rm -rf ../../dist && yarn install && yarn build",
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:files": "cp -a ./schematics/ng-add ../../dist/angular-cesium/schematics",
     "copy:collection": "cp ./schematics/collection.json ../../dist/angular-cesium/schematics/collection.json",
