@@ -13,7 +13,7 @@
     "@angular/common": "~13.3.11",
     "@angular/core": "~13.3.11",
     "lodash": "^4.17.21",
-    "cesium": "^1.107.0"
+    "cesium": "1.132.0"
   },
   "dependencies": {
     "@auscope/angular2parse": "^2.0.4",
