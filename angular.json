@@ -303,5 +303,7 @@
       }
     }
   },
-  "defaultProject": "angular-cesium-demo"
+  "cli": {
+    "analytics": false
+  }
 }

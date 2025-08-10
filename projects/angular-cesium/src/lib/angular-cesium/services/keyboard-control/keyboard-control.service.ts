@@ -313,7 +313,7 @@ export class KeyboardControlService {
 
     const params = this.getParams(execution.params, keyboardEvent);
 
-    if (typeof execution.action == 'number') {
+    if (typeof execution.action === 'number') {
       const predefinedAction = PREDEFINED_KEYBOARD_ACTIONS[execution.action as number];
 
       if (predefinedAction) {
