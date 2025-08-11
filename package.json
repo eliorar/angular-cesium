@@ -100,7 +100,7 @@
     "@types/jest": "^23.3.12",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.5",
-    "typescript": "~4.8.4"
+    "typescript": "4.9.5"
   },
   "bugs": {
     "url": "https://github.com/eliorar/angular-cesium/issues"

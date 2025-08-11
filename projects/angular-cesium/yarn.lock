@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@auscope/angular2parse@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@auscope/angular2parse/-/angular2parse-2.0.4.tgz#999347a84bc5438e0f2e4790433a192ab091baec"
-  integrity sha512-ca/hZNOLrl2+1C8bL0PuDS9J71tbeZkuLhTHoCBx5goYRsK1b57HVq5B86g4R0CIyKw1h8YNRQVJrp8PUyh4ow==
+"@auscope/angular2parse@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@auscope/angular2parse/-/angular2parse-4.0.1.tgz#238df7fbe49e02cb70839d8e5d1624755be5f09b"
+  integrity sha512-SnwqWpEfAKBmz/hNiqVO6Mb/pqizRahmtC3n+4RsSNSgYSHgQ0m2JreVRIRmv8a9dQebwLgQaQPreyhXkc/O4w==
   dependencies:
     tslib "^2.3.0"
 
