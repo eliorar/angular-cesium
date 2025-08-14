@@ -12,7 +12,7 @@ import {
   SceneMode
 } from 'angular-cesium';
 import { BehaviorSubject } from 'rxjs';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const initialLocation = {
   id: '1',
