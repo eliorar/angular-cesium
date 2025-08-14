@@ -18,67 +18,67 @@ import {LabelProps} from '../../models/label-props';
 @Component({
   selector: 'polylines-editor',
   template: /*html*/ `
-    <ac-layer #editPolylinesLayer acFor="let polyline of editPolylines$" [context]="this">
-      <ac-polyline-desc
-        props="{
-        positions: polyline.getPositionsCallbackProperty(),
-        width: polyline.props.width,
-        material: polyline.props.material(),
-        clampToGround: polyline.props.clampToGround,
-        zIndex: polyline.props.zIndex,
-        classificationType: polyline.props.classificationType,
-      }"
-      >
-      </ac-polyline-desc>
-    </ac-layer>
-
-    <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
-      <ac-point-desc
-        props="{
-        position: point.getPositionCallbackProperty(),
-        pixelSize: getPointSize(point),
-        color: point.props.color,
-        outlineColor: point.props.outlineColor,
-        outlineWidth: point.props.outlineWidth,
-        show: getPointShow(point),
-        disableDepthTestDistance: point.props.disableDepthTestDistance,
-        heightReference: point.props.heightReference,
-    }"
-      ></ac-point-desc>
-    </ac-layer>
-
-    <ac-layer #polylineLabelsLayer acFor="let polylineLabels of polylineLabels$" [context]="this">
-      <ac-array-desc acFor="let label of polylineLabels.labels" [idGetter]="getLabelId">
-        <ac-label-primitive-desc
-          props="{
-            position: label.position,
-            backgroundColor: label.backgroundColor,
-            backgroundPadding: label.backgroundPadding,
-            distanceDisplayCondition: label.distanceDisplayCondition,
-            eyeOffset: label.eyeOffset,
-            fillColor: label.fillColor,
-            font: label.font,
-            heightReference: label.heightReference,
-            horizontalOrigin: label.horizontalOrigin,
-            outlineColor: label.outlineColor,
-            outlineWidth: label.outlineWidth,
-            pixelOffset: label.pixelOffset,
-            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-            scale: label.scale,
-            scaleByDistance: label.scaleByDistance,
-            show: label.show,
-            showBackground: label.showBackground,
-            style: label.style,
-            text: label.text,
-            translucencyByDistance: label.translucencyByDistance,
-            verticalOrigin: label.verticalOrigin,
-            disableDepthTestDistance: label.disableDepthTestDistance,
-        }"
-        >
-        </ac-label-primitive-desc>
-      </ac-array-desc>
-    </ac-layer>
-  `,
+             <ac-layer #editPolylinesLayer acFor="let polyline of editPolylines$" [context]="this">
+               <ac-polyline-desc
+                 props="{
+                 positions: polyline.getPositionsCallbackProperty(),
+                 width: polyline.props.width,
+                 material: polyline.props.material(),
+                 clampToGround: polyline.props.clampToGround,
+                 zIndex: polyline.props.zIndex,
+                 classificationType: polyline.props.classificationType,
+               }"
+               >
+               </ac-polyline-desc>
+             </ac-layer>
+         
+             <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
+               <ac-point-desc
+                 props="{
+                 position: point.getPositionCallbackProperty(),
+                 pixelSize: getPointSize(point),
+                 color: point.props.color,
+                 outlineColor: point.props.outlineColor,
+                 outlineWidth: point.props.outlineWidth,
+                 show: getPointShow(point),
+                 disableDepthTestDistance: point.props.disableDepthTestDistance,
+                 heightReference: point.props.heightReference,
+             }"
+               ></ac-point-desc>
+             </ac-layer>
+         
+             <ac-layer #polylineLabelsLayer acFor="let polylineLabels of polylineLabels$" [context]="this">
+               <ac-array-desc acFor="let label of polylineLabels.labels" [idGetter]="getLabelId">
+                 <ac-label-primitive-desc
+                   props="{
+                     position: label.position,
+                     backgroundColor: label.backgroundColor,
+                     backgroundPadding: label.backgroundPadding,
+                     distanceDisplayCondition: label.distanceDisplayCondition,
+                     eyeOffset: label.eyeOffset,
+                     fillColor: label.fillColor,
+                     font: label.font,
+                     heightReference: label.heightReference,
+                     horizontalOrigin: label.horizontalOrigin,
+                     outlineColor: label.outlineColor,
+                     outlineWidth: label.outlineWidth,
+                     pixelOffset: label.pixelOffset,
+                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+                     scale: label.scale,
+                     scaleByDistance: label.scaleByDistance,
+                     show: label.show,
+                     showBackground: label.showBackground,
+                     style: label.style,
+                     text: label.text,
+                     translucencyByDistance: label.translucencyByDistance,
+                     verticalOrigin: label.verticalOrigin,
+                     disableDepthTestDistance: label.disableDepthTestDistance,
+                 }"
+                 >
+                 </ac-label-primitive-desc>
+               </ac-array-desc>
+             </ac-layer>
+           `,
   providers: [CoordinateConverter, PolylinesManagerService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

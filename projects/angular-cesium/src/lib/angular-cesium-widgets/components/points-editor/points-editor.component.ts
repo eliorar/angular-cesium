@@ -18,53 +18,53 @@ import {LabelProps} from '../../models/label-props';
 @Component({
   selector: 'points-editor',
   template: /*html*/ `
-    <ac-layer #editPointLayer acFor="let point of editPoint$" [context]="this">
-      <ac-point-desc
-        props="{
-        position: point.getPositionCallbackProperty(),
-        pixelSize: getPointSize(point),
-        color: point.props.color,
-        outlineColor: point.props.outlineColor,
-        outlineWidth: point.props.outlineWidth,
-        show: getPointShow(point),
-        disableDepthTestDistance: point.props.disableDepthTestDistance,
-        heightReference: point.props.heightReference,
-    }"
-      ></ac-point-desc>
-    </ac-layer>
-
-    <ac-layer #pointLabelsLayer acFor="let pointLabels of pointLabels$" [context]="this">
-      <ac-array-desc acFor="let label of pointLabels.labels" [idGetter]="getLabelId">
-        <ac-label-primitive-desc
-          props="{
-            position: label.position,
-            backgroundColor: label.backgroundColor,
-            backgroundPadding: label.backgroundPadding,
-            distanceDisplayCondition: label.distanceDisplayCondition,
-            eyeOffset: label.eyeOffset,
-            fillColor: label.fillColor,
-            font: label.font,
-            heightReference: label.heightReference,
-            horizontalOrigin: label.horizontalOrigin,
-            outlineColor: label.outlineColor,
-            outlineWidth: label.outlineWidth,
-            pixelOffset: label.pixelOffset,
-            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-            scale: label.scale,
-            scaleByDistance: label.scaleByDistance,
-            show: label.show,
-            showBackground: label.showBackground,
-            style: label.style,
-            text: label.text,
-            translucencyByDistance: label.translucencyByDistance,
-            verticalOrigin: label.verticalOrigin,
-            disableDepthTestDistance: label.disableDepthTestDistance,
-        }"
-        >
-        </ac-label-primitive-desc>
-      </ac-array-desc>
-    </ac-layer>
-  `,
+             <ac-layer #editPointLayer acFor="let point of editPoint$" [context]="this">
+               <ac-point-desc
+                 props="{
+                 position: point.getPositionCallbackProperty(),
+                 pixelSize: getPointSize(point),
+                 color: point.props.color,
+                 outlineColor: point.props.outlineColor,
+                 outlineWidth: point.props.outlineWidth,
+                 show: getPointShow(point),
+                 disableDepthTestDistance: point.props.disableDepthTestDistance,
+                 heightReference: point.props.heightReference,
+             }"
+               ></ac-point-desc>
+             </ac-layer>
+         
+             <ac-layer #pointLabelsLayer acFor="let pointLabels of pointLabels$" [context]="this">
+               <ac-array-desc acFor="let label of pointLabels.labels" [idGetter]="getLabelId">
+                 <ac-label-primitive-desc
+                   props="{
+                     position: label.position,
+                     backgroundColor: label.backgroundColor,
+                     backgroundPadding: label.backgroundPadding,
+                     distanceDisplayCondition: label.distanceDisplayCondition,
+                     eyeOffset: label.eyeOffset,
+                     fillColor: label.fillColor,
+                     font: label.font,
+                     heightReference: label.heightReference,
+                     horizontalOrigin: label.horizontalOrigin,
+                     outlineColor: label.outlineColor,
+                     outlineWidth: label.outlineWidth,
+                     pixelOffset: label.pixelOffset,
+                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+                     scale: label.scale,
+                     scaleByDistance: label.scaleByDistance,
+                     show: label.show,
+                     showBackground: label.showBackground,
+                     style: label.style,
+                     text: label.text,
+                     translucencyByDistance: label.translucencyByDistance,
+                     verticalOrigin: label.verticalOrigin,
+                     disableDepthTestDistance: label.disableDepthTestDistance,
+                 }"
+                 >
+                 </ac-label-primitive-desc>
+               </ac-array-desc>
+             </ac-layer>
+           `,
   providers: [CoordinateConverter, PointsManagerService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
