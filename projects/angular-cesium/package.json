@@ -10,8 +10,8 @@
     "Angular Cesium"
   ],
   "peerDependencies": {
-    "@angular/common": "^19.2.14",
-    "@angular/core": "^19.2.14",
+    "@angular/common": "^20.1.7",
+    "@angular/core": "^20.1.7",
     "lodash": "^4.17.21",
     "cesium": "1.132.0"
   },

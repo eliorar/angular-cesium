@@ -10,6 +10,7 @@
  */
 export class AcEntity {
 
+
   /**
    * Creates entity from a json
    * @param json entity object

@@ -6,17 +6,22 @@ import { CoordinateConverter } from '../../services/coordinate-converter/coordin
   {
     selector: 'ac-default-plonter',
     template: `
-      <ac-html *ngIf="plonterService.plonterShown" [props]="{
-        position: plonterPosition
-      }">
+      @if (plonterService.plonterShown) {
+        <ac-html [props]="{
+          position: plonterPosition
+        }">
         <div class="plonter-context-menu">
-          <div *ngFor="let entity of plonterService.entitesToPlonter">
-            <div class="plonter-item" (click)="chooseEntity(entity)">{{ entity?.name || entity?.id }}
+          @for (entity of plonterService.entitesToPlonter; track entity) {
+            <div>
+              <div class="plonter-item" (click)="chooseEntity(entity)">
+                {{ $any(entity)?.name || $any(entity)?.id }}
+              </div>
             </div>
-          </div>
+          }
         </div>
-      </ac-html>
-    `,
+        </ac-html>
+      }
+      `,
     styles: [`
         .plonter-context-menu {
             background-color: rgba(250, 250, 250, 0.8);
