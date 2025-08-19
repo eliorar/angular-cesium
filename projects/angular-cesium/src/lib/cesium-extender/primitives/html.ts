@@ -1,7 +1,7 @@
-import {Cartesian2, Cartesian3, defined, SceneTransforms} from 'cesium';
-import {HtmlCollection} from '../collections';
-// import { Cartesian2 } from '../../angular-cesium/models/cartesian2';
-// import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
+import { defined, Cartesian2, Cartesian3, SceneTransforms } from 'cesium';
+import { HtmlCollection } from '../collections';
+//import { Cartesian2 } from '../../angular-cesium/models/cartesian2';
+//import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
 
 export class HtmlPrimitive {
 

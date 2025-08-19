@@ -2,17 +2,17 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
   Input,
-  OnChanges,
   OnDestroy,
   OnInit,
+  OnChanges,
+  SimpleChanges,
   Output,
-  SimpleChanges
+  EventEmitter
 } from '@angular/core';
-import {fromEvent as observableFromEvent, Observable, Subscription} from 'rxjs';
-import {switchMap, takeUntil, tap} from 'rxjs/operators';
-import {CesiumService} from '../../../../angular-cesium/services/cesium/cesium.service';
+import { fromEvent as observableFromEvent, Subscription, Observable } from 'rxjs';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { CesiumService } from '../../../../angular-cesium/services/cesium/cesium.service';
 
 
 /**
@@ -56,7 +56,8 @@ import {CesiumService} from '../../../../angular-cesium/services/cesium/cesium.s
         }
     `],
     changeDetection: ChangeDetectionStrategy.OnPush,
-  }
+    standalone: false
+}
 )
 export class AcToolbarComponent implements OnInit, OnChanges, OnDestroy {
   @Input()

@@ -1,83 +1,84 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {EditModes} from '../../models/edit-mode.enum';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {HippodromeManagerService} from '../../services/entity-editors/hippodrome-editor/hippodrome-manager.service';
-import {HippodromeEditorService} from '../../services/entity-editors/hippodrome-editor/hippodrome-editor.service';
-import {HippodromeEditUpdate} from '../../models/hippodrome-edit-update';
-import {LabelProps} from '../../models/label-props';
-import {EditableHippodrome} from '../../models/editable-hippodrome';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { EditModes } from '../../models/edit-mode.enum';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { HippodromeManagerService } from '../../services/entity-editors/hippodrome-editor/hippodrome-manager.service';
+import { HippodromeEditorService } from '../../services/entity-editors/hippodrome-editor/hippodrome-editor.service';
+import { HippodromeEditUpdate } from '../../models/hippodrome-edit-update';
+import { LabelProps } from '../../models/label-props';
+import { EditableHippodrome } from '../../models/editable-hippodrome';
 
 @Component({
-  selector: 'hippodrome-editor',
-  template: /*html*/ `
-               <ac-layer #editHippodromesLayer acFor="let hippodrome of editHippodromes$" [context]="this">
-                   <ac-corridor-desc props="{
-                     positions: hippodrome.getRealPositionsCallbackProperty(),
-                     cornerType: Cesium.CornerType.ROUNDED,
-                     material: hippodrome.hippodromeProps.material,
-                     width : hippodrome.hippodromeProps.width,
-                     outline: hippodrome.hippodromeProps.outline,
-                     outlineColor: hippodrome.hippodromeProps.outlineColor,
-                     outlineWidth: hippodrome.hippodromeProps.outlineWidth,
-                     height: 0,
-                     classificationType: hippodrome.hippodromeProps.classificationType,
-                     zIndex: hippodrome.hippodromeProps.zIndex,
-                     shadows: hippodrome.hippodromeProps.shadows,
-             }">
-                   </ac-corridor-desc>
-         
-                   <ac-array-desc acFor="let label of hippodrome.labels" [idGetter]="getLabelId">
-                       <ac-label-primitive-desc props="{
-                     position: label.position,
-                     backgroundColor: label.backgroundColor,
-                     backgroundPadding: label.backgroundPadding,
-                     distanceDisplayCondition: label.distanceDisplayCondition,
-                     eyeOffset: label.eyeOffset,
-                     fillColor: label.fillColor,
-                     font: label.font,
-                     heightReference: label.heightReference,
-                     horizontalOrigin: label.horizontalOrigin,
-                     outlineColor: label.outlineColor,
-                     outlineWidth: label.outlineWidth,
-                     pixelOffset: label.pixelOffset,
-                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-                     scale: label.scale,
-                     scaleByDistance: label.scaleByDistance,
-                     show: label.show,
-                     showBackground: label.showBackground,
-                     style: label.style,
-                     text: label.text,
-                     translucencyByDistance: label.translucencyByDistance,
-                     verticalOrigin: label.verticalOrigin,
-                     disableDepthTestDistance: label.disableDepthTestDistance,
-                 }">
-                       </ac-label-primitive-desc>
-                   </ac-array-desc>
-               </ac-layer>
-         
-               <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
-                   <ac-point-desc props="{
-                  position: point.getPositionCallbackProperty(),
-                  pixelSize: getPointSize(point),
-                  color: point.props.color,
-                  outlineColor: point.props.outlineColor,
-                  outlineWidth: point.props.outlineWidth,
-                  show: getPointShow(point),
-                  disableDepthTestDistance: point.props.disableDepthTestDistance,
-                  heightReference: point.props.heightReference,
-             }">
-                   </ac-point-desc>
-               </ac-layer>
-           `,
-  providers: [CoordinateConverter, HippodromeManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'hippodrome-editor',
+    template: /*html*/ `
+      <ac-layer #editHippodromesLayer acFor="let hippodrome of editHippodromes$" [context]="this">
+          <ac-corridor-desc props="{
+            positions: hippodrome.getRealPositionsCallbackProperty(),
+            cornerType: Cesium.CornerType.ROUNDED,
+            material: hippodrome.hippodromeProps.material,
+            width : hippodrome.hippodromeProps.width,
+            outline: hippodrome.hippodromeProps.outline,
+            outlineColor: hippodrome.hippodromeProps.outlineColor,
+            outlineWidth: hippodrome.hippodromeProps.outlineWidth,
+            height: 0,
+            classificationType: hippodrome.hippodromeProps.classificationType,
+            zIndex: hippodrome.hippodromeProps.zIndex,
+            shadows: hippodrome.hippodromeProps.shadows,
+    }">
+          </ac-corridor-desc>
+
+          <ac-array-desc acFor="let label of hippodrome.labels" [idGetter]="getLabelId">
+              <ac-label-primitive-desc props="{
+            position: label.position,
+            backgroundColor: label.backgroundColor,
+            backgroundPadding: label.backgroundPadding,
+            distanceDisplayCondition: label.distanceDisplayCondition,
+            eyeOffset: label.eyeOffset,
+            fillColor: label.fillColor,
+            font: label.font,
+            heightReference: label.heightReference,
+            horizontalOrigin: label.horizontalOrigin,
+            outlineColor: label.outlineColor,
+            outlineWidth: label.outlineWidth,
+            pixelOffset: label.pixelOffset,
+            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+            scale: label.scale,
+            scaleByDistance: label.scaleByDistance,
+            show: label.show,
+            showBackground: label.showBackground,
+            style: label.style,
+            text: label.text,
+            translucencyByDistance: label.translucencyByDistance,
+            verticalOrigin: label.verticalOrigin,
+            disableDepthTestDistance: label.disableDepthTestDistance,
+        }">
+              </ac-label-primitive-desc>
+          </ac-array-desc>
+      </ac-layer>
+
+      <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
+          <ac-point-desc props="{
+         position: point.getPositionCallbackProperty(),
+         pixelSize: getPointSize(point),
+         color: point.props.color,
+         outlineColor: point.props.outlineColor,
+         outlineWidth: point.props.outlineWidth,
+         show: getPointShow(point),
+         disableDepthTestDistance: point.props.disableDepthTestDistance,
+         heightReference: point.props.heightReference,
+    }">
+          </ac-point-desc>
+      </ac-layer>
+  `,
+    providers: [CoordinateConverter, HippodromeManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class HippodromeEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: HippodromeEditUpdate, labels: LabelProps[]) => LabelProps[];

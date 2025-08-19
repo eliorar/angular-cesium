@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {RectangleDrawerService} from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import { Component } from '@angular/core';
+import { RectangleDrawerService } from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is a rectangle implementation.
@@ -21,8 +21,9 @@ import {MapLayersService} from '../../services/map-layers/map-layers.service';
  *  ```
  */
 @Component({
-  selector: 'ac-rectangle',
-  template: ''
+    selector: 'ac-rectangle',
+    template: '',
+    standalone: false
 })
 export class AcRectangleComponent extends EntityOnMapComponent {
   constructor(rectangleDrawer: RectangleDrawerService, mapLayers: MapLayersService) {

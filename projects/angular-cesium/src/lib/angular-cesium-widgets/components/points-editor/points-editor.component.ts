@@ -1,72 +1,74 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {PointsEditorService} from '../../services/entity-editors/points-editor/points-editor.service';
-import {PointsManagerService} from '../../services/entity-editors/points-editor/points-manager.service';
-import {PointEditUpdate} from '../../models/point-edit-update';
-import {EditablePoint} from '../../models/editable-point';
-import {LabelProps} from '../../models/label-props';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import * as Cesium from 'cesium';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { PointsEditorService } from '../../services/entity-editors/points-editor/points-editor.service';
+import { PointsManagerService } from '../../services/entity-editors/points-editor/points-manager.service';
+import { PointEditUpdate } from '../../models/point-edit-update';
+import { EditablePoint } from '../../models/editable-point';
+import { LabelProps } from '../../models/label-props';
 
 @Component({
-  selector: 'points-editor',
-  template: /*html*/ `
-             <ac-layer #editPointLayer acFor="let point of editPoint$" [context]="this">
-               <ac-point-desc
-                 props="{
-                 position: point.getPositionCallbackProperty(),
-                 pixelSize: getPointSize(point),
-                 color: point.props.color,
-                 outlineColor: point.props.outlineColor,
-                 outlineWidth: point.props.outlineWidth,
-                 show: getPointShow(point),
-                 disableDepthTestDistance: point.props.disableDepthTestDistance,
-                 heightReference: point.props.heightReference,
-             }"
-               ></ac-point-desc>
-             </ac-layer>
-         
-             <ac-layer #pointLabelsLayer acFor="let pointLabels of pointLabels$" [context]="this">
-               <ac-array-desc acFor="let label of pointLabels.labels" [idGetter]="getLabelId">
-                 <ac-label-primitive-desc
-                   props="{
-                     position: label.position,
-                     backgroundColor: label.backgroundColor,
-                     backgroundPadding: label.backgroundPadding,
-                     distanceDisplayCondition: label.distanceDisplayCondition,
-                     eyeOffset: label.eyeOffset,
-                     fillColor: label.fillColor,
-                     font: label.font,
-                     heightReference: label.heightReference,
-                     horizontalOrigin: label.horizontalOrigin,
-                     outlineColor: label.outlineColor,
-                     outlineWidth: label.outlineWidth,
-                     pixelOffset: label.pixelOffset,
-                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-                     scale: label.scale,
-                     scaleByDistance: label.scaleByDistance,
-                     show: label.show,
-                     showBackground: label.showBackground,
-                     style: label.style,
-                     text: label.text,
-                     translucencyByDistance: label.translucencyByDistance,
-                     verticalOrigin: label.verticalOrigin,
-                     disableDepthTestDistance: label.disableDepthTestDistance,
-                 }"
-                 >
-                 </ac-label-primitive-desc>
-               </ac-array-desc>
-             </ac-layer>
-           `,
-  providers: [CoordinateConverter, PointsManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'points-editor',
+    template: /*html*/ `
+    <ac-layer #editPointLayer acFor="let point of editPoint$" [context]="this">
+      <ac-point-desc
+        props="{
+        position: point.getPositionCallbackProperty(),
+        pixelSize: getPointSize(point),
+        color: point.props.color,
+        outlineColor: point.props.outlineColor,
+        outlineWidth: point.props.outlineWidth,
+        show: getPointShow(point),
+        disableDepthTestDistance: point.props.disableDepthTestDistance,
+        heightReference: point.props.heightReference,
+    }"
+      ></ac-point-desc>
+    </ac-layer>
+
+    <ac-layer #pointLabelsLayer acFor="let pointLabels of pointLabels$" [context]="this">
+      <ac-array-desc acFor="let label of pointLabels.labels" [idGetter]="getLabelId">
+        <ac-label-primitive-desc
+          props="{
+            position: label.position,
+            backgroundColor: label.backgroundColor,
+            backgroundPadding: label.backgroundPadding,
+            distanceDisplayCondition: label.distanceDisplayCondition,
+            eyeOffset: label.eyeOffset,
+            fillColor: label.fillColor,
+            font: label.font,
+            heightReference: label.heightReference,
+            horizontalOrigin: label.horizontalOrigin,
+            outlineColor: label.outlineColor,
+            outlineWidth: label.outlineWidth,
+            pixelOffset: label.pixelOffset,
+            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+            scale: label.scale,
+            scaleByDistance: label.scaleByDistance,
+            show: label.show,
+            showBackground: label.showBackground,
+            style: label.style,
+            text: label.text,
+            translucencyByDistance: label.translucencyByDistance,
+            verticalOrigin: label.verticalOrigin,
+            disableDepthTestDistance: label.disableDepthTestDistance,
+        }"
+        >
+        </ac-label-primitive-desc>
+      </ac-array-desc>
+    </ac-layer>
+  `,
+    providers: [CoordinateConverter, PointsManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PointsEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: PointEditUpdate, labels: LabelProps[]) => LabelProps[];

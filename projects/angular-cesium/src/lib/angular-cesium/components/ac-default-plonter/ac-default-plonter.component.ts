@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {PlonterService} from '../../services/plonter/plonter.service';
-import {CoordinateConverter} from '../../services/coordinate-converter/coordinate-converter.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { PlonterService } from '../../services/plonter/plonter.service';
+import { CoordinateConverter } from '../../services/coordinate-converter/coordinate-converter.service';
 
 @Component(
   {
@@ -36,7 +36,8 @@ import {CoordinateConverter} from '../../services/coordinate-converter/coordinat
     `],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [CoordinateConverter],
-  }
+    standalone: false
+}
 )
 export class AcDefaultPlonterComponent implements OnInit {
 

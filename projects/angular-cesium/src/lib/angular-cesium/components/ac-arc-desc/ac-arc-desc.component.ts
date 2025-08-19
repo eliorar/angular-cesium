@@ -1,9 +1,9 @@
-import {ArcDrawerService} from '../../services/drawers/arc-drawer/arc-drawer.service';
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
+import { Component, forwardRef } from '@angular/core';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { ArcDrawerService } from '../../services/drawers/arc-drawer/arc-drawer.service';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
 
 /**
  *  This is an implementation of an arc.
@@ -35,11 +35,11 @@ import {CesiumProperties} from '../../services/cesium-properties/cesium-properti
  *    will draw an half circle
  */
 
-
 @Component({
-  selector: 'ac-arc-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcArcDescComponent)}],
+    selector: 'ac-arc-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcArcDescComponent) }],
+    standalone: false
 })
 export class AcArcDescComponent extends BasicDesc {
 

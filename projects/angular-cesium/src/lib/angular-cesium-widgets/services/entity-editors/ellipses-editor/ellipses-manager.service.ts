@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {EditableEllipse} from '../../../models/editable-ellipse';
-import {AcLayerComponent} from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {EllipseEditOptions} from '../../../models/ellipse-edit-options';
-import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { Injectable } from '@angular/core';
+import { EditableEllipse } from '../../../models/editable-ellipse';
+import { AcLayerComponent } from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { EllipseEditOptions } from '../../../models/ellipse-edit-options';
+import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
 
 @Injectable()
 export class EllipsesManagerService {

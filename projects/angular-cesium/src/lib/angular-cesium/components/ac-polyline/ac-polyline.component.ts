@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
-import {PolylineDrawerService} from '../../services/drawers/polyline-drawer/polyline-drawer.service';
+import { Component } from '@angular/core';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
+import { PolylineDrawerService } from '../../services/drawers/polyline-drawer/polyline-drawer.service';
 
 /**
  *  This is a polyline implementation.
@@ -22,8 +22,9 @@ import {PolylineDrawerService} from '../../services/drawers/polyline-drawer/poly
  */
 
 @Component({
-  selector: 'ac-polyline',
-  template: '',
+    selector: 'ac-polyline',
+    template: '',
+    standalone: false
 })
 export class AcPolylineComponent extends EntityOnMapComponent {
 

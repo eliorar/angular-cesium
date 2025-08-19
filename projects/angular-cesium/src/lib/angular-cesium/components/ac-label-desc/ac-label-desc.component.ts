@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {LabelDrawerService} from '../../services/drawers/label-drawer/label-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { LabelDrawerService } from '../../services/drawers/label-drawer/label-drawer.service';
 
 /**
  *  This is a label implementation.
@@ -25,9 +25,10 @@ import {LabelDrawerService} from '../../services/drawers/label-drawer/label-draw
  */
 
 @Component({
-  selector: 'ac-label-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcLabelDescComponent)}],
+    selector: 'ac-label-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcLabelDescComponent) }],
+    standalone: false
 })
 export class AcLabelDescComponent extends BasicDesc {
 

@@ -1,11 +1,11 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
-import {BillboardCollection} from 'cesium';
-import {instance, mock, when} from 'ts-mockito';
-import {CesiumService} from '../../services/cesium/cesium.service';
-import {providerFromMock} from '../../utils/testingUtils';
-import {AcBillboardComponent} from './ac-billboard.component';
-import {BillboardDrawerService} from '../../services/drawers/billboard-drawer/billboard-drawer.service';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { BillboardCollection } from 'cesium';
+import { instance, mock, when } from 'ts-mockito';
+import { CesiumService } from '../../services/cesium/cesium.service';
+import { providerFromMock } from '../../utils/testingUtils';
+import { AcBillboardComponent } from './ac-billboard.component';
+import { BillboardDrawerService } from '../../services/drawers/billboard-drawer/billboard-drawer.service';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
 
 describe('AcBillboardComponent', () => {
   let component: AcBillboardComponent;

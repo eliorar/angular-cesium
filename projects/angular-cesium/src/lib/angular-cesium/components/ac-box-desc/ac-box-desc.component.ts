@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {BoxDrawerService} from '../../services/drawers/box-dawer/box-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { BoxDrawerService } from '../../services/drawers/box-dawer/box-drawer.service';
 
 /**
  *  This is a point implementation.
@@ -24,9 +24,10 @@ import {BoxDrawerService} from '../../services/drawers/box-dawer/box-drawer.serv
  *  ```
  */
 @Component({
-  selector: 'ac-box-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcBoxDescComponent)}],
+    selector: 'ac-box-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcBoxDescComponent) }],
+    standalone: false
 })
 export class AcBoxDescComponent extends BasicDesc {
 

@@ -1,5 +1,5 @@
-import {PixelOffsetPipe} from './pixel-offset/pixel-offset.pipe';
-import {RadiansToDegreesPipe} from './radians-to-degrees/radians-to-degrees.pipe';
+import { PixelOffsetPipe } from './pixel-offset/pixel-offset.pipe';
+import { RadiansToDegreesPipe } from './radians-to-degrees/radians-to-degrees.pipe';
 
 // For angular parse usage
 export default [

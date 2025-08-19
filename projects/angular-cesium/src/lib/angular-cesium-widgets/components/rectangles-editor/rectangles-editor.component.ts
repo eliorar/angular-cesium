@@ -1,87 +1,88 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {RectangleEditUpdate} from '../../models/rectangle-edit-update';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {RectanglesManagerService} from '../../services/entity-editors/rectangles-editor/rectangles-manager.service';
-import {RectanglesEditorService} from '../../services/entity-editors/rectangles-editor/rectangles-editor.service';
-import {LabelProps} from '../../models/label-props';
-import {EditableRectangle} from '../../models/editable-rectangle';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { RectangleEditUpdate } from '../../models/rectangle-edit-update';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { RectanglesManagerService } from '../../services/entity-editors/rectangles-editor/rectangles-manager.service';
+import { RectanglesEditorService } from '../../services/entity-editors/rectangles-editor/rectangles-editor.service';
+import { LabelProps } from '../../models/label-props';
+import { EditableRectangle } from '../../models/editable-rectangle';
 
 @Component({
-  selector: 'rectangles-editor',
-  template: /*html*/ `
-             <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
-               <ac-point-desc
-                 props="{
-                 position: point.getPositionCallbackProperty(),
-                 pixelSize: getPointSize(point),
-                 color: point.props.color,
-                 outlineColor: point.props.outlineColor,
-                 outlineWidth: point.props.outlineWidth,
-                 show: getPointShow(point),
-                 disableDepthTestDistance: point.props.disableDepthTestDistance,
-                 heightReference: point.props.heightReference,
-             }"
-               >
-               </ac-point-desc>
-             </ac-layer>
-         
-             <ac-layer #editRectanglesLayer acFor="let rectangle of editRectangles$" [context]="this">
-               <ac-rectangle-desc
-                 props="{
-                   coordinates: rectangle.getRectangleCallbackProperty(),
-                   material: rectangle.rectangleProps.material,
-                   fill: rectangle.rectangleProps.fill,
-                   classificationType: rectangle.rectangleProps.classificationType,
-                   zIndex: rectangle.rectangleProps.zIndex,
-                   outline: rectangle.rectangleProps.outline,
-                   outlineColor: rectangle.rectangleProps.outlineColor,
-                   height: rectangle.rectangleProps.height,
-                   extrudedHeight: rectangle.rectangleProps.extrudedHeight
-                 }"
-               >
-               </ac-rectangle-desc>
-               <ac-array-desc acFor="let label of rectangle.labels" [idGetter]="getLabelId">
-                 <ac-label-primitive-desc
-                   props="{
-                     position: label.position,
-                     backgroundColor: label.backgroundColor,
-                     backgroundPadding: label.backgroundPadding,
-                     distanceDisplayCondition: label.distanceDisplayCondition,
-                     eyeOffset: label.eyeOffset,
-                     fillColor: label.fillColor,
-                     font: label.font,
-                     heightReference: label.heightReference,
-                     horizontalOrigin: label.horizontalOrigin,
-                     outlineColor: label.outlineColor,
-                     outlineWidth: label.outlineWidth,
-                     pixelOffset: label.pixelOffset,
-                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-                     scale: label.scale,
-                     scaleByDistance: label.scaleByDistance,
-                     show: label.show,
-                     showBackground: label.showBackground,
-                     style: label.style,
-                     text: label.text,
-                     translucencyByDistance: label.translucencyByDistance,
-                     verticalOrigin: label.verticalOrigin,
-                     disableDepthTestDistance: label.disableDepthTestDistance,
-                 }"
-                 >
-                 </ac-label-primitive-desc>
-               </ac-array-desc>
-             </ac-layer>
-           `,
-  providers: [CoordinateConverter, RectanglesManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'rectangles-editor',
+    template: /*html*/ `
+    <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
+      <ac-point-desc
+        props="{
+        position: point.getPositionCallbackProperty(),
+        pixelSize: getPointSize(point),
+        color: point.props.color,
+        outlineColor: point.props.outlineColor,
+        outlineWidth: point.props.outlineWidth,
+        show: getPointShow(point),
+        disableDepthTestDistance: point.props.disableDepthTestDistance,
+        heightReference: point.props.heightReference,
+    }"
+      >
+      </ac-point-desc>
+    </ac-layer>
+
+    <ac-layer #editRectanglesLayer acFor="let rectangle of editRectangles$" [context]="this">
+      <ac-rectangle-desc
+        props="{
+          coordinates: rectangle.getRectangleCallbackProperty(),
+          material: rectangle.rectangleProps.material,
+          fill: rectangle.rectangleProps.fill,
+          classificationType: rectangle.rectangleProps.classificationType,
+          zIndex: rectangle.rectangleProps.zIndex,
+          outline: rectangle.rectangleProps.outline,
+          outlineColor: rectangle.rectangleProps.outlineColor,
+          height: rectangle.rectangleProps.height,
+          extrudedHeight: rectangle.rectangleProps.extrudedHeight
+        }"
+      >
+      </ac-rectangle-desc>
+      <ac-array-desc acFor="let label of rectangle.labels" [idGetter]="getLabelId">
+        <ac-label-primitive-desc
+          props="{
+            position: label.position,
+            backgroundColor: label.backgroundColor,
+            backgroundPadding: label.backgroundPadding,
+            distanceDisplayCondition: label.distanceDisplayCondition,
+            eyeOffset: label.eyeOffset,
+            fillColor: label.fillColor,
+            font: label.font,
+            heightReference: label.heightReference,
+            horizontalOrigin: label.horizontalOrigin,
+            outlineColor: label.outlineColor,
+            outlineWidth: label.outlineWidth,
+            pixelOffset: label.pixelOffset,
+            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+            scale: label.scale,
+            scaleByDistance: label.scaleByDistance,
+            show: label.show,
+            showBackground: label.showBackground,
+            style: label.style,
+            text: label.text,
+            translucencyByDistance: label.translucencyByDistance,
+            verticalOrigin: label.verticalOrigin,
+            disableDepthTestDistance: label.disableDepthTestDistance,
+        }"
+        >
+        </ac-label-primitive-desc>
+      </ac-array-desc>
+    </ac-layer>
+  `,
+    providers: [CoordinateConverter, RectanglesManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class RectanglesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: RectangleEditUpdate, labels: LabelProps[]) => LabelProps[];

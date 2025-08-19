@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {RectangleDrawerService} from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { RectangleDrawerService } from '../../services/drawers/rectangle-dawer/rectangle-drawer.service';
 
 /**
  *  This is a point implementation.
@@ -24,9 +24,10 @@ import {RectangleDrawerService} from '../../services/drawers/rectangle-dawer/rec
  *  ```
  */
 @Component({
-  selector: 'ac-rectangle-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcRectangleDescComponent)}],
+    selector: 'ac-rectangle-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcRectangleDescComponent) }],
+    standalone: false
 })
 export class AcRectangleDescComponent extends BasicDesc {
 

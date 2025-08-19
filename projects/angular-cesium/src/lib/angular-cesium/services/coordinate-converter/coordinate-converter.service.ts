@@ -1,8 +1,8 @@
-import {Injectable, Optional} from '@angular/core';
-import {Cartesian2, Cartesian3, Cartographic, Math as cMath, SceneTransforms} from 'cesium';
-import {CesiumService} from '../cesium/cesium.service';
+import { Injectable, Optional } from '@angular/core';
+import { Cartographic, Math as cMath, Cartesian3, SceneTransforms, Cartesian2 } from 'cesium';
+import { CesiumService } from '../cesium/cesium.service';
 import * as geodesy from 'geodesy';
-import {hemisphere, LatLon, LatLonEllipsoidal, Utm} from 'geodesy';
+import { hemisphere, LatLon, LatLonEllipsoidal, Utm } from 'geodesy';
 
 const LatLonVectors = geodesy['LatLonVectors']; // doesnt exists on typings
 
@@ -11,7 +11,7 @@ window['geodesy'] = geodesy;
 /**
  *  Given different types of coordinates, we provide you a service converting those types to the most common other types.
  *  We are using the geodesy implementation of UTM conversion. see: https://github.com/chrisveness/geodesy.
- *z
+ *
  * @example
  * import { Component, OnInit } from '@angular/core';
  * import { CoordinateConverter } from 'angular2-cesium';

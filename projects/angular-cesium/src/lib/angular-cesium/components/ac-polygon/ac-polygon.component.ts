@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {PolygonDrawerService} from '../../services/drawers/polygon-drawer/polygon-drawer.service';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import { Component } from '@angular/core';
+import { PolygonDrawerService } from '../../services/drawers/polygon-drawer/polygon-drawer.service';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is a polygon implementation.
@@ -22,8 +22,9 @@ import {MapLayersService} from '../../services/map-layers/map-layers.service';
  *  ```
  */
 @Component({
-  selector: 'ac-polygon',
-  template: '',
+    selector: 'ac-polygon',
+    template: '',
+    standalone: false
 })
 export class AcPolygonComponent extends EntityOnMapComponent {
   constructor(polygonDrawer: PolygonDrawerService, mapLayers: MapLayersService) {

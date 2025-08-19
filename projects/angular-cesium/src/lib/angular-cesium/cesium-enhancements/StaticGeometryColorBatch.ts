@@ -2,20 +2,11 @@
  * Fix for the constant entity shadowing.
  * PR in Cesium repo: https://github.com/AnalyticalGraphicsInc/cesium/pull/5736
  */
-import {
-  AssociativeArray,
-  Color,
-  ColorGeometryInstanceAttribute,
-  ColorMaterialProperty,
-  defined,
-  DistanceDisplayCondition,
-  DistanceDisplayConditionGeometryInstanceAttribute,
-  Primitive,
-  ShadowMode,
-  ShowGeometryInstanceAttribute
-} from 'cesium';
-
-declare var Cesium: any;
+import { Color, AssociativeArray, defined, ColorGeometryInstanceAttribute,  DistanceDisplayCondition,
+  DistanceDisplayConditionGeometryInstanceAttribute, ShowGeometryInstanceAttribute, Primitive,
+  ShadowMode, ColorMaterialProperty
+ } from 'cesium';
+ declare var Cesium: any;
 
 // tslint:disable
 // const AssociativeArray = AssociativeArray;
@@ -57,7 +48,7 @@ function Batch(primitives, translucent, appearanceType, depthFailAppearanceType,
   this.showsUpdated = new AssociativeArray();
   this.itemsToRemove = [];
   this.invalidated = false;
-
+  
   var removeMaterialSubscription;
   if (defined(depthFailMaterialProperty)) {
     removeMaterialSubscription = depthFailMaterialProperty.definitionChanged.addEventListener(Batch.prototype.onMaterialChanged, this);
@@ -118,7 +109,7 @@ Batch.prototype.update = function (time) {
   var primitives = this.primitives;
   var attributes;
   var i;
-
+  
   if (this.createPrimitive) {
     var geometries = this.geometry.values;
     var geometriesLength = geometries.length;
@@ -130,12 +121,12 @@ Batch.prototype.update = function (time) {
           primitives.remove(primitive);
         }
       }
-
+      
       for (i = 0; i < geometriesLength; i++) {
         var geometryItem = geometries[i];
         var originalAttributes = geometryItem.attributes;
         attributes = this.attributes.get(geometryItem.id.id);
-
+        
         if (defined(attributes)) {
           if (defined(originalAttributes.show)) {
             originalAttributes.show.value = attributes.show;
@@ -148,7 +139,7 @@ Batch.prototype.update = function (time) {
           }
         }
       }
-
+      
       var depthFailAppearance;
       if (defined(this.depthFailAppearanceType)) {
         if (defined(this.depthFailMaterialProperty)) {
@@ -160,7 +151,7 @@ Batch.prototype.update = function (time) {
           closed: this.closed
         });
       }
-
+      
       primitive = new Primitive({
         show: false,
         asynchronous: true,
@@ -186,7 +177,7 @@ Batch.prototype.update = function (time) {
         this.oldPrimitive = undefined;
       }
     }
-
+    
     this.attributes.removeAll();
     this.primitive = primitive;
     this.createPrimitive = false;
@@ -197,25 +188,25 @@ Batch.prototype.update = function (time) {
       primitives.remove(this.oldPrimitive);
       this.oldPrimitive = undefined;
     }
-
+    
     if (defined(this.depthFailAppearanceType) && !(this.depthFailMaterialProperty instanceof ColorMaterialProperty)) {
       this.depthFailMaterial = Cesium.MaterialProperty.getValue(time, this.depthFailMaterialProperty, this.depthFailMaterial);
       this.primitive.depthFailAppearance.material = this.depthFailMaterial;
     }
-
+    
     var updatersWithAttributes = this.updatersWithAttributes.values;
     var length = updatersWithAttributes.length;
     var waitingOnCreate = this.waitingOnCreate;
     for (i = 0; i < length; i++) {
       var updater = updatersWithAttributes[i];
       var instance = this.geometry.get(updater.id);
-
+      
       attributes = this.attributes.get(instance.id.id);
       if (!defined(attributes)) {
         attributes = primitive.getGeometryInstanceAttributes(instance.id);
         this.attributes.set(instance.id.id, attributes);
       }
-
+      
       if (!updater.fillMaterialProperty.isConstant || waitingOnCreate) {
         var colorProperty = updater.fillMaterialProperty.color;
         var resultColor = Cesium.Property.getValueOrDefault(colorProperty, time, Color.WHITE, colorScratch);
@@ -227,7 +218,7 @@ Batch.prototype.update = function (time) {
           }
         }
       }
-
+      
       if (defined(this.depthFailAppearanceType) && updater.depthFailMaterialProperty instanceof ColorMaterialProperty && (!updater.depthFailMaterialProperty.isConstant || waitingOnCreate)) {
         var depthFailColorProperty = updater.depthFailMaterialProperty.color;
         var depthColor = Cesium.Property.getValueOrDefault(depthFailColorProperty, time, Color.WHITE, colorScratch);
@@ -236,13 +227,13 @@ Batch.prototype.update = function (time) {
           attributes.depthFailColor = ColorGeometryInstanceAttribute.toValue(depthColor, attributes.depthFailColor);
         }
       }
-
+      
       var show = updater.entity.isShowing && (updater.hasConstantFill || updater.isFilled(time));
       var currentShow = attributes.show[0] === 1;
       if (show !== currentShow) {
         attributes.show = ShowGeometryInstanceAttribute.toValue(show, attributes.show);
       }
-
+      
       var distanceDisplayConditionProperty = updater.distanceDisplayConditionProperty;
       if (!Cesium.Property.isConstant(distanceDisplayConditionProperty)) {
         var distanceDisplayCondition = Cesium.Property.getValueOrDefault(distanceDisplayConditionProperty, time, defaultDistanceDisplayCondition, distanceDisplayConditionScratch);
@@ -252,7 +243,7 @@ Batch.prototype.update = function (time) {
         }
       }
     }
-
+    
     this.updateShows(primitive);
     this.waitingOnCreate = false;
   } else if (defined(primitive) && !primitive.ready) {
@@ -268,13 +259,13 @@ Batch.prototype.updateShows = function (primitive) {
   for (var i = 0; i < length; i++) {
     var updater = showsUpdated[i];
     var instance = this.geometry.get(updater.id);
-
+    
     var attributes = this.attributes.get(instance.id.id);
     if (!defined(attributes)) {
       attributes = primitive.getGeometryInstanceAttributes(instance.id);
       this.attributes.set(instance.id.id, attributes);
     }
-
+    
     var show = updater.entity.isShowing;
     var currentShow = attributes.show[0] === 1;
     if (show !== currentShow) {
@@ -304,7 +295,7 @@ Batch.prototype.getBoundingSphere = function (updater, result) {
 
 Batch.prototype.removeAllPrimitives = function () {
   var primitives = this.primitives;
-
+  
   var primitive = this.primitive;
   if (defined(primitive)) {
     primitives.remove(primitive);
@@ -312,7 +303,7 @@ Batch.prototype.removeAllPrimitives = function () {
     this.geometry.removeAll();
     this.updaters.removeAll();
   }
-
+  
   var oldPrimitive = this.oldPrimitive;
   if (defined(oldPrimitive)) {
     primitives.remove(oldPrimitive);
@@ -353,7 +344,7 @@ export function fixCesiumEntitiesShadows() {
       items = this._translucentItems;
       translucent = true;
     }
-
+    
     var length = items.length;
     for (var i = 0; i < length; i++) {
       var item = items[i];
@@ -361,9 +352,9 @@ export function fixCesiumEntitiesShadows() {
         item.add(updater, instance);
         return;
       }
-
+      
     }
-
+    
     var batch: any = new Batch(this._primitives, translucent, this._appearanceType, this._depthFailAppearanceType, updater.depthFailMaterialProperty, this._closed, this._shadows);
     batch.add(updater, instance);
     items.push(batch);

@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {PointDrawerService} from '../../services/drawers/point-drawer/point-drawer.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { PointDrawerService } from '../../services/drawers/point-drawer/point-drawer.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
 
 /**
  *  This is a point implementation.
@@ -23,9 +23,10 @@ import {CesiumProperties} from '../../services/cesium-properties/cesium-properti
  *  ```
  */
 @Component({
-  selector: 'ac-point-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcPointDescComponent)}],
+    selector: 'ac-point-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcPointDescComponent) }],
+    standalone: false
 })
 export class AcPointDescComponent extends BasicDesc {
 

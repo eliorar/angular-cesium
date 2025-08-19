@@ -1,8 +1,8 @@
-import {Inject, Injectable, NgZone} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
-import {KeyboardAction} from '../../models/ac-keyboard-action.enum';
-import {CesiumService} from '../cesium/cesium.service';
-import {PREDEFINED_KEYBOARD_ACTIONS} from './predefined-actions';
+import { Inject, Injectable, NgZone } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { KeyboardAction } from '../../models/ac-keyboard-action.enum';
+import { CesiumService } from '../cesium/cesium.service';
+import { PREDEFINED_KEYBOARD_ACTIONS } from './predefined-actions';
 
 export type KeyboardControlActionFn = (cesiumService: CesiumService, params: any, event: KeyboardEvent) => boolean | void;
 export type KeyboardControlValidationFn = (cesiumService: CesiumService, params: any, event: KeyboardEvent) => boolean;
@@ -313,7 +313,7 @@ export class KeyboardControlService {
 
     const params = this.getParams(execution.params, keyboardEvent);
 
-    if (typeof execution.action === 'number') {
+    if (typeof execution.action == 'number') {
       const predefinedAction = PREDEFINED_KEYBOARD_ACTIONS[execution.action as number];
 
       if (predefinedAction) {

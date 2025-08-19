@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { EllipseDrawerService } from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
 
 /**
  *  This is a circle implementation.
@@ -24,9 +24,10 @@ import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellips
  *  ```
  */
 @Component({
-  selector: 'ac-circle-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcCircleDescComponent)}],
+    selector: 'ac-circle-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcCircleDescComponent) }],
+    standalone: false
 })
 export class AcCircleDescComponent extends BasicDesc {
   constructor(ellipseDrawer: EllipseDrawerService, layerService: LayerService,

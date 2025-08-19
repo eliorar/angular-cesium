@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {PrimitiveCollection} from 'cesium';
-import {CesiumService} from '../../../cesium/cesium.service';
-import {Checker} from '../../../../utils/checker';
-import {EllipsePrimitive} from 'primitive-primitives';
-import {PrimitivesDrawerService} from '../../primitives-drawer/primitives-drawer.service';
+import { Injectable } from '@angular/core';
+import { PrimitiveCollection } from 'cesium';
+import { CesiumService } from '../../../cesium/cesium.service';
+import { Checker } from '../../../../utils/checker';
+import { EllipsePrimitive } from 'primitive-primitives';
+import { PrimitivesDrawerService } from '../../primitives-drawer/primitives-drawer.service';
 
 
 /**

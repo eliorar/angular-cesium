@@ -1,10 +1,10 @@
-import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {LayerService} from '../layer-service/layer-service.service';
-import {ComputationCache} from '../computation-cache/computation-cache.service';
-import {CesiumProperties} from '../cesium-properties/cesium-properties.service';
-import {AcEntity} from '../../models/ac-entity';
-import {BasicDrawerService} from '../drawers/basic-drawer/basic-drawer.service';
-import {IDescription} from '../../models/description';
+import { EventEmitter, Input, OnDestroy, OnInit, Output, Directive } from '@angular/core';
+import { LayerService } from '../layer-service/layer-service.service';
+import { ComputationCache } from '../computation-cache/computation-cache.service';
+import { CesiumProperties } from '../cesium-properties/cesium-properties.service';
+import { AcEntity } from '../../models/ac-entity';
+import { BasicDrawerService } from '../drawers/basic-drawer/basic-drawer.service';
+import { IDescription } from '../../models/description';
 
 export interface OnDrawParams {
   acEntity: AcEntity;

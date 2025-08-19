@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 /**
  * Toolbar button widget, act as a single button inside ac-toolbar component
@@ -50,7 +50,8 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output}
         }
     `],
     changeDetection: ChangeDetectionStrategy.OnPush,
-  }
+    standalone: false
+}
 )
 export class AcToolbarButtonComponent implements OnInit {
 

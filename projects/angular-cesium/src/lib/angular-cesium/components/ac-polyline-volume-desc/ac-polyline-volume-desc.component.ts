@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {PolylineVolumeDrawerService} from '../../services/drawers/polyline-volume-dawer/polyline-volume-drawer.service';
+import { Component } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { PolylineVolumeDrawerService } from '../../services/drawers/polyline-volume-dawer/polyline-volume-drawer.service';
 
 /**
  *  This is a point implementation.
@@ -24,8 +24,9 @@ import {PolylineVolumeDrawerService} from '../../services/drawers/polyline-volum
  *  ```
  */
 @Component({
-  selector: 'ac-polyline-volume-desc',
-  template: ''
+    selector: 'ac-polyline-volume-desc',
+    template: '',
+    standalone: false
 })
 export class AcPolylineVolumeDescComponent extends BasicDesc {
 

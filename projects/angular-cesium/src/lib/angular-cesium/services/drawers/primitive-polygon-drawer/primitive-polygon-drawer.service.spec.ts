@@ -1,9 +1,9 @@
-import {inject, TestBed} from '@angular/core/testing';
-import {Cartesian3, Color, ColorGeometryInstanceAttribute, PerInstanceColorAppearance, PolygonHierarchy, PrimitiveCollection} from 'cesium';
-import {PrimitivePolygonDrawerService} from './primitive-polygon-drawer.service';
-import {anything, instance, mock, verify, when} from 'ts-mockito';
-import {CesiumService} from '../../cesium/cesium.service';
-import {providerFromMock} from '../../../utils/testingUtils';
+import { inject, TestBed } from '@angular/core/testing';
+import { PolygonHierarchy, Cartesian3, ColorGeometryInstanceAttribute, PerInstanceColorAppearance, Color, PrimitiveCollection } from 'cesium';
+import { PrimitivePolygonDrawerService } from './primitive-polygon-drawer.service';
+import { anything, instance, mock, verify, when } from 'ts-mockito';
+import { CesiumService } from '../../cesium/cesium.service';
+import { providerFromMock } from '../../../utils/testingUtils';
 
 describe('PrimitivePolygonDrawerService', () => {
   let geometryProps;

@@ -1,12 +1,10 @@
 // tslint:disable
-import {Component} from '@angular/core';
-import {BasicDesc} from '../../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../../services/cesium-properties/cesium-properties.service';
-import {
-  DynamicPolylineDrawerService
-} from '../../../services/drawers/static-dynamic/dynamic-polyline-drawer/dynamic-polyline-drawer.service';
+import { Component } from '@angular/core';
+import { BasicDesc } from '../../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../../services/cesium-properties/cesium-properties.service';
+import { DynamicPolylineDrawerService } from '../../../services/drawers/static-dynamic/dynamic-polyline-drawer/dynamic-polyline-drawer.service';
 
 // tslint:enable
 /**
@@ -25,8 +23,9 @@ import {
  * ```
  */
 @Component({
-  selector: 'ac-dynamic-polyline-desc',
-  template: ''
+    selector: 'ac-dynamic-polyline-desc',
+    template: '',
+    standalone: false
 })
 export class AcDynamicPolylineDescComponent extends BasicDesc {
 

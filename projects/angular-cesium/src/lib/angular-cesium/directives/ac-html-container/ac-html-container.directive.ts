@@ -1,8 +1,9 @@
-import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {AcHtmlManager} from '../../services/ac-html-manager/ac-html-manager.service';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { AcHtmlManager } from '../../services/ac-html-manager/ac-html-manager.service';
 
 @Directive({
-  selector: '[acHtmlContainer]'
+    selector: '[acHtmlContainer]',
+    standalone: false
 })
 export class AcHtmlContainerDirective implements OnInit {
 

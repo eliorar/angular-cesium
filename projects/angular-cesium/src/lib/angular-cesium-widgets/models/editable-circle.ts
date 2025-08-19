@@ -1,15 +1,15 @@
-import {CallbackProperty, Cartesian3} from 'cesium';
-import {AcEntity} from '../../angular-cesium/models/ac-entity';
-import {EditPoint} from './edit-point';
-import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
-// import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
-import {GeoUtilsService} from '../../angular-cesium/services/geo-utils/geo-utils.service';
-import {EditArc} from './edit-arc';
-import {CircleEditOptions} from './circle-edit-options';
-import {PointProps} from './point-edit-options';
-import {PolylineProps} from './polyline-edit-options';
-import {defaultLabelProps, LabelProps} from './label-props';
-import {EllipseProps} from './ellipse-edit-options';
+import { CallbackProperty, Cartesian3 } from 'cesium';
+import { AcEntity } from '../../angular-cesium/models/ac-entity';
+import { EditPoint } from './edit-point';
+import { AcLayerComponent } from '../../angular-cesium/components/ac-layer/ac-layer.component';
+//import { Cartesian3 } from '../../angular-cesium/models/cartesian3';
+import { GeoUtilsService } from '../../angular-cesium/services/geo-utils/geo-utils.service';
+import { EditArc } from './edit-arc';
+import { CircleEditOptions } from './circle-edit-options';
+import { PointProps } from './point-edit-options';
+import { PolylineProps } from './polyline-edit-options';
+import { defaultLabelProps, LabelProps } from './label-props';
+import { EllipseProps } from './ellipse-edit-options';
 
 export class EditableCircle extends AcEntity {
   private _center: EditPoint;

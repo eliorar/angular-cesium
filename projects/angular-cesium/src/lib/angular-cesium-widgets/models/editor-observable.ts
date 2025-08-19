@@ -1,5 +1,5 @@
-import {Observable} from 'rxjs';
-import {LabelProps} from './label-props';
+import { Observable } from 'rxjs';
+import { LabelProps } from './label-props';
 
 export class EditorObservable<T> extends Observable<T> {
   dispose: Function;

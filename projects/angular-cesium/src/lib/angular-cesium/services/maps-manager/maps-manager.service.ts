@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Cartographic, Ellipsoid, SceneMode} from 'cesium';
-import {AcMapComponent} from '../../components/ac-map/ac-map.component';
+import { Injectable } from '@angular/core';
+import { Ellipsoid, SceneMode, Cartographic } from 'cesium';
+import { AcMapComponent } from '../../components/ac-map/ac-map.component';
 
 /**
  *  The service manages `ac-map` instances. `ac-map` register itself to this service.

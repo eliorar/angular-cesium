@@ -1,26 +1,26 @@
-import {DOCUMENT} from '@angular/common';
-import {AfterViewInit, Component, ElementRef, Inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {CesiumService} from '../../services/cesium/cesium.service';
-import {SceneMode} from '../../models/scene-mode.enum';
-import {CameraService} from '../../services/camera/camera.service';
-import {ContextMenuService} from '../../services/context-menu/context-menu.service';
-import {CoordinateConverter} from '../../services/coordinate-converter/coordinate-converter.service';
-import {ArcDrawerService} from '../../services/drawers/arc-drawer/arc-drawer.service';
-import {BillboardDrawerService} from '../../services/drawers/billboard-drawer/billboard-drawer.service';
-import {CzmlDrawerService} from '../../services/drawers/czml-drawer/czml-drawer.service';
-import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
-import {LabelDrawerService} from '../../services/drawers/label-drawer/label-drawer.service';
-import {PointDrawerService} from '../../services/drawers/point-drawer/point-drawer.service';
-import {PolygonDrawerService} from '../../services/drawers/polygon-drawer/polygon-drawer.service';
-import {PolylineDrawerService} from '../../services/drawers/polyline-drawer/polyline-drawer.service';
-import {PolylinePrimitiveDrawerService} from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
-import {KeyboardControlService} from '../../services/keyboard-control/keyboard-control.service';
-import {CesiumEventBuilder} from '../../services/map-events-mananger/cesium-event-builder';
-import {MapEventsManagerService} from '../../services/map-events-mananger/map-events-manager';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
-import {MapsManagerService} from '../../services/maps-manager/maps-manager.service';
-import {PlonterService} from '../../services/plonter/plonter.service';
-import {ScreenshotService} from '../../services/screenshot/screenshot.service';
+import { DOCUMENT } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { CesiumService } from '../../services/cesium/cesium.service';
+import { SceneMode } from '../../models/scene-mode.enum';
+import { CameraService } from '../../services/camera/camera.service';
+import { ContextMenuService } from '../../services/context-menu/context-menu.service';
+import { CoordinateConverter } from '../../services/coordinate-converter/coordinate-converter.service';
+import { ArcDrawerService } from '../../services/drawers/arc-drawer/arc-drawer.service';
+import { BillboardDrawerService } from '../../services/drawers/billboard-drawer/billboard-drawer.service';
+import { CzmlDrawerService } from '../../services/drawers/czml-drawer/czml-drawer.service';
+import { EllipseDrawerService } from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import { LabelDrawerService } from '../../services/drawers/label-drawer/label-drawer.service';
+import { PointDrawerService } from '../../services/drawers/point-drawer/point-drawer.service';
+import { PolygonDrawerService } from '../../services/drawers/polygon-drawer/polygon-drawer.service';
+import { PolylineDrawerService } from '../../services/drawers/polyline-drawer/polyline-drawer.service';
+import { PolylinePrimitiveDrawerService } from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
+import { KeyboardControlService } from '../../services/keyboard-control/keyboard-control.service';
+import { CesiumEventBuilder } from '../../services/map-events-mananger/cesium-event-builder';
+import { MapEventsManagerService } from '../../services/map-events-mananger/map-events-manager';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
+import { MapsManagerService } from '../../services/maps-manager/maps-manager.service';
+import { PlonterService } from '../../services/plonter/plonter.service';
+import { ScreenshotService } from '../../services/screenshot/screenshot.service';
 
 /**
  * This is a map implementation, creates the cesium map.
@@ -38,33 +38,34 @@ import {ScreenshotService} from '../../services/screenshot/screenshot.service';
  * </ac-map>
  */
 @Component({
-  selector: 'ac-map',
-  template: `
+    selector: 'ac-map',
+    template: `
     <ac-default-plonter *ngIf="!disableDefaultPlonter"></ac-default-plonter>
     <ac-context-menu-wrapper></ac-context-menu-wrapper>
     <ng-content></ng-content>
   `,
-  providers: [
-    CesiumService,
-    BillboardDrawerService,
-    CesiumEventBuilder,
-    KeyboardControlService,
-    MapEventsManagerService,
-    PlonterService,
-    LabelDrawerService,
-    PolylineDrawerService,
-    PolylinePrimitiveDrawerService,
-    EllipseDrawerService,
-    PointDrawerService,
-    ArcDrawerService,
-    CzmlDrawerService,
-    PolygonDrawerService,
-    MapLayersService,
-    CameraService,
-    ScreenshotService,
-    ContextMenuService,
-    CoordinateConverter,
-  ],
+    providers: [
+        CesiumService,
+        BillboardDrawerService,
+        CesiumEventBuilder,
+        KeyboardControlService,
+        MapEventsManagerService,
+        PlonterService,
+        LabelDrawerService,
+        PolylineDrawerService,
+        PolylinePrimitiveDrawerService,
+        EllipseDrawerService,
+        PointDrawerService,
+        ArcDrawerService,
+        CzmlDrawerService,
+        PolygonDrawerService,
+        MapLayersService,
+        CameraService,
+        ScreenshotService,
+        ContextMenuService,
+        CoordinateConverter,
+    ],
+    standalone: false
 })
 export class AcMapComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy {
   /**

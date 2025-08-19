@@ -1,6 +1,6 @@
-import {KeyboardAction} from '../../models/ac-keyboard-action.enum';
-import {KeyboardControlActionFn} from './keyboard-control.service';
-import {CesiumService} from '../cesium/cesium.service';
+import { KeyboardAction } from '../../models/ac-keyboard-action.enum';
+import { KeyboardControlActionFn } from './keyboard-control.service';
+import { CesiumService } from '../cesium/cesium.service';
 
 const CAMERA_MOVEMENT_DEFAULT_FACTOR = 100.0;
 const CAMERA_LOOK_DEFAULT_FACTOR = 0.01;

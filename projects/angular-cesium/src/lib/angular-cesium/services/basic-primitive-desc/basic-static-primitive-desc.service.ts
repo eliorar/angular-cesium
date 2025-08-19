@@ -1,10 +1,10 @@
-import {Directive, Input, OnInit} from '@angular/core';
-import {BasicDesc} from '../basic-desc/basic-desc.service';
-import {LayerService} from '../layer-service/layer-service.service';
-import {ComputationCache} from '../computation-cache/computation-cache.service';
-import {CesiumProperties} from '../cesium-properties/cesium-properties.service';
-import {StaticPrimitiveDrawer} from '../drawers/static-dynamic/static-primitive-drawer/static-primitive-drawer.service';
-import {AcEntity} from '../../models/ac-entity';
+import { Input, OnInit, Directive } from '@angular/core';
+import { BasicDesc } from '../basic-desc/basic-desc.service';
+import { LayerService } from '../layer-service/layer-service.service';
+import { ComputationCache } from '../computation-cache/computation-cache.service';
+import { CesiumProperties } from '../cesium-properties/cesium-properties.service';
+import { StaticPrimitiveDrawer } from '../drawers/static-dynamic/static-primitive-drawer/static-primitive-drawer.service';
+import { AcEntity } from '../../models/ac-entity';
 
 @Directive()
 export class BasicStaticPrimitiveDesc extends BasicDesc implements OnInit {

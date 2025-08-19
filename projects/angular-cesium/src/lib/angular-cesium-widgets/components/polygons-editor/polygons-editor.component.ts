@@ -1,97 +1,98 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {PolygonEditUpdate} from '../../models/polygon-edit-update';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {PolygonsManagerService} from '../../services/entity-editors/polygons-editor/polygons-manager.service';
-import {PolygonsEditorService} from '../../services/entity-editors/polygons-editor/polygons-editor.service';
-import {LabelProps} from '../../models/label-props';
-import {EditablePolygon} from '../../models/editable-polygon';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { PolygonEditUpdate } from '../../models/polygon-edit-update';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { PolygonsManagerService } from '../../services/entity-editors/polygons-editor/polygons-manager.service';
+import { PolygonsEditorService } from '../../services/entity-editors/polygons-editor/polygons-editor.service';
+import { LabelProps } from '../../models/label-props';
+import { EditablePolygon } from '../../models/editable-polygon';
 
 @Component({
-  selector: 'polygons-editor',
-  template: /*html*/ `
-             <ac-layer #editPolylinesLayer acFor="let polyline of editPolylines$" [context]="this">
-               <ac-polyline-desc
-                 props="{
-                 positions: polyline.getPositionsCallbackProperty(),
-                 width: polyline.props.width,
-                 material: polyline.props.material(),
-                 clampToGround: polyline.props.clampToGround,
-                 zIndex: polyline.props.zIndex,
-                 classificationType: polyline.props.classificationType,
-               }"
-               >
-               </ac-polyline-desc>
-             </ac-layer>
-         
-             <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
-               <ac-point-desc
-                 props="{
-                 position: point.getPositionCallbackProperty(),
-                 pixelSize: getPointSize(point),
-                 color: point.props.color,
-                 outlineColor: point.props.outlineColor,
-                 outlineWidth: point.props.outlineWidth,
-                 show: getPointShow(point),
-                 disableDepthTestDistance: point.props.disableDepthTestDistance,
-                 heightReference: point.props.heightReference,
-             }"
-               >
-               </ac-point-desc>
-             </ac-layer>
-         
-             <ac-layer #editPolygonsLayer acFor="let polygon of editPolygons$" [context]="this">
-               <ac-polygon-desc
-                 props="{
-                   hierarchy: polygon.getPositionsHierarchyCallbackProperty(),
-                   material: polygon.polygonProps.material,
-                   fill: polygon.polygonProps.fill,
-                   classificationType: polygon.polygonProps.classificationType,
-                   zIndex: polygon.polygonProps.zIndex,
-                 }"
-               >
-               </ac-polygon-desc>
-               <ac-array-desc acFor="let label of polygon.labels" [idGetter]="getLabelId">
-                 <ac-label-primitive-desc
-                   props="{
-                     position: label.position,
-                     backgroundColor: label.backgroundColor,
-                     backgroundPadding: label.backgroundPadding,
-                     distanceDisplayCondition: label.distanceDisplayCondition,
-                     eyeOffset: label.eyeOffset,
-                     fillColor: label.fillColor,
-                     font: label.font,
-                     heightReference: label.heightReference,
-                     horizontalOrigin: label.horizontalOrigin,
-                     outlineColor: label.outlineColor,
-                     outlineWidth: label.outlineWidth,
-                     pixelOffset: label.pixelOffset,
-                     pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
-                     scale: label.scale,
-                     scaleByDistance: label.scaleByDistance,
-                     show: label.show,
-                     showBackground: label.showBackground,
-                     style: label.style,
-                     text: label.text,
-                     translucencyByDistance: label.translucencyByDistance,
-                     verticalOrigin: label.verticalOrigin,
-                     disableDepthTestDistance: label.disableDepthTestDistance,
-                 }"
-                 >
-                 </ac-label-primitive-desc>
-               </ac-array-desc>
-             </ac-layer>
-           `,
-  providers: [CoordinateConverter, PolygonsManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'polygons-editor',
+    template: /*html*/ `
+    <ac-layer #editPolylinesLayer acFor="let polyline of editPolylines$" [context]="this">
+      <ac-polyline-desc
+        props="{
+        positions: polyline.getPositionsCallbackProperty(),
+        width: polyline.props.width,
+        material: polyline.props.material(),
+        clampToGround: polyline.props.clampToGround,
+        zIndex: polyline.props.zIndex,
+        classificationType: polyline.props.classificationType,
+      }"
+      >
+      </ac-polyline-desc>
+    </ac-layer>
+
+    <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
+      <ac-point-desc
+        props="{
+        position: point.getPositionCallbackProperty(),
+        pixelSize: getPointSize(point),
+        color: point.props.color,
+        outlineColor: point.props.outlineColor,
+        outlineWidth: point.props.outlineWidth,
+        show: getPointShow(point),
+        disableDepthTestDistance: point.props.disableDepthTestDistance,
+        heightReference: point.props.heightReference,
+    }"
+      >
+      </ac-point-desc>
+    </ac-layer>
+
+    <ac-layer #editPolygonsLayer acFor="let polygon of editPolygons$" [context]="this">
+      <ac-polygon-desc
+        props="{
+          hierarchy: polygon.getPositionsHierarchyCallbackProperty(),
+          material: polygon.polygonProps.material,
+          fill: polygon.polygonProps.fill,
+          classificationType: polygon.polygonProps.classificationType,
+          zIndex: polygon.polygonProps.zIndex,
+        }"
+      >
+      </ac-polygon-desc>
+      <ac-array-desc acFor="let label of polygon.labels" [idGetter]="getLabelId">
+        <ac-label-primitive-desc
+          props="{
+            position: label.position,
+            backgroundColor: label.backgroundColor,
+            backgroundPadding: label.backgroundPadding,
+            distanceDisplayCondition: label.distanceDisplayCondition,
+            eyeOffset: label.eyeOffset,
+            fillColor: label.fillColor,
+            font: label.font,
+            heightReference: label.heightReference,
+            horizontalOrigin: label.horizontalOrigin,
+            outlineColor: label.outlineColor,
+            outlineWidth: label.outlineWidth,
+            pixelOffset: label.pixelOffset,
+            pixelOffsetScaleByDistance: label.pixelOffsetScaleByDistance,
+            scale: label.scale,
+            scaleByDistance: label.scaleByDistance,
+            show: label.show,
+            showBackground: label.showBackground,
+            style: label.style,
+            text: label.text,
+            translucencyByDistance: label.translucencyByDistance,
+            verticalOrigin: label.verticalOrigin,
+            disableDepthTestDistance: label.disableDepthTestDistance,
+        }"
+        >
+        </ac-label-primitive-desc>
+      </ac-array-desc>
+    </ac-layer>
+  `,
+    providers: [CoordinateConverter, PolygonsManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PolygonsEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: PolygonEditUpdate, labels: LabelProps[]) => LabelProps[];
@@ -161,7 +162,6 @@ export class PolygonsEditorComponent implements OnDestroy {
           this.editPointsLayer,
           this.editPolylinesLayer,
           this.coordinateConverter,
-          this.cesiumService.getScene(),
           update.polygonOptions,
         );
         break;
@@ -231,7 +231,6 @@ export class PolygonsEditorComponent implements OnDestroy {
           this.editPointsLayer,
           this.editPolylinesLayer,
           this.coordinateConverter,
-          this.cesiumService.getScene(),
           update.polygonOptions,
           update.positions,
         );

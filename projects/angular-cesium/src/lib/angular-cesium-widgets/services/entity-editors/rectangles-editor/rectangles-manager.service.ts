@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Cartesian3} from 'cesium';
-import {EditableRectangle} from '../../../models/editable-rectangle';
-import {RectangleEditOptions} from '../../../models/rectangle-edit-options';
-import {AcLayerComponent} from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { Injectable } from '@angular/core';
+import { Cartesian3 } from 'cesium';
+import { EditableRectangle } from '../../../models/editable-rectangle';
+import { RectangleEditOptions } from '../../../models/rectangle-edit-options';
+import { AcLayerComponent } from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
 
 @Injectable()
 export class RectanglesManagerService {

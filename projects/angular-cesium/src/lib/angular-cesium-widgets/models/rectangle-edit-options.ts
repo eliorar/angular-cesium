@@ -1,4 +1,4 @@
-import {PolygonEditOptions} from './polygon-edit-options';
+import { PolygonEditOptions } from './polygon-edit-options';
 
 export interface RectangleProps {
   material?: any;

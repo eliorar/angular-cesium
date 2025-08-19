@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {EllipsoidDrawerService} from '../../services/drawers/ellipoid-drawer/ellipsoid-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { EllipsoidDrawerService } from '../../services/drawers/ellipoid-drawer/ellipsoid-drawer.service';
 
 /**
  *  This is a point implementation.
@@ -24,9 +24,10 @@ import {EllipsoidDrawerService} from '../../services/drawers/ellipoid-drawer/ell
  *  ```
  */
 @Component({
-  selector: 'ac-ellipsoid-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcEllipsoidDescComponent)}],
+    selector: 'ac-ellipsoid-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcEllipsoidDescComponent) }],
+    standalone: false
 })
 export class AcEllipsoidDescComponent extends BasicDesc {
 

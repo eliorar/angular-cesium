@@ -11,13 +11,13 @@ import {
   SimpleChanges,
   ViewChild
 } from '@angular/core';
-import {AcNotification} from '../../models/ac-notification';
-import {Subject, Subscription} from 'rxjs';
-import {IDescription} from '../../models/description';
-import {get} from 'lodash';
-import {AcLayerComponent} from '../ac-layer/ac-layer.component';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
+import { AcNotification } from '../../models/ac-notification';
+import { Subject, Subscription } from 'rxjs';
+import { IDescription } from '../../models/description';
+import { get } from 'lodash';
+import { AcLayerComponent } from '../ac-layer/ac-layer.component';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
 
 /**
  *  This is component represents an array under `ac-layer`.
@@ -46,8 +46,8 @@ import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
  */
 
 @Component({
-  selector: 'ac-array-desc',
-  template: `
+    selector: 'ac-array-desc',
+    template: `
     <ac-layer #layer [acFor]="getAcForString()"
               [context]="layerService.context"
               [options]="layerService.options"
@@ -56,7 +56,8 @@ import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
       <ng-content #content></ng-content>
     </ac-layer>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AcArrayDescComponent implements OnChanges, OnInit, AfterContentInit, OnDestroy, IDescription {
 

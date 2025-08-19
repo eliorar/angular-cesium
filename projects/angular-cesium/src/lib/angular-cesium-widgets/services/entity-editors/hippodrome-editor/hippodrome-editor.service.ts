@@ -1,25 +1,25 @@
-import {publish, tap} from 'rxjs/operators';
-import {Injectable} from '@angular/core';
-import {Cartesian3, ClassificationType, Color, ShadowMode} from 'cesium';
-import {MapEventsManagerService} from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {CesiumEvent} from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
-import {PickOptions} from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
-import {EditModes} from '../../../models/edit-mode.enum';
-import {EditActions} from '../../../models/edit-actions.enum';
-import {DisposableObservable} from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
-import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {EditPoint} from '../../../models/edit-point';
-import {CameraService} from '../../../../angular-cesium/services/camera/camera.service';
-// import { Cartesian3 } from '../../../../angular-cesium/models/cartesian3';
-import {HippodromeEditOptions} from '../../../models/hippodrome-edit-options';
-import {HippodromeManagerService} from './hippodrome-manager.service';
-import {HippodromeEditorObservable} from '../../../models/hippodrome-editor-oboservable';
-import {HippodromeEditUpdate} from '../../../models/hippodrome-edit-update';
-import {EditableHippodrome} from '../../../models/editable-hippodrome';
-import {PointProps} from '../../../models/point-edit-options';
-import {LabelProps} from '../../../models/label-props';
-import {generateKey} from '../../utils';
+import { publish, tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Color, ClassificationType, ShadowMode, Cartesian3 } from 'cesium';
+import { MapEventsManagerService } from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { CesiumEvent } from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
+import { PickOptions } from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
+import { EditModes } from '../../../models/edit-mode.enum';
+import { EditActions } from '../../../models/edit-actions.enum';
+import { DisposableObservable } from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
+import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { EditPoint } from '../../../models/edit-point';
+import { CameraService } from '../../../../angular-cesium/services/camera/camera.service';
+//import { Cartesian3 } from '../../../../angular-cesium/models/cartesian3';
+import { HippodromeEditOptions } from '../../../models/hippodrome-edit-options';
+import { HippodromeManagerService } from './hippodrome-manager.service';
+import { HippodromeEditorObservable } from '../../../models/hippodrome-editor-oboservable';
+import { HippodromeEditUpdate } from '../../../models/hippodrome-edit-update';
+import { EditableHippodrome } from '../../../models/editable-hippodrome';
+import { PointProps } from '../../../models/point-edit-options';
+import { LabelProps } from '../../../models/label-props';
+import { generateKey } from '../../utils';
 
 export const DEFAULT_HIPPODROME_OPTIONS: HippodromeEditOptions = {
   addPointEvent: CesiumEvent.LEFT_CLICK,

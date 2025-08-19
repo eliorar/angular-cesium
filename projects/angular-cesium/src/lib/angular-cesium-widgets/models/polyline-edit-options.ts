@@ -1,6 +1,6 @@
-import {CesiumEvent} from '../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
-import {CesiumEventModifier} from '../../angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum';
-import {EditorEditOptions} from './editor-edit-options';
+import { CesiumEvent } from '../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
+import { CesiumEventModifier } from '../../angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum';
+import { EditorEditOptions } from './editor-edit-options';
 
 export interface ClampTo3DOptions {
   clampToTerrain?: boolean;
@@ -15,7 +15,6 @@ export interface PolylineProps {
   clampToGround?: boolean;
   zIndex?: number;
   classificationType?: any;
-  useGroundPrimitiveOutline?: boolean;
 }
 
 export interface PolylineEditOptions extends EditorEditOptions {

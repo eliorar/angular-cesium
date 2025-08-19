@@ -1,6 +1,6 @@
-import {Injectable, NgZone, Optional} from '@angular/core';
-import {ViewerFactory} from '../viewer-factory/viewer-factory.service';
-import {ViewerConfiguration} from '../viewer-configuration/viewer-configuration.service';
+import { Injectable, NgZone, Optional } from '@angular/core';
+import { ViewerFactory } from '../viewer-factory/viewer-factory.service';
+import { ViewerConfiguration } from '../viewer-configuration/viewer-configuration.service';
 
 /**
  *  Service that initialize cesium viewer and expose cesium viewer and scene.
