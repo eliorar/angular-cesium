@@ -1,6 +1,6 @@
 {
   "name": "@eliorar/angular-cesium",
-  "version": "11.0.8",
+  "version": "12.0.0",
   "license": "MIT",
   "description": "Angular library for working with Cesium.",
   "repository": {
