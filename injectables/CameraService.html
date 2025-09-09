@@ -1,0 +1,2729 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CameraService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p> The service exposes the scene&#39;s camera and screenSpaceCameraController
+ SceneMode.PERFORMANCE_SCENE2D -  is a 3D scene mode that acts like Cesium 2D mode,
+ but is more efficient performance wise.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#camera" >camera</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isSceneModePerformance2D" >isSceneModePerformance2D</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#lastLook" >lastLook</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#lastRotate" >lastRotate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#lastTilt" >lastTilt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#morphListenerCancelFn" >morphListenerCancelFn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#PERFORMANCE_2D_ALTITUDE" >PERFORMANCE_2D_ALTITUDE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scene" >scene</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#screenSpaceCameraController" >screenSpaceCameraController</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#viewer" >viewer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_listenToSceneModeMorph" >_listenToSceneModeMorph</a>
+                            </li>
+                            <li>
+                                <a href="#_revertCameraProperties" >_revertCameraProperties</a>
+                            </li>
+                            <li>
+                                <a href="#cameraFlyTo" >cameraFlyTo</a>
+                            </li>
+                            <li>
+                                <a href="#enableInputs" >enableInputs</a>
+                            </li>
+                            <li>
+                                <a href="#enableLook" >enableLook</a>
+                            </li>
+                            <li>
+                                <a href="#enableRotate" >enableRotate</a>
+                            </li>
+                            <li>
+                                <a href="#enableTilt" >enableTilt</a>
+                            </li>
+                            <li>
+                                <a href="#enableTranslate" >enableTranslate</a>
+                            </li>
+                            <li>
+                                <a href="#enableZoom" >enableZoom</a>
+                            </li>
+                            <li>
+                                <a href="#flyTo" >flyTo</a>
+                            </li>
+                            <li>
+                                <a href="#getCamera" >getCamera</a>
+                            </li>
+                            <li>
+                                <a href="#getMaximumZoom" >getMaximumZoom</a>
+                            </li>
+                            <li>
+                                <a href="#getMinimumZoom" >getMinimumZoom</a>
+                            </li>
+                            <li>
+                                <a href="#getScreenSpaceCameraController" >getScreenSpaceCameraController</a>
+                            </li>
+                            <li>
+                                <a href="#init" >init</a>
+                            </li>
+                            <li>
+                                <a href="#lockRotation" >lockRotation</a>
+                            </li>
+                            <li>
+                                <a href="#setMaximumZoom" >setMaximumZoom</a>
+                            </li>
+                            <li>
+                                <a href="#setMinimumZoom" >setMinimumZoom</a>
+                            </li>
+                            <li>
+                                <a href="#setRotation" >setRotation</a>
+                            </li>
+                            <li>
+                                <a href="#setSceneMode" >setSceneMode</a>
+                            </li>
+                            <li>
+                                <a href="#setView" >setView</a>
+                            </li>
+                            <li>
+                                <a href="#trackEntity" >trackEntity</a>
+                            </li>
+                            <li>
+                                <a href="#untrackEntity" >untrackEntity</a>
+                            </li>
+                            <li>
+                                <a href="#zoomIn" >zoomIn</a>
+                            </li>
+                            <li>
+                                <a href="#zoomOut" >zoomOut</a>
+                            </li>
+                            <li>
+                                <a href="#zoomTo" >zoomTo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:26</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_listenToSceneModeMorph"></a>
+                    <span class="name">
+                        <span ><b>_listenToSceneModeMorph</b></span>
+                        <a href="#_listenToSceneModeMorph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>_listenToSceneModeMorph(callback: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank">Function</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>callback</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank" >Function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_revertCameraProperties"></a>
+                    <span class="name">
+                        <span ><b>_revertCameraProperties</b></span>
+                        <a href="#_revertCameraProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>_revertCameraProperties()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cameraFlyTo"></a>
+                    <span class="name">
+                        <span ><b>cameraFlyTo</b></span>
+                        <a href="#cameraFlyTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cameraFlyTo(options: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Flies the camera to a destination
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter=cam#flyTo">https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter=cam#flyTo</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableInputs"></a>
+                    <span class="name">
+                        <span ><b>enableInputs</b></span>
+                        <a href="#enableInputs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableInputs(inputs: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera receives inputs</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>inputs</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableLook"></a>
+                    <span class="name">
+                        <span ><b>enableLook</b></span>
+                        <a href="#enableLook"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableLook(lock: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera is able to free-look</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lock</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableRotate"></a>
+                    <span class="name">
+                        <span ><b>enableRotate</b></span>
+                        <a href="#enableRotate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableRotate(rotate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera is able to rotate</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rotate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableTilt"></a>
+                    <span class="name">
+                        <span ><b>enableTilt</b></span>
+                        <a href="#enableTilt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableTilt(tilt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera is able to tilt</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tilt</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableTranslate"></a>
+                    <span class="name">
+                        <span ><b>enableTranslate</b></span>
+                        <a href="#enableTranslate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableTranslate(translate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera is able to translate</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>translate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableZoom"></a>
+                    <span class="name">
+                        <span ><b>enableZoom</b></span>
+                        <a href="#enableZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableZoom(zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets if the camera is able to zoom</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flyTo"></a>
+                    <span class="name">
+                        <span ><b>flyTo</b></span>
+                        <a href="#flyTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>flyTo(target: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="225"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:225</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Flies the camera to a target
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#flyTo">https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#flyTo</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>target</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<boolean></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCamera"></a>
+                    <span class="name">
+                        <span ><b>getCamera</b></span>
+                        <a href="#getCamera"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCamera()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the scene&#39;s camera</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMaximumZoom"></a>
+                    <span class="name">
+                        <span ><b>getMaximumZoom</b></span>
+                        <a href="#getMaximumZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMaximumZoom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the maximum zoom value in meters</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMinimumZoom"></a>
+                    <span class="name">
+                        <span ><b>getMinimumZoom</b></span>
+                        <a href="#getMinimumZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMinimumZoom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the minimum zoom value in meters</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getScreenSpaceCameraController"></a>
+                    <span class="name">
+                        <span ><b>getScreenSpaceCameraController</b></span>
+                        <a href="#getScreenSpaceCameraController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getScreenSpaceCameraController()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the scene&#39;s screenSpaceCameraController</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="init"></a>
+                    <span class="name">
+                        <span ><b>init</b></span>
+                        <a href="#init"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>init(cesiumService: <a href="../injectables/CesiumService.html" target="_self">CesiumService</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cesiumService</td>
+                                            <td>
+                                                            <code><a href="../injectables/CesiumService.html" target="_self" >CesiumService</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lockRotation"></a>
+                    <span class="name">
+                        <span ><b>lockRotation</b></span>
+                        <a href="#lockRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>lockRotation(lock: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="273"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:273</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Locks or unlocks camera rotation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lock</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMaximumZoom"></a>
+                    <span class="name">
+                        <span ><b>setMaximumZoom</b></span>
+                        <a href="#setMaximumZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMaximumZoom(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets the maximum zoom value in meters</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMinimumZoom"></a>
+                    <span class="name">
+                        <span ><b>setMinimumZoom</b></span>
+                        <a href="#setMinimumZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setMinimumZoom(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets the minimum zoom value in meters</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRotation"></a>
+                    <span class="name">
+                        <span ><b>setRotation</b></span>
+                        <a href="#setRotation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRotation(degreesInRadians: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:266</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Set camera&#39;s rotation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>degreesInRadians</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSceneMode"></a>
+                    <span class="name">
+                        <span ><b>setSceneMode</b></span>
+                        <a href="#setSceneMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setSceneMode(sceneMode: <a href="../undefineds/SceneMode.html" target="_self">SceneMode</a>, duration?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sets the map&#39;s SceneMode</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sceneMode</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#SceneMode" target="_self" >SceneMode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The SceneMode to morph the scene into.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>duration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The duration of scene morph animations, in seconds</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setView"></a>
+                    <span class="name">
+                        <span ><b>setView</b></span>
+                        <a href="#setView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setView(options: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Flies the camera to a destination
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter=camera#setView">https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter=camera#setView</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>viewer options</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackEntity"></a>
+                    <span class="name">
+                        <span ><b>trackEntity</b></span>
+                        <a href="#trackEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackEntity(cesiumEntity?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options?: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Make the camera track a specific entity
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#trackedEntity">https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#trackedEntity</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cesiumEntity</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>cesium entity( billboard, polygon...) to track</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>track entity options</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="untrackEntity"></a>
+                    <span class="name">
+                        <span ><b>untrackEntity</b></span>
+                        <a href="#untrackEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>untrackEntity()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:328</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoomIn"></a>
+                    <span class="name">
+                        <span ><b>zoomIn</b></span>
+                        <a href="#zoomIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>zoomIn(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Zooms amount along the camera&#39;s view vector.
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomIn">https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomIn</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoomOut"></a>
+                    <span class="name">
+                        <span ><b>zoomOut</b></span>
+                        <a href="#zoomOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>zoomOut(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="241"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:241</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Zooms amount along the opposite direction of the camera&#39;s view vector.
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomOut">https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomOut</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoomTo"></a>
+                    <span class="name">
+                        <span ><b>zoomTo</b></span>
+                        <a href="#zoomTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>zoomTo(target: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, offset?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Zoom the camera to a target
+API: <a href="https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#zoomTo">https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter=viewer#zoomTo</a></p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>target</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>offset</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise<boolean></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="camera"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>camera</b></span>
+                        <a href="#camera"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSceneModePerformance2D"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isSceneModePerformance2D</b></span>
+                        <a href="#isSceneModePerformance2D"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastLook"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>lastLook</b></span>
+                        <a href="#lastLook"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastRotate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>lastRotate</b></span>
+                        <a href="#lastRotate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastTilt"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>lastTilt</b></span>
+                        <a href="#lastTilt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="morphListenerCancelFn"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>morphListenerCancelFn</b></span>
+                        <a href="#morphListenerCancelFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PERFORMANCE_2D_ALTITUDE"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>PERFORMANCE_2D_ALTITUDE</b></span>
+                        <a href="#PERFORMANCE_2D_ALTITUDE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>25000000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scene"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scene</b></span>
+                        <a href="#scene"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="screenSpaceCameraController"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>screenSpaceCameraController</b></span>
+                        <a href="#screenSpaceCameraController"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>viewer</b></span>
+                        <a href="#viewer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+import { Cartesian3, Cartographic, JulianDate } from &#x27;cesium&#x27;;
+import { Math as cMath} from &#x27;cesium&#x27;;
+
+import { CesiumService } from &#x27;../cesium/cesium.service&#x27;;
+import { SceneMode } from &#x27;../../models/scene-mode.enum&#x27;;
+
+/**
+ *  The service exposes the scene&#x27;s camera and screenSpaceCameraController
+ *  SceneMode.PERFORMANCE_SCENE2D -  is a 3D scene mode that acts like Cesium 2D mode,
+ *  but is more efficient performance wise.
+ */
+@Injectable()
+export class CameraService {
+  static PERFORMANCE_2D_ALTITUDE &#x3D; 25000000;
+
+  private viewer: any;
+  private scene: any;
+  private camera: any;
+  private screenSpaceCameraController: any;
+  private morphListenerCancelFn: any;
+  private lastRotate: boolean;
+  private lastTilt: boolean;
+  private lastLook: boolean;
+  private isSceneModePerformance2D &#x3D; false;
+
+  constructor() {
+  }
+
+  init(cesiumService: CesiumService) {
+    this.viewer &#x3D; cesiumService.getViewer();
+    this.scene &#x3D; cesiumService.getScene();
+    this.screenSpaceCameraController &#x3D; this.scene.screenSpaceCameraController;
+    this.camera &#x3D; this.scene.camera;
+    this.lastRotate &#x3D; this.screenSpaceCameraController.enableRotate;
+    this.lastTilt &#x3D; this.screenSpaceCameraController.enableTilt;
+    this.lastLook &#x3D; this.screenSpaceCameraController.enableLook;
+  }
+
+  _listenToSceneModeMorph(callback: Function) {
+    this.morphListenerCancelFn &#x3D; this.scene.morphStart.addEventListener(
+      callback
+    );
+  }
+
+  _revertCameraProperties() {
+    this.isSceneModePerformance2D &#x3D; false;
+    this.enableTilt(this.lastTilt);
+    this.enableRotate(this.lastRotate);
+    this.enableLook(this.lastLook);
+  }
+
+  /**
+   * Gets the scene&#x27;s camera
+   */
+  getCamera() {
+    return this.camera;
+  }
+
+  /**
+   * Gets the scene&#x27;s screenSpaceCameraController
+   */
+  getScreenSpaceCameraController() {
+    return this.screenSpaceCameraController;
+  }
+
+  /**
+   * Gets the minimum zoom value in meters
+   */
+  getMinimumZoom(): number {
+    return this.screenSpaceCameraController.minimumZoomDistance;
+  }
+
+  /**
+   * Sets the minimum zoom value in meters
+   * @param zoom amount
+   */
+  setMinimumZoom(amount: number): void {
+    this.screenSpaceCameraController.minimumZoomDistance &#x3D; amount;
+  }
+
+  /**
+   * Gets the maximum zoom value in meters
+   */
+  getMaximumZoom(): number {
+    return this.screenSpaceCameraController.maximumZoomDistance;
+  }
+
+  /**
+   * Sets the maximum zoom value in meters
+   * @param zoom amount
+   */
+  setMaximumZoom(amount: number): void {
+    this.screenSpaceCameraController.maximumZoomDistance &#x3D; amount;
+  }
+
+  /**
+   * Sets if the camera is able to tilt
+   */
+  enableTilt(tilt: boolean): void {
+    this.screenSpaceCameraController.enableTilt &#x3D; tilt;
+  }
+
+  /**
+   * Sets if the camera is able to rotate
+   */
+  enableRotate(rotate: boolean): void {
+    this.screenSpaceCameraController.enableRotate &#x3D; rotate;
+  }
+
+  /**
+   * Sets if the camera is able to free-look
+   */
+  enableLook(lock: boolean): void {
+    this.screenSpaceCameraController.enableLook &#x3D; lock;
+  }
+
+  /**
+   * Sets if the camera is able to translate
+   */
+  enableTranslate(translate: boolean): void {
+    this.screenSpaceCameraController.enableTranslate &#x3D; translate;
+  }
+
+  /**
+   * Sets if the camera is able to zoom
+   */
+  enableZoom(zoom: boolean): void {
+    this.screenSpaceCameraController.enableZoom &#x3D; zoom;
+  }
+
+  /**
+   * Sets if the camera receives inputs
+   */
+  enableInputs(inputs: boolean): void {
+    this.screenSpaceCameraController.enableInputs &#x3D; inputs;
+  }
+
+  /**
+   * Sets the map&#x27;s SceneMode
+   * @param sceneMode - The SceneMode to morph the scene into.
+   * @param duration - The duration of scene morph animations, in seconds
+   */
+  setSceneMode(sceneMode: SceneMode, duration?: number) {
+    switch (sceneMode) {
+      case SceneMode.SCENE3D: {
+        if (this.isSceneModePerformance2D) {
+          this._revertCameraProperties();
+        }
+
+        this.scene.morphTo3D(duration);
+
+        break;
+      }
+      case SceneMode.COLUMBUS_VIEW: {
+        if (this.isSceneModePerformance2D) {
+          this._revertCameraProperties();
+        }
+
+        this.scene.morphToColumbusView(duration);
+
+        break;
+      }
+      case SceneMode.SCENE2D: {
+        if (this.isSceneModePerformance2D) {
+          this._revertCameraProperties();
+        }
+        this.scene.morphTo2D(duration);
+
+        break;
+      }
+      case SceneMode.PERFORMANCE_SCENE2D: {
+        this.isSceneModePerformance2D &#x3D; true;
+        this.lastLook &#x3D; this.screenSpaceCameraController.enableLook;
+        this.lastTilt &#x3D; this.screenSpaceCameraController.enableTilt;
+        this.lastRotate &#x3D; this.screenSpaceCameraController.enableRotate;
+        this.screenSpaceCameraController.enableTilt &#x3D; false;
+        this.screenSpaceCameraController.enableRotate &#x3D; false;
+        this.screenSpaceCameraController.enableLook &#x3D; false;
+        if (this.morphListenerCancelFn) {
+          this.morphListenerCancelFn();
+        }
+        this.scene.morphToColumbusView(duration);
+        const morphCompleteEventListener &#x3D; this.scene.morphComplete.addEventListener(
+          () &#x3D;&gt; {
+            this.camera.setView({
+              destination: Cartesian3.fromDegrees(
+                0.0,
+                0.0,
+                Math.min(
+                  CameraService.PERFORMANCE_2D_ALTITUDE,
+                  this.getMaximumZoom()
+                )
+              ),
+              orientation: {
+                pitch: cMath.toRadians(-90)
+              }
+            });
+            morphCompleteEventListener();
+            this._listenToSceneModeMorph(
+              this._revertCameraProperties.bind(this)
+            );
+          }
+        );
+
+        break;
+      }
+    }
+  }
+
+  /**
+   * Flies the camera to a destination
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter&#x3D;cam#flyTo
+   */
+  cameraFlyTo(options: any) {
+    return this.camera.flyTo(options);
+  }
+
+  /**
+   * Flies the camera to a target
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter&#x3D;viewer#flyTo
+   * @returns Promise&lt;boolean&gt;
+   */
+  flyTo(target: any, options?: any) {
+    return this.viewer.flyTo(target, options);
+  }
+
+  /**
+   * Zooms amount along the camera&#x27;s view vector.
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomIn
+   */
+  zoomIn(amount: number) {
+    return this.camera.zoomIn(amount || this.camera.defaultZoomAmount);
+  }
+
+  /**
+   * Zooms amount along the opposite direction of the camera&#x27;s view vector.
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Camera.html#zoomOut
+   */
+  zoomOut(amount: number) {
+    return this.camera.zoomOut(amount || this.camera.defaultZoomAmount);
+  }
+
+  /**
+   * Zoom the camera to a target
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter&#x3D;viewer#zoomTo
+   * @returns Promise&lt;boolean&gt;
+   */
+  zoomTo(target: any, offset?: any) {
+    return this.viewer.zoomTo(target, offset);
+  }
+
+  /**
+   * Flies the camera to a destination
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Camera.html?classFilter&#x3D;camera#setView
+   * @param options viewer options
+   */
+  setView(options: any) {
+    this.camera.setView(options);
+  }
+
+  /**
+   * Set camera&#x27;s rotation
+   */
+  setRotation(degreesInRadians: number) {
+    this.setView({orientation: {heading: degreesInRadians}});
+  }
+
+  /**
+   * Locks or unlocks camera rotation
+   */
+  lockRotation(lock: boolean) {
+    this.scene.screenSpaceCameraController.enableRotate &#x3D; !lock;
+  }
+
+  /**
+   * Make the camera track a specific entity
+   * API: https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html?classFilter&#x3D;viewer#trackedEntity
+   * @param cesiumEntity - cesium entity( billboard, polygon...) to track
+   * @param options - track entity options
+   */
+  trackEntity(
+    cesiumEntity?: any,
+    options?: { flyTo: boolean; flyToDuration?: number; altitude?: number }
+  ) {
+    const flyTo &#x3D; (options &amp;&amp; options.flyTo) || false;
+
+    this.viewer.trackedEntity &#x3D; undefined;
+    return new Promise&lt;void&gt;(resolve &#x3D;&gt; {
+      if (flyTo) {
+        const flyToDuration &#x3D; (options &amp;&amp; options.flyToDuration) || 1;
+        const altitude &#x3D; (options &amp;&amp; options.altitude) || 10000;
+
+        // Calc entity flyTo position and wanted altitude
+        const entPosCar3 &#x3D; cesiumEntity.position.getValue(JulianDate.now());
+        const entPosCart &#x3D; Cartographic.fromCartesian(entPosCar3);
+        const zoomAmount &#x3D; altitude - entPosCart.height;
+        entPosCart.height &#x3D; altitude;
+        const flyToPosition &#x3D; Cartesian3.fromRadians(
+          entPosCart.longitude,
+          entPosCart.latitude,
+          entPosCart.height
+        );
+
+        this.cameraFlyTo({
+          duration: flyToDuration,
+          destination: flyToPosition,
+          complete: () &#x3D;&gt; {
+            this.viewer.trackedEntity &#x3D; cesiumEntity;
+            setTimeout(() &#x3D;&gt; {
+              if (zoomAmount &gt; 0) {
+                this.camera.zoomOut(zoomAmount);
+              } else {
+                this.camera.zoomIn(zoomAmount);
+              }
+            }, 0);
+            resolve();
+          }
+        });
+      } else {
+        this.viewer.trackedEntity &#x3D; cesiumEntity;
+        resolve();
+      }
+    });
+  }
+
+  untrackEntity() {
+    this.trackEntity();
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CameraService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

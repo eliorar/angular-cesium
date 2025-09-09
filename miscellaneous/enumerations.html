@@ -1,0 +1,835 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-enumerations">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Enumerations</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#ActionType" title="projects/angular-cesium/src/lib/angular-cesium/models/action-type.enum.ts" ><b>ActionType</b>&nbsp;&nbsp;&nbsp;(projects/.../action-type.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CesiumEvent" title="projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/cesium-event.enum.ts" ><b>CesiumEvent</b>&nbsp;&nbsp;&nbsp;(projects/.../cesium-event.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CesiumEventModifier" title="projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum.ts" ><b>CesiumEventModifier</b>&nbsp;&nbsp;&nbsp;(projects/.../cesium-event-modifier.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EditActions" title="projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-actions.enum.ts" ><b>EditActions</b>&nbsp;&nbsp;&nbsp;(projects/.../edit-actions.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EditModes" title="projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-mode.enum.ts" ><b>EditModes</b>&nbsp;&nbsp;&nbsp;(projects/.../edit-mode.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KeyboardAction" title="projects/angular-cesium/src/lib/angular-cesium/models/ac-keyboard-action.enum.ts" ><b>KeyboardAction</b>&nbsp;&nbsp;&nbsp;(projects/.../ac-keyboard-action.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KeyEventState" title="projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts" ><b>KeyEventState</b>&nbsp;&nbsp;&nbsp;(projects/.../keyboard-control.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MouseButtons" title="projects/angular-cesium/src/lib/angular-cesium-widgets/services/zoom-to-rectangle.service.ts" ><b>MouseButtons</b>&nbsp;&nbsp;&nbsp;(projects/.../zoom-to-rectangle.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PickOptions" title="projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/pickOptions.enum.ts" ><b>PickOptions</b>&nbsp;&nbsp;&nbsp;(projects/.../pickOptions.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SceneMode" title="projects/angular-cesium/src/lib/angular-cesium/models/scene-mode.enum.ts" ><b>SceneMode</b>&nbsp;&nbsp;&nbsp;(projects/.../scene-mode.enum.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>projects/angular-cesium/src/lib/angular-cesium/models/action-type.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ActionType"></a>
+                        <span class="name "><b>ActionType</b><a href="#ActionType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Action to do on entity</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ADD_UPDATE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DELETE
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/cesium-event.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CesiumEvent"></a>
+                        <span class="name "><b>CesiumEvent</b><a href="#CesiumEvent"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Event options for registration on map-event-manager.</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MOUSE_MOVE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT_CLICK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT_DOUBLE_CLICK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MIDDLE_CLICK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MIDDLE_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MIDDLE_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PINCH_START
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PINCH_END
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PINCH_MOVE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RIGHT_CLICK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RIGHT_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RIGHT_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;WHEEL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LONG_LEFT_PRESS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>110</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LONG_RIGHT_PRESS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LONG_MIDDLE_PRESS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT_CLICK_DRAG
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RIGHT_CLICK_DRAG
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MIDDLE_CLICK_DRAG
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/cesium-event-modifier.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CesiumEventModifier"></a>
+                        <span class="name "><b>CesiumEventModifier</b><a href="#CesiumEventModifier"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>EventModifier options for registration on map-event-manager.</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ALT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CTRL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SHIFT
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-actions.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="EditActions"></a>
+                        <span class="name "><b>EditActions</b><a href="#EditActions"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;INIT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MOUSE_MOVE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ADD_POINT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ADD_LAST_POINT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CHANGE_TO_EDIT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;REMOVE_POINT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DRAG_POINT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DRAG_POINT_FINISH
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DRAG_SHAPE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DRAG_SHAPE_FINISH
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DONE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DISABLE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ENABLE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;DISPOSE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SET_EDIT_LABELS_RENDER_CALLBACK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;UPDATE_EDIT_LABELS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SET_MANUALLY
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TRANSFORM
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-mode.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="EditModes"></a>
+                        <span class="name "><b>EditModes</b><a href="#EditModes"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CREATE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EDIT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CREATE_OR_EDIT
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/models/ac-keyboard-action.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="KeyboardAction"></a>
+                        <span class="name "><b>KeyboardAction</b><a href="#KeyboardAction"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_FORWARD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_BACKWARD
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_RIGHT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_LEFT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_LOOK_RIGHT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_LOOK_LEFT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_LOOK_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_LOOK_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_TWIST_RIGHT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_TWIST_LEFT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ROTATE_RIGHT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ROTATE_LEFT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ROTATE_UP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ROTATE_DOWN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ZOOM_IN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CAMERA_ZOOM_OUT
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="KeyEventState"></a>
+                        <span class="name "><b>KeyEventState</b><a href="#KeyEventState"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;IGNORED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NOT_PRESSED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PRESSED
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium-widgets/services/zoom-to-rectangle.service.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MouseButtons"></a>
+                        <span class="name "><b>MouseButtons</b><a href="#MouseButtons"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>The Service is as a &quot;zoom to rectangle&quot; tool</p>
+<p>example:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">constructor(
+  private cameraService: CameraService,
+  private cesiumService: CesiumService,
+  private zoomToRectangleService: ZoomToRectangleService,
+) {
+  this.zoomToRectangleService.init(cesiumService, cameraService);
+}
+...
+this.zoomToRectangleService.activate({onComplete: () =&gt; this.zoomToRectangleService.disable()});</code></pre></div><p><code>init()</code> - initialize the service with CameraService and CesiumService.
+If no mapId is provided to activate() - must be called before calling <code>activate()</code>.</p>
+<p><code>disable()</code> - disables the tool.</p>
+<p><code>activate()</code> -</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LEFT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MIDDLE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>1</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RIGHT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>2</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/consts/pickOptions.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PickOptions"></a>
+                        <span class="name "><b>PickOptions</b><a href="#PickOptions"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>NO_PICK,    - will not pick entities
+PICK_FIRST  - first entity will be picked . use Cesium.scene.pick()
+PICK_ONE    - in case a few entities are picked plonter is resolved . use Cesium.scene.drillPick()
+PICK_ALL    - all entities are picked. use Cesium.scene.drillPick()</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NO_PICK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PICK_FIRST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PICK_ONE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PICK_ALL
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/angular-cesium/src/lib/angular-cesium/models/scene-mode.enum.ts</h3>
+    <section data-compodoc="block-enums">
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SceneMode"></a>
+                        <span class="name "><b>SceneMode</b><a href="#SceneMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Cesium scene modes</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SCENE3D
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COLUMBUS_VIEW
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SCENE2D
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PERFORMANCE_SCENE2D
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-enumerations';
+            var COMPODOC_CURRENT_PAGE_URL = 'enumerations.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

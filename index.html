@@ -1,0 +1,402 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content readme">
+                   <div class="content-data">
+
+
+<h1>Angular-Cesium</h1>
+<img src="https://preview.ibb.co/cpDuwF/angular_cesium.png" width=150 alt="Drawing" style="margin:10"/>
+
+<p><a href="https://www.npmjs.com/package/@eliorar/angular-cesium"><img src="https://img.shields.io/npm/v/@eliorar/angular-cesium.svg?style=flat-square" alt="npm version" class="img-responsive"></a></p>
+<p><strong>This is a fork of Articode&#39;s &quot;angular-cesium&quot;, adapted for Cesium v1.133.0  + Angular v20 <a href="https://github.com/eliorar/angular-cesium">Angular Cesium</a></strong></p>
+<p>Create amazing mapping applications using Cesium and Angular components.
+Angular-Cesium is focused on high performance and simple usage.
+Check out our <a href="https://docs.angular-cesium.com">Docs</a> and our blog post <a href="https://cesium.com/blog/2019/03/28/angular-cesium/">Intro to angular-cesium</a>.</p>
+<h2>Getting started</h2>
+<h4>If you are using Angular CLI, you can add the angular-cesium library using schematics</h4>
+<ul>
+<li>add <code>angular-cesium</code>:<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">$ ng add &#64;eliorar/angular-cesium</code></pre></div></li>
+</ul>
+<h4>Manual installation details <a href="https://docs.angular-cesium.com/getting-started/installation">here</a>.</h4>
+<h2>Demo</h2>
+<ul>
+<li>You can try and learn about angular-cesium from our demo.</li>
+<li>The demo contains many examples, check out the <code>demo-map.component.ts</code> file.</li>
+<li>Run: <b>Example :</b><div><pre class="line-numbers"><code class="language-none">$ git clone https://github.com/eliorar/angular-cesium.git
+$ cd angular-cesium
+$ yarn
+$ yarn demo:start
+$ open http://localhost:4200</code></pre></div></li>
+<li>More demos:<ul>
+<li><a href="https://github.com/articodeltd/angular-cesium-demo">Angular Cesium Demo</a></li>
+<li><a href="http://geo-strike.com">GeoStrike</a> - <a href="https://github.com/Webiks/GeoStrike">Repository</a></li>
+<li><a href="https://glo.now.sh">GLO</a> - <a href="https://github.com/sofwerx/glo-demo">Repository</a></li>
+<li><a href="https://github.com/sofwerx/safehouse">Safehouse</a></li>
+<li><a href="https://github.com/davidyaha/ims-workshop">IMS</a></li>
+</ul>
+</li>
+</ul>
+<h2>Basic example</h2>
+<ul>
+<li><p>In your HTML file :</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">  &lt;ac-map&gt;
+      &lt;ac-layer acFor=&quot;let plane of planes$&quot; [show]=&quot;showTxracks&quot; [context]=&quot;this&quot;&gt;
+          &lt;ac-billboard-desc props=&quot;{
+                    image: plane.image,
+                    position: plane.position
+                  }&quot;&gt;
+          &lt;/ac-billboard-desc&gt;
+          &lt;ac-label-desc props=&quot;{
+                  position: plane.position,
+                  text: plane.name
+          }&quot;&gt;
+          &lt;/ac-label-desc&gt;
+      &lt;/ac-layer&gt;
+  &lt;/ac-map&gt;</code></pre></div></li>
+<li><p><code>ac-map</code> creates the map</p>
+</li>
+<li><p><code>ac-layer</code> component represent an array of entities that will be displayed on the map.</p>
+<ul>
+<li><code>acFor</code> attribute accepts an RxObserver <code>planes$</code> , <code>ac-layer</code> will subscribe to the observer
+and will handle all updates for you.</li>
+</ul>
+</li>
+<li><p>Add descriptions components to determine which entity to render,
+in our example: <code>ac-billboard</code> and <code>ac-label</code> .</p>
+<ul>
+<li>This example will render a billboard(icon) and label for each plane in the stream.</li>
+<li><code>props</code> accepts the same member options as cesium corresponding class.
+For example <code>ac-billboard-desc</code> accepts same members as <a href="https://cesiumjs.org/refdoc.html">cesium Billboard</a>.</li>
+</ul>
+</li>
+</ul>
+<p>For better understading check out the <a href="https://docs.angular-cesium.com/core-concepts/ac-layer">layer guide</a></p>
+<h2>Supported Entity types</h2>
+<ul>
+<li>billboard - <a href="https://eliorar.github.io/angular-cesium/components/AcBillboardDescComponent.html"><code>ac-billboard-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcBillboardComponent.html"><code>ac-billboard</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcBillboardPrimitiveDescComponent.html"><code>ac-billboard-primitive-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-billboard-example?embed=1&file=src/app/billboard-layer-example/billboard-layer-example.component.ts">stackblitz</a></li>
+<li>label - <a href="https://eliorar.github.io/angular-cesium/components/AcLabelDescComponent.html"><code>ac-label-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcLabelComponent.html"><code>ac-label</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcLabelPrimitiveDescComponent.html"><code>ac-label-primitive-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-demo-label-example?embed=1&file=src/app/label-layer-example/label-layer-example.component.ts">stackblitz</a></li>
+<li>polyline - <a href="https://eliorar.github.io/angular-cesium/components/AcPolylineDescComponent.html"><code>ac-polyline-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcPolylineComponent.html"><code>ac-polyline</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcPolylinePrimitiveDescComponent.html"><code>ac-polyline-primitive-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-polyline-example?embed=1&file=src/app/polyline-layer-example/polyline-layer-example.component.ts">stackblitz</a></li>
+<li>point - <a href="https://eliorar.github.io/angular-cesium/components/AcPointDescComponent.html"><code>ac-point-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcPointComponent.html"><code>ac-point</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcPointPrimitiveDescComponent.html"><code>ac-primitive-point</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-point-example?embed=1&file=src/app/point-layer-example/mock-data-provider.service.ts">stackblitz</a></li>
+<li>ellipse - <a href="https://eliorar.github.io/angular-cesium/components/AcEllipseDescComponent.html"><code>ac-ellipse-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcEllipseComponent.html"><code>ac-ellipse</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts">stackbliz</a> - <a href="https://stackblitz.com/edit/angular-cesium-demo-ellipse?embed=1&file=src/app/ellipse-layer/ellipse-layer-example.component.ts">stackblitz</a></li>
+<li>circle - <a href="https://eliorar.github.io/angular-cesium/components/AcCircleDescComponent.html"><code>ac-circle-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcCircleComponent.html"><code>ac-circle</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts">stackblitz</a> *Same API as ellipse, but accepting a radius instead of semiMajorAxis and semiMinorAxis - <a href="https://stackblitz.com/edit/angular-cesium-circle-example?embed=1&file=src/app/circle-layer-example/circle-layer-example.component.ts">stackblitz</a></li>
+<li>polygon - <a href="https://eliorar.github.io/angular-cesium/components/AcPolygonDescComponent.html"><code>ac-polygon-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcPolygonComponent.html"><code>ac-polygon</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-polygon-example?embed=1&file=src/app/polygon-layer-example/polygon-layer-example.component.ts">stackblitz</a> </li>
+<li>model - <a href="https://eliorar.github.io/angular-cesium/components/AcModelDescComponent.html"><code>ac-model-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-model-example?embed=1&file=src/app/models-layer-example/models-layer-example.component.ts">stackblitz</a></li>
+<li>box - <a href="https://eliorar.github.io/angular-cesium/components/AcBoxDescComponent.html"><code>ac-box-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-box-example?embed=1&file=src/app/boxes-layer/boxes-layer.component.ts">stackblitz</a></li>
+<li>corridor -<a href="https://eliorar.github.io/angular-cesium/components/AcCorridorDescComponent.html"><code>ac-corridor-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-demo?embed=1&file=src/app/hippodrome-layer/hippodrome-layer-example.component.ts">stackblitz</a></li>
+<li>cylinder - <a href="https://eliorar.github.io/angular-cesium/components/AcCylinderDescComponent.html"><code>ac-cylinder-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-cylinder-example?embed=1&file=src/app/cylinder-layer-example/cylinder-layer-example.component.ts">stackblitz</a></li>
+<li>ellipsoid - <a href="https://eliorar.github.io/angular-cesium/components/AcEllipsoidDescComponent.html"><code>ac-ellipsoid-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-ellipsoid-example?embed=1&file=src/app/ellipsoid-layer-example/ellipsoid-layer-example.component.ts">stackblitz</a></li>
+<li>polyline volume - <a href="https://eliorar.github.io/angular-cesium/components/AcPolylineVolumeDescComponent.html"><code>ac-polyline-volume-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-polyline-volume-example?embed=1&file=src/app/polyline-volume-layer-example/polyline-volume-layer-example.component.ts">stackblitz</a></li>
+<li>wall - <a href="https://eliorar.github.io/angular-cesium/components/AcWallDescComponent.html"><code>ac-wall-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-wall-example?embed=1&file=src/app/wall-layer-example/wall-layer-example.component.ts">stackblitz</a></li>
+<li>rectangle -<a href="https://eliorar.github.io/angular-cesium/components/AcRectangleDescComponent.html"><code>ac-rectangle-decc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-rectangle-example?embed=1&file=src/app/rectangle-layer-example/rectangle-layer-example.component.ts">stackblitz</a></li>
+</ul>
+<ul>
+<li>html - <a href="https://eliorar.github.io/angular-cesium/components/AcHtmlDescComponent.html"><code>ac-html-desc</code></a> / <a href="https://eliorar.github.io/angular-cesium/components/AcHtmlComponent.html"><code>ac-html</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-html-example?embed=1&file=src/app/html-layer/html-example.component.ts">stackblitz</a></li>
+</ul>
+<ul>
+<li>arc -<a href="https://eliorar.github.io/angular-cesium/components/AcArcDescComponent.html"><code>ac-arc-dec</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-arc-example?embed=1&file=src/app/arc-layer/arc-layer-example.component.ts">stackblitz</a></li>
+</ul>
+<ul>
+<li>array - <a href="https://eliorar.github.io/angular-cesium/components/AcArrayDescComponent.html"><code>ac-array-desc</code></a> - <a href="https://stackblitz.com/edit/angular-cesium-demo-arrays?embed=1&file=src/app/entities-with-arrays/entities-with-arrays-example.component.ts">stackblitz</a></li>
+<li>czmlPacket - <a href="https://eliorar.github.io/angular-cesium/components/AcCzmlDescComponent.html"><code>ac-czml-desc</code></a></li>
+</ul>
+<h2>Map Events</h2>
+<p><code>MapEventsManagerService</code> is a util service for managing all the map events (Click, Mouse_up...), it expose easy API for entity selection, event priority management
+and adds custom events (drag and drop, long press).</p>
+<p>Usage:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">&#64;Component(...)
+export class SomeComponent{
+  constructor(private eventManager: MapEventsManagerService){
+
+    // Input about the wanted event
+    const eventRegistration: EventRegistrationInput = {
+      event: CesiumEvent.LEFT_CLICK, // event type enum. [required!]
+      modifier: CesiumEventModifier.CTRL, // event modifier enum. [optional]
+      entityType: AcEntity, // raise event only if AcEntity is clicked. [optional]
+      priority: 0, // event priority, default 0 . [optional]
+      pick: PickOptions.PICK_FIRST // entity pick option, default PickOptions.NO_PICK. [optional]
+    };
+    const clickEvent = this.eventManager.register(eventRegistration).subscribe((result) =&gt; {
+          // The EventResult will contain:
+          // movement(screen location of the event), entities(your entities) , primitives( cesium primitives, like label,billboard...)
+          console.log(&#39;map click&#39;, result.movement, &#39;primitives:&#39;, result.primitives, &#39;entities&#39;, result.entities);
+        });
+  }
+}</code></pre></div><p>For further details check the <a href="https://docs.angular-cesium.com/guides/map-events">map events guide</a></p>
+<h3>Map layers</h3>
+<p>With angular cesium you can define your map provider in a declarative way using <code>ac-map-layer-provider</code> :</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">    &lt;ac-map-layer-provider *ngIf=&quot;appSettingsService.showMapLayer&quot; [provider]=&quot;MapLayerProviderOptions.ArcGisMapServer&quot;
+                           [options]=&quot;{
+                                url : &#39;https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer&#39;
+                            }&quot;&gt;
+    &lt;/ac-map-layer-provider&gt;</code></pre></div><ul>
+<li>All cesium imagery map layers are supported , defined with <code>[provider]</code> according to the <code>MapLayerProviderOptions</code> enum</li>
+<li>Pass additional configuration to <code>[options]</code> . <code>url</code> is mandatory.</li>
+<li>Support multi map layers, map ordering and map image layer configuration.</li>
+<li>Check out usage example from our demo <a href="https://github.com/TGFTech/angular-cesium/blob/master/demo/app/components/maps-layer/maps-provider-example.component.html">here</a></li>
+</ul>
+<h3>3d Tiles</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">   &lt;ac-3d-tile-layer
+       *ngIf=&quot;appSettingsService.show3dtiles&quot;
+       [options]=&quot;{
+         url: &#39;https://beta.cesium.com/api/assets/1461?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYWJmM2MzNS02OWM5LTQ3OWItYjEyYS0xZmNlODM5ZDNkMTYiLCJpZCI6NDQsImFzc2V0cyI6WzE0NjFdLCJpYXQiOjE0OTkyNjQ3NDN9.vuR75SqPDKcggvUrG_vpx0Av02jdiAxnnB1fNf-9f7s&#39;
+       }&quot;&gt;
+   &lt;/ac-3d-tile-layer&gt;</code></pre></div><h3>Multiple maps support</h3>
+<p>Angular Cesium supports integration of multiple maps, for more details <a href="https://docs.angular-cesium.com/guides/multiple-maps-sync">here</a></p>
+<h3>MapLayerProviderOptions Updates</h3>
+<p><code>MapboxStyleImageryProvider</code> has been added to <code>MapLayerProviderOptions</code> for mapBox styles support. </p>
+<p>Component Usage:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript">  import{ MapLayerProviderOptions } from &#39;angular-cesium&#39;
+  &#64;Component(...)
+  class SomeComponent{
+    mapboxStyleImageryProvider = MapLayerProviderOptions.MapboxStyleImageryProvider</code></pre></div><p>Template Usage:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;ac-map&gt;
+  &lt;ac-map-layer-provider 
+  [provider]=&quot;mapboxStyleImageryProvider&quot;
+  [options]=&quot;{
+      styleId:&#39;style id from mapbox style dashboard item&#39;,
+      url:&#39;https://api.mapbox.com/styles/v1/&#39;,
+      username:&#39;your user name&#39;,
+      scaleFactor:&#39;&#64;2x&#39;,
+      tilesize:&#39;512&#39;,
+      accessToken : &#39;your access token from map box&#39;
+    }&quot;&gt;   
+  &lt;/ac-map-layer-provider&gt; 
+&lt;/ac-map&gt;</code></pre></div><h3>Camera</h3>
+<h4><a href="https://docs.angular-cesium.com/guides/camera-keyboard-control">Camera Keyboard Control Service</a></h4>
+<p>Service that manages keyboard keys and execute actions per request. Inject the keyboard control service into any layer, under your ac-map component, And defined you keyboard handlers using setKeyboardControls.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-javascript"> this.keyboardControlService.setKeyboardControls({
+      W: { action: KeyboardAction.CAMERA_FORWARD },
+      S: { action: KeyboardAction.CAMERA_BACKWARD },
+      D: { action: KeyboardAction.CAMERA_RIGHT },
+      A: { action: KeyboardAction.CAMERA_LEFT },
+    },
+</code></pre></div><h4><a href="https://docs.angular-cesium.com/guides/camera-controls">CameraService</a></h4>
+<p>Util service that wraps cesium camera, exposes the scene&#39;s camera and screenSpaceCameraController.</p>
+<h3>MapsManagerService</h3>
+<p>Angular Cesium extends cesium api and expose additional features, but if you want to use pure cesium api you can use <a href="https://articodeltd.github.io/angular-cesium/injectables/MapsManagerService.html">MapsManagerService</a> to receive cesium <a href="https://cesiumjs.org/Cesium/Build/Documentation/Viewer.html">viewer</a> or any other util service that was created by <code>ac-map</code>.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">class MyComp {
+constructor(mapsManagerService: MapsManagerService)
+    const viewer = mapsManagerService.getMap().getCesiumViewer();
+    const mapEventManager = mapsManagerService.getMap().getMapEventsManager();
+    const cameraService = mapsManagerService.getMap().getCameraService();
+}</code></pre></div><p><code>MapsManagerService</code> manages all of the maps. The service exposes a <code>getMap()</code> function that can be used to retrieve a specific map by id.</p>
+<h4><a href="https://docs.angular-cesium.com/widgets/zoomto-rectangle">ZoomToRectangleService</a></h4>
+<p>A service that is used to activate a zooming tool that enables the user to draw a rectangle over the map and zoom into the drawn rectangle</p>
+<h3>Geometry Editors And Widgets</h3>
+<p>Part of <code>AngularCesiumWidgetsModule</code> are useful geometry editors tool:</p>
+<ul>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/circle-editor"><code>CirlcesEditorService</code></a> - for drawing circles</li>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/ellipse-editor"><code>EllipsesEditorService</code></a> - for drawing ellipses and circles</li>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/polyline-editor"><code>PolylinesEditorService</code></a> - for drawing polylines</li>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/polygon-editor"><code>PolygonsEditorService</code></a> - for drawing polygons</li>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/rectangle-editor"><code>RectanglesEditorService</code></a> - for drawing rectangles</li>
+<li><a href="https://docs.angular-cesium.com/widgets/shape-editors/hippodrome-editor"><code>HippodromeEditorService</code></a> - for drawing hippodromes (path in cesium)</li>
+</ul>
+<p>Check out the <a href="https://docs.angular-cesium.com/widgets/shape-editors">Geometry Editors Doc</a></p>
+<h3>ScreenshotService</h3>
+<p>Take screenshot of your cesium globe.</p>
+<h3>ContextMenuService - <a href="https://stackblitz.com/edit/angular-cesium-context-menu-example?embed=1&file=src/app/context-menu-layer/context-menu-layer.component.ts">stackblitz</a></h3>
+<p>create any custom angular component and anchor it to a map position, <a href="https://docs.angular-cesium.com/guides/context-menu-on-the-map">context menu guide</a>.</p>
+<h2>Documents</h2>
+<ul>
+<li><h4>Docs <a href="https://docs.angular-cesium.com/">https://docs.angular-cesium.com/</a></h4>
+</li>
+<li><h4><a href="https://articodeltd.github.io/angular-cesium/">Api Docs</a></h4>
+</li>
+</ul>
+<h2>License</h2>
+<p><a href="https://opensource.org/licenses/MIT">Mit License</a></p>
+<h2>Support</h2>
+<p>Angular Cesium is an open source project, feel free to open issues,ask questions and open PRs.
+For additional support options contact us: <a href="mailto:%5Ccontact@articode.co">contact@articode.co</a>.</p>
+<p>Articode is a software company that specializes in GIS solutions and is the creator and the maintainer of angular-cesium.
+Feel free to contact us for consulting or any business endeavors.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

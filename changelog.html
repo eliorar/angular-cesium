@@ -1,0 +1,735 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content changelog">
+                   <div class="content-data">
+
+
+
+<h2>0.74</h2>
+<h3>Features</h3>
+<ul>
+<li>Added the ability to use ground polyline primitives to improve performance<ul>
+<li>Ground polyline primitives can be used: <ul>
+<li>as the outline of polygons in polygon editor </li>
+<li>as the line in polyline editor</li>
+</ul>
+</li>
+<li>Can be enabled by setting the <code>useGroundPrimitiveOutline</code> parameter to <code>true</code> (default is <code>false</code>) in  <ul>
+<li><code>PolygonEditOptions.polylineProps</code> </li>
+<li><code>PolylineEditOptions.polylineProps</code></li>
+</ul>
+</li>
+<li>Please note:<ul>
+<li>To use this feature you must wait for the following promise to resolve <code>Cesium.GroundPolylinePrimitive.initializeTerrainHeights()</code></li>
+<li>Material parameter can be only of type <code>Cesium.Color</code>. Any other type of material may not work</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>0.73</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Enhance moving point in editors fix for tablets to accomodate inaccurate taps</li>
+</ul>
+<h2>0.72</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix update moving point on editors that don&#39;t work properly in tablets</li>
+</ul>
+<h2>0.71</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix drag event mistaken for long press event #390</li>
+</ul>
+<h2>0.71</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix update moving point on editors that don&#39;t work properly in tablets #385</li>
+</ul>
+<h2>0.69</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>finishCreation()</code> missing functionality for <code>PolygonEditorService</code> and <code>PolylineEditorService</code></li>
+</ul>
+<h2>0.68</h2>
+<h3>Features</h3>
+<ul>
+<li>Add <code>finishCreation()</code> functionality to shape editors to allow users to finish creation programmatically. </li>
+<li>Update dependencies</li>
+</ul>
+<h2>0.67</h2>
+<h3>Features</h3>
+<ul>
+<li>Upgrade to Angular 11</li>
+</ul>
+<h2>0.66</h2>
+<h3>Feautures</h3>
+<ul>
+<li>Add in <code>MapboxStyleImageryProvider</code> functionality</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>HippodromeEditorObservable</code> using wrong interface</li>
+<li>Fix <code>ContextMenuService</code> can&#39;t create instance bug - replace <code>div</code> with <code>ng-template</code></li>
+<li>Fix <code>viewer.destroy()</code> throwing exception <code>TypeError: e[i].destroy is not a function</code>. Added missing <code>destroy()</code> to <code>HtmlCollection</code>.</li>
+<li>Fix Editors <code>dispose()</code> issue when component is destroyed.</li>
+<li>Fix Rectangle editor <code>edit()</code>.</li>
+</ul>
+<h2>0.65</h2>
+<h3>Features</h3>
+<ul>
+<li>Upgrade to Angular 9 (Ivy)</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix EllipseEditorObservable Disposing throws <code>undefined</code> error</li>
+<li>Fix Cesium breaking change with <code>createTileMapServiceImageryProvider</code> and <code>createOpenStreetMapImageryProvider</code>.</li>
+</ul>
+<h3>Breaking changes</h3>
+<ul>
+<li><code>CesiumHeatMapMaterialCreator</code> removed to avoid compilation warnings. TBD: publish as external library.</li>
+</ul>
+<h2>0.64</h2>
+<h3>Features</h3>
+<ul>
+<li>Add points-editor component, model, and service. <code>Points</code> are now first class components that support entity features, such as labels and enable/disable.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix shape editor drag feature - in disable mode dont disable cesium camera rotation.</li>
+</ul>
+<h2>0.63</h2>
+<h3>Features</h3>
+<ul>
+<li>Refactor demo project and create: <a href="https://github.com/articodeltd/angular-cesium-demo">https://github.com/articodeltd/angular-cesium-demo</a></li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>ng add angular-cesium</code></li>
+</ul>
+<h2>0.62</h2>
+<h3>Features</h3>
+<ul>
+<li>Add more stackblitz examples and refactor the demo examples.</li>
+<li>Change Circle, Ellipse and Hippodrome default point color changed to white.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>ng add angular-cesium</code></li>
+</ul>
+<h2>0.61</h2>
+<h3>Features</h3>
+<ul>
+<li>Add <code>PickConfiguration</code> for <code>MapEventManager</code> for setting <code>pick()</code> width, height and <code>drillPick()</code> limit.</li>
+<li>Add support for Polyline and Polygon editors to clamp most detailed ground in <code>clampHeightTo3D</code> mode.
+ using <code>clampHeightTo3DOptions.clampMostDetailed = true</code>.</li>
+<li>Add stackblitz examples to the docs.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Shape Editor default label <code>disableDepthTestDistance</code> changed to 0.</li>
+<li>Fix <code>AcHtml</code> toggle <code>show</code> created new html elements instead of updating the current element.</li>
+</ul>
+<h2>0.60</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Polyline and polygon editor - fix support of events modifiers (<code>alt</code>, <code>ctrl</code>, <code>shift</code>).</li>
+<li>Polyline and polygon editor - fix screen position to geo position.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Added a rectangle drawing editor widget</li>
+<li>Added an example rectangle component in the demo app</li>
+<li>Added <code>ac-map-terrain-provider</code> component which supports Cesium terrain providers</li>
+<li>Added <code>ac-map-terrain-provider</code> component to demo app to show it&#39;s usage</li>
+</ul>
+<h2>0.59</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>CameraService.trackEntity()</code> doc.</li>
+<li>Fix <code>AcHtmlDesc</code> remove.</li>
+<li>Add doc to the <code>ContextMenuService</code></li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Add support for terrain in Polygon and Polyline Editors.</li>
+<li>To enable terrain support: <code>this.polylineEditor.create({ clampHeightTo3D: true, clampHeightTo3DOptions: {clampToTerrain: true} });</code></li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li>Demo layers name change to <code>-example</code> suffix.</li>
+<li>Updated library and demo application to Angular 8</li>
+<li>Bumped CircleCI Node version to 10.16.1</li>
+</ul>
+<h2>0.58</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix AOT build - remove unwanted type in <code>PolygonEditorComponent</code> and <code>PolylinesEditorComponent</code>.</li>
+<li>Fix entity <code>availability</code> bug in <code>entities-drawer.service.ts </code></li>
+</ul>
+<h2>0.57</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>debug</code> prop to <code>ac-layer</code> component for printing received AcNotifications</li>
+<li>Polygon Editor and Polyline Editor support 3D tiles and terrain, to enable set <code>clampHeightTo3D</code> parameter to <code>true</code>.</li>
+<li>Added examples for 3D mode in <code>polyline-editor-layer.ts</code> and <code>polygon-editor-layer.ts</code>.</li>
+<li>Add Angular CLI schematics</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix <code>CameraService</code> zoomOut().</li>
+<li>Fix Shape editors not cloning geometries props </li>
+<li>Change Shape editor points to be shown above the lines (uses <code>disableDepthTestDistance</code> prop)</li>
+<li>Fixed demo app unit tests</li>
+<li>Updated README with instructions for including Cesium scripts in test config</li>
+<li>Added use of the &#39;availability&#39; field inside of the Cesium entity API</li>
+<li>Add <code>MapsManagerService</code> and other global service to be provided by <code>forRoot()</code> - for lazy loading.</li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li>Remove default <code>viewer</code> configuration (the defualt was setting offline map as the initial imagery).</li>
+<li>Change editors initial props - different color and outline.</li>
+<li>Change editors initial props - to use Cesium <code>CallbackProperties</code>.</li>
+</ul>
+<h2>0.56</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>onDrag</code> hook into the <code>ac-toolbar</code> component.</li>
+<li>Altered <code>ac-toolbar</code> to listen in to changes on its <code>allowDrag</code> input and subscribe/unsubscribe dynamically.</li>
+<li>Added threshold option to <code>ZoomToRectangleService</code> options.</li>
+<li>Added keepRotation option to <code>ZoomToRectangleService</code> options.</li>
+<li>Added mouseButton option to <code>ZoomToRectangleService</code> options.</li>
+</ul>
+<h2>0.55</h2>
+<h3>Features</h3>
+<ul>
+<li>New Angular CLI build system.</li>
+</ul>
+<h2>0.54</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed <code>ac-layer</code> onDestroy.</li>
+<li>Fixed <code>ac-map</code> onDestroy.</li>
+<li>Fixed <code>CircleEditorService</code> shape dragging.</li>
+<li>Fixed <code>ac-model-desc</code> docs <a href="https://github.com/TGFTech/angular-cesium/issues/243">#243</a>.</li>
+<li>Fixed entities drawing directly to map - without ac-layer <a href="https://github.com/TGFTech/angular-cesium/issues/212">#212</a>.</li>
+<li>Fixed plonter behavior.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Multiple <code>AcMap</code> support using <code>ngFor</code> - The optional <code>@Input() containerId</code> in <code>AcMap</code> can be used to place the map canvas in any container / move the canvas to a new container.</li>
+<li>New <code>bind2DMapsCameras()</code> function added to <code>MapsManagerService</code> for binding cameras position in different 2D maps.</li>
+<li>New <code>unbindMapsCameras()</code> function added to <code>MapsManagerService</code> for unbinding maps camera.</li>
+<li>New <code>setRotation()</code> function added to <code>CameraService</code>.</li>
+<li>New <code>lockRotation()</code> function added to <code>CameraService</code>.</li>
+<li>New <code>ZoomToRectangleService</code> was added to <code>AngularCesiumWidgetsModule</code> - a tool for zooming into a rectangle that is drawn on the map.</li>
+<li>Added initial support for <code>Cesium.CallbackProperty</code>.</li>
+<li>Added new ellipses shape editor that can be used to draw circles and ellipses.</li>
+</ul>
+<h2>0.53</h2>
+<h3>Features</h3>
+<ul>
+<li>New <code>&lt;ac-czml-desc&gt;</code> component for adding CzmlDataSource to ac-layer.</li>
+<li>New <code>czml-drawer</code> service </li>
+<li>New <code>&lt;czml-layer</code> component in demo app to show usage of <code>&lt;ac-czml-desc&gt;</code></li>
+<li>Support RxJs 6</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed AOT compilation for angular 6, the issue was with <code>angular2parse</code> reaching angular compiler pipes.</li>
+<li>Fixed Shape editors points zIndex in 2D.  </li>
+<li>Updated demo dependencies</li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li>From now Angular Pipes need to be set in <code>AngularCesiumModule.forRoot(ustomPipes: myCustomPipes)</code>.
+angular-cesium won&#39;t be aware of pipes that wont be defined as <code>customPipes</code>.
+There for any user Pipes need to be declared when initializing angular cesium.</li>
+<li>For upgrade to 0.53 from older versions remove <code>rxjs-compat</code> dependency and refactor to rxjs 6 new import paths.</li>
+</ul>
+<h2>0.0.52</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed shape editors 2D points bug - remove height reference</li>
+<li>Fixed polygon editor moving point updates</li>
+</ul>
+<h2>0.0.51</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed <code>package.json</code> engines section.</li>
+</ul>
+<h2>0.0.50</h2>
+<h3>Features</h3>
+<ul>
+<li>New <code>&lt;range-and-bearing&gt;</code> component that is used to to draw range &amp; bearing on the map.</li>
+<li>Refactored <code>KeyboardControlService</code> docs.</li>
+<li>Added <code>maximumNumberOfPoints</code> to <code>PolygonEditOptions</code> - you can now set maximum number of points when creating polygon using <code>PolygonEditorService</code> .</li>
+<li>Refactored <code>KeyboardControlService</code> docs. </li>
+<li>Added flyTo options to <code>CameraService.trackEntity()</code> + example in the demo.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li><code>ac-point-desc</code> changed to Entity instead of Primitive. For primitive use <code>ac-point-primitive-desc</code>.</li>
+</ul>
+<h2>0.0.49</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed mistakenly rejecting Observables from other contexts</li>
+<li>Fixed <code>ac-toolbar</code> onDestroy() <a href="https://github.com/TGFTech/angular-cesium/issues/217">#217</a>.</li>
+<li>Fixed <code>ac-html</code> element is shown when show initially set to false <a href="https://github.com/TGFTech/angular-cesium/issues/216">#216</a>.</li>
+<li>Changed <code>ellipse-drawer</code> service collection max size cap to 100</li>
+<li>Fixed <code>sim-generator</code> in demo server</li>
+<li>Changed <code>SmartAssigner</code> allowUndefined default from true to false</li>
+<li>Removed deprecated code in <code>ViewerFactory</code> that set CESIUM_BASE_URL if ti wasn&#39;t already set.</li>
+</ul>
+<h2>0.0.48</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed <code>ac-circle-desc</code> radius changing.</li>
+<li>Fixed <code>ac-ellipse-desc</code> &amp; <code>ac-circle-desc</code> updating bug</li>
+</ul>
+<h2>0.0.45</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Some minor fixes</li>
+</ul>
+<h2>0.0.43</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Improved shape editors performance</li>
+<li>Fixed undragable editable hippodrome</li>
+<li>Fixed editable hippodrome updating</li>
+<li>Fixed editing multiple shapes of the same type simultaneously</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Labels of editable shapes now update on mouse move</li>
+<li>Update Cesium version to 1.41.0</li>
+</ul>
+<h2>0.0.42</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed <code>PolygonsEditorService</code> shape drag</li>
+</ul>
+<h2>0.0.41</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>pickFilter</code> to <code>EventRegistrationInput</code> - you can now pass a filter function to <code>MapEventsManager.register()</code> - in order to filter the returned entities.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed editing of multiple shapes simultaneously</li>
+</ul>
+<h2>0.0.40</h2>
+<h3>Features</h3>
+<ul>
+<li>Upgraded to Angular 5</li>
+<li>Fixed aot build</li>
+</ul>
+<h2>0.0.39</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fix range and bearing example</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Added <code>ac-primitive-polyline</code> - Using primitive drawer</li>
+</ul>
+<h2>0.0.37</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Html Primitive - change primitive screen position to Cesium.Cartesian2</li>
+<li>Fix demo typescript compilation</li>
+<li>Fix project implicit any</li>
+<li>Change <code>ngOutletContext</code> to <code>ngTemplateOutletContext</code></li>
+</ul>
+<h2>0.0.36</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Hippodrome Editor - Expose hippodrome width</li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li><code>HippodromeEditorService</code> is no longer provided by <code>AngularCesiumWidgetsModule</code>, user should provide it himself</li>
+<li><code>CircleEditorService</code> is no longer provided by <code>AngularCesiumWidgetsModule</code>, user should provide it himself</li>
+<li><code>PolylineEditorService</code> is no longer provided by <code>AngularCesiumWidgetsModule</code>, user should provide it himself</li>
+<li><code>PolygonEditorService</code> is no longer provided by <code>AngularCesiumWidgetsModule</code>, user should provide it himself</li>
+</ul>
+<h2>0.0.35</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>calcEllipseContainingRect</code> static function to <code>CesiumHeatMapMaterialCreator</code></li>
+<li>Added <code>ac-toolbar</code> and <code>ac-toolbar-button</code> components</li>
+<li>Added toolbar example and flyTo home toolbar option</li>
+<li>Added Range and bearing example</li>
+</ul>
+<h3>Breaking changes</h3>
+<ul>
+<li><code>AngularCesiumEntitiesDrawerModule</code> refactored to <code>AngularCesiumWigetsModule</code></li>
+</ul>
+<h2>0.0.34</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed a bug in editors.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Added customizable labels to shape editors.</li>
+<li>Added <code>DraggableToMapDirective</code> directive for dragging icons from outside the map over the map.</li>
+<li>Added <code>IconDragService</code> service that exposes an observable that listens to dragging with <code>DraggableToMapDirective</code>.</li>
+</ul>
+<h2>0.0.33</h2>
+<h2>Fixes</h2>
+<ul>
+<li>fix missing Cartesian3 typings</li>
+</ul>
+<h2>0.0.32</h2>
+<h3>Features</h3>
+<ul>
+<li>Polyline edtior supports drag shape events.</li>
+<li>Add ability to change width to Hippodrome editor</li>
+<li>Added <code>ac-array-desc</code> for representing dynamic arrays in entity - ALPHA</li>
+</ul>
+<h2>Fixes</h2>
+<ul>
+<li>Hippodrome editor - setManually supports positions and hippodrome width.</li>
+<li>Fixed Polygons Editing  bug that happened when dragging a point.</li>
+<li>Fixed Polyline Editing bug that happened when dragging a point.</li>
+<li>Fixed <code>EntitesDrawerService</code> show prop bug.</li>
+</ul>
+<h2>Breaking changes</h2>
+<ul>
+<li>Observer Editors methods: <code>setPolygonManually()</code>, <code>setPolylineManually()</code>,<code>setCircleManually()</code>,<code>setHippodromeManually()</code> changed to: <code>setManually()</code>.
+Each shape accepts here own specific arguments to configure the edited object, for example: <code>polygonEditor$.setManaually(positions, pointOptions, polygonOptions)</code>.</li>
+</ul>
+<h2>0.0.31</h2>
+<h3>Features</h3>
+<ul>
+<li>All editors now except allowDrag option to allow or disable the ability to drag the edited shape.</li>
+<li>Added options to circle editor  - <code>CircleEditOptions</code>.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fix hippodrome editor outline bug.</li>
+<li>Fixed bug that caused polygons hiding to throw an error if they had outline.</li>
+</ul>
+<h2>0.0.30</h2>
+<h3>Fixes</h3>
+<ul>
+<li>Service init order  <a href="https://github.com/TGFTech/angular-cesium/issues/131">#131</a></li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>Added <code>selectionManagerService</code> and example in selection-layer.component.ts</li>
+<li>Added context menu service that allows dynamic injection of custom components.</li>
+<li>Added Polyline editor <code>PolylinesEditorService</code> - allow for creating polylines and editing them from the map of from the code.</li>
+<li>Added Circle editor <code>CirclesEditorService</code> - allow for creating circles and editing them from the map of from the code.</li>
+<li>Added Hippodrome editor <code>HippodromeEditorService</code> - allow for creating hippodromes and editing them from the map of from the code.</li>
+<li>Added <code>CesiumHeatMapMaterialCreator</code> for creating heatmap material for cesium entities.</li>
+<li>edited polygons are now draggable.</li>
+<li>added <code>ac-point-primitive-desc</code></li>
+<li>added <code>ac-html-desc</code> - ac-layer supports ac-html</li>
+</ul>
+<h2>0.0.29</h2>
+<h3>Features</h3>
+<ul>
+<li>polygon editor(alpha) - edit points manually.</li>
+</ul>
+<h2>0.0.28</h2>
+<h3>Features</h3>
+<ul>
+<li>polygon editor(alpha) - edit mode, disable,enable, add points to the editor result.</li>
+</ul>
+<h2>0.0.26</h2>
+<h3>Features</h3>
+<ul>
+<li>added screenshot service</li>
+<li>polygon editor - alpha</li>
+</ul>
+<h2>0.0.25</h2>
+<h3>Fixes</h3>
+<ul>
+<li>fix draw on map example</li>
+</ul>
+<h2>0.0.21</h2>
+<h3>Features</h3>
+<ul>
+<li>Allow <code>KeyboardControlService</code> to run outside of angular zone.</li>
+</ul>
+<h2>0.0.20</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>enableInput()</code>, <code>enableZoom()</code> to <code>CameraService</code>.</li>
+</ul>
+<h3>Fixes</h3>
+<ul>
+<li>Fixed bug removed default height 0</li>
+<li>Fixed AngularCesiumModule loading</li>
+<li>Fixed <code>npm run server</code></li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li>Renamed <code>ModuleOptions</code> to <code>ModuleConfiguration</code>.</li>
+</ul>
+<h2>0.0.19</h2>
+<h3>Features</h3>
+<ul>
+<li>Added <code>done</code> callback to <code>KeyboardControlService</code> definitions - now it&#39;s possible to know when the event is done.</li>
+<li>Added internal <code>IGNORED</code> state to <code>KeyboardControlService</code> - now when action returns <code>false</code> it will ignore it until the next event cycle (keydown then keyup)</li>
+<li>Added zIndex to <code>&lt;ac-layer [zIndex]=&quot;1&quot;/&gt;</code>, ability to control the layers order.</li>
+<li>Added <code>CameraService</code> that is provided by <code>ac-map</code>. The service exposes the scene&#39;s camera and screenSpaceCameraController.</li>
+<li>Added <code>[sceneMode]</code> attribute to <code>ac-map</code> .</li>
+<li>Added new components: <code>ac-billboard-primitive-desc</code>, <code>ac-label-primitive-desc</code>, <code>ac-polyline-primitive-desc</code>. The components uses Cesium Primitives for performance efficient drawing of map entities.</li>
+</ul>
+<h3>Breaking Changes</h3>
+<ul>
+<li>Event triggered from <code>KeyboardControlService</code> is now triggered with <code>cesiumService: CesiumService, key: string, keyboardEvent: KeyboardEvent</code>.</li>
+<li>CesiumService no longer supports camera actions such as <code>setEnableTilt</code>, <code>setMaximumZoom</code>, etc... - instead use CameraService that is provided by <code>ac-map</code>.</li>
+<li><code>ac-map</code> function <code>getMapEventManager()</code> renamed to <code>getMapEventsManager()</code></li>
+<li><code>maximumZoom</code>, <code>minimumZoom</code> and <code>enableTilt</code> attributes in <code>ac-map</code> were removed. use <code>CameraService</code> instead.</li>
+<li><code>ViewersManagerService</code> renamed into <code>MapsManagerService</code>. It now manage ac-map instances. Internal functions changed accordingly to <code>getMap()</code> and <code>registerMap()</code>. The logic remained the same.</li>
+<li><code>AngularCesiumModule</code> should be loaded with <code>.forRoot()</code>. Additionally, <code>AngularCesiumModule.forRoot()</code> takes options of type <code>ModuleOptions</code>. Fixes cesium <a href="https://github.com/AnalyticalGraphicsInc/cesium/pull/5736">bug</a> (height=0 on entities creates entities with shadows,shadows cant be turn off).</li>
+</ul>
+<h2>0.0.18</h2>
+<h3>Features</h3>
+<ul>
+<li>Exposed <code>onDraw</code> and <code>onRemove</code> for <code>BasicDesc</code> component - now it&#39;s possible to know when an Cesium object is drawn.</li>
+<li>Exposed <code>getCesiumObjectsMap</code> from <code>BasicDesc</code> component.</li>
+<li>Added drag and drop event to <code>MapEventManagerService</code></li>
+<li>Added new drawable entities:<ul>
+<li><code>ac-box-dec</code></li>
+<li><code>ac-corridor-dec</code></li>
+<li><code>ac-cylinder-dec</code></li>
+<li><code>ac-ellipsoid-dec</code></li>
+<li><code>ac-polyline-volume-dec</code></li>
+<li><code>ac-wall-dec</code></li>
+<li><code>ac-rectangle-dec</code></li>
+</ul>
+</li>
+</ul>
+<h2>0.0.15</h2>
+<h3>Features</h3>
+<ul>
+<li>Expose <code>MapEventManagerService</code> from <code>&lt;ac-map #map/&gt;</code> component reference: <code>acMapComponent.getMapEventManager()</code></li>
+<li>New <code>KeyboardControlService</code> for controlling the camera using the keyboard</li>
+<li>add <code>&lt;ac-3d-tile-layer/&gt;</code> for 3d tiles</li>
+</ul>
+<h2>0.0.14</h2>
+<h3>Breaking changes</h3>
+<ul>
+<li>deprecated:<ul>
+<li>AcStaticEllipseDescComponent, instead use <code>ac-ellipse-desc</code></li>
+<li>AcDynamicPolylineDescComponent, instead use <code>ac-polyline-desc</code></li>
+<li>AcStaticPolylineDescComponent, instead use <code>ac-polyline-desc</code></li>
+<li>AcStaticCircleDescComponent, instead use <code>ac-circle-desc</code></li>
+<li>AcStaticPolygonDescComponent, instead use <code>ac-polygon-desc</code></li>
+</ul>
+</li>
+<li>MapEventManagerService: EventResult.primitives changed to EventResult.cesiumEntities</li>
+<li><code>ac-polyline-desc</code> and <code>ac-polyline</code> accept Cesium.Color as material in props input.</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>support models <code>ac-model-desc</code></li>
+</ul>
+<h2>0.0.13</h2>
+<h3>Features</h3>
+<ul>
+<li>ac-map-layer-provider - Support all cesium imagery providers</li>
+<li>Expose cesium viewer through ViewesManagerService and <code>ac-map</code></li>
+</ul>
+<h2>0.0.12 (30-7-17)</h2>
+<h3>Breaking changes</h3>
+<ul>
+<li>AcEntity id filed changed to string from number</li>
+<li>AcNotification id filed changed to string from number</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'changelog';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

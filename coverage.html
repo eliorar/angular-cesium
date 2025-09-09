@@ -1,0 +1,3123 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/CirclesEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/circles-editor/circles-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CirclesEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/EllipsesEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/ellipses-editor/ellipses-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>EllipsesEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/HippodromeEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/hippodrome-editor/hippodrome-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>HippodromeEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/PointsEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/points-editor/points-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PointsEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/PolygonsEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/polygons-editor/polygons-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PolygonsEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/PolylinesEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/polylines-editor/polylines-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PolylinesEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/RangeAndBearingComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/range-and-bearing/range-and-bearing.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RangeAndBearingComponent</td>
+            <td align="right" data-sort="10">
+                <span class="coverage-percent">10 %</span>
+                <span class="coverage-count">(1/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/RangeAndBearingOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/range-and-bearing/range-and-bearing.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RangeAndBearingOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/RectanglesEditorComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/rectangles-editor/rectangles-editor.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RectanglesEditorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcToolbarButtonComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/toolbar/ac-toolbar-button/ac-toolbar-button.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcToolbarButtonComponent</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcToolbarComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/toolbar/ac-toolbar/ac-toolbar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcToolbarComponent</td>
+            <td align="right" data-sort="6">
+                <span class="coverage-percent">6 %</span>
+                <span class="coverage-count">(1/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/DragIconComponent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/components/toolbar/ac-toolbar/drag-icon.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>DragIconComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./directives/DraggableToMapDirective.html">projects/angular-cesium/src/lib/angular-cesium-widgets/directives/draggable-to-map.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>DraggableToMapDirective</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/BasicEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/basic-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>BasicEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CircleEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/circle-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CircleEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CircleEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/circle-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CircleEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/CircleEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/circle-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>CircleEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditArc.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-arc.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditArc</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditPoint.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-point.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditPoint</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditPolyline.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/edit-polyline.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditPolyline</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditableCircle.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-circle.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditableCircle</td>
+            <td align="right" data-sort="3">
+                <span class="coverage-percent">3 %</span>
+                <span class="coverage-count">(1/30)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditableEllipse.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-ellipse.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditableEllipse</td>
+            <td align="right" data-sort="2">
+                <span class="coverage-percent">2 %</span>
+                <span class="coverage-count">(1/39)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditableHippodrome.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-hippodrome.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditableHippodrome</td>
+            <td align="right" data-sort="2">
+                <span class="coverage-percent">2 %</span>
+                <span class="coverage-count">(1/36)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditablePoint.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-point.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditablePoint</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PositionWithPointProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-point.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PositionWithPointProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditablePolygon.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-polygon.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditablePolygon</td>
+            <td align="right" data-sort="2">
+                <span class="coverage-percent">2 %</span>
+                <span class="coverage-count">(1/40)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditablePolyline.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-polyline.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditablePolyline</td>
+            <td align="right" data-sort="2">
+                <span class="coverage-percent">2 %</span>
+                <span class="coverage-count">(1/39)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditableRectangle.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editable-rectangle.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditableRectangle</td>
+            <td align="right" data-sort="2">
+                <span class="coverage-percent">2 %</span>
+                <span class="coverage-count">(1/34)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EditorEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editor-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EditorEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>EditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EllipseEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/ellipse-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EllipseEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EllipseProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/ellipse-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EllipseProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EllipseEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/ellipse-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EllipseEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EllipseEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/ellipse-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>EllipseEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HippodromeEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/hippodrome-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HippodromeEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HippodromeProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/hippodrome-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HippodromeProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HippodromeEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/hippodrome-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HippodromeEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/HippodromeEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/hippodrome-editor-oboservable.ts</a>
+            </td>
+            <td>class</td>
+            <td>HippodromeEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/LabelProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/label-props.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LabelProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/23)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/LabelStyle.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/label-props.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LabelStyle</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/22)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#defaultLabelProps">projects/angular-cesium/src/lib/angular-cesium-widgets/models/label-props.ts</a>
+            </td>
+            <td>variable</td>
+            <td>defaultLabelProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PointEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/point-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PointEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PointProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/point-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PointProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PointEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/point-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PointEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/PointEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/point-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>PointEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolygonEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polygon-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolygonEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolygonProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polygon-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolygonProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolygonEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polygon-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolygonEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/PolygonEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polygon-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>PolygonEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ClampTo3DOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polyline-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ClampTo3DOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolylineEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polyline-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolylineEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolylineProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polyline-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolylineProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PolylineEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polyline-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PolylineEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/PolylineEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/polyline-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>PolylineEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/RectangleEditOptions.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/rectangle-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RectangleEditOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/RectangleProps.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/rectangle-edit-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RectangleProps</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/RectangleEditUpdate.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/rectangle-edit-update.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RectangleEditUpdate</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/RectangleEditorObservable.html">projects/angular-cesium/src/lib/angular-cesium-widgets/models/rectangle-editor-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>RectangleEditorObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/DraggableToMapService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/draggable-to-map.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DraggableToMapService</td>
+            <td align="right" data-sort="9">
+                <span class="coverage-percent">9 %</span>
+                <span class="coverage-count">(1/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/IconDragEvent.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/draggable-to-map.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IconDragEvent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CirclesEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/circles-editor/circles-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CirclesEditorService</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_CIRCLE_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/circles-editor/circles-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_CIRCLE_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CirclesManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/circles-editor/circles-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CirclesManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/EllipsesEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/ellipses-editor/ellipses-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>EllipsesEditorService</td>
+            <td align="right" data-sort="4">
+                <span class="coverage-percent">4 %</span>
+                <span class="coverage-count">(1/21)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_ELLIPSE_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/ellipses-editor/ellipses-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_ELLIPSE_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/EllipsesManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/ellipses-editor/ellipses-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>EllipsesManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/HippodromeEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/hippodrome-editor/hippodrome-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>HippodromeEditorService</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_HIPPODROME_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/hippodrome-editor/hippodrome-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_HIPPODROME_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/HippodromeManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/hippodrome-editor/hippodrome-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>HippodromeManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PointsEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/points-editor/points-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PointsEditorService</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_POINT_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/points-editor/points-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_POINT_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PointsManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/points-editor/points-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PointsManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolygonsEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polygons-editor/polygons-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolygonsEditorService</td>
+            <td align="right" data-sort="4">
+                <span class="coverage-percent">4 %</span>
+                <span class="coverage-count">(1/22)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_POLYGON_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polygons-editor/polygons-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_POLYGON_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolygonsManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polygons-editor/polygons-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolygonsManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolylinesEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polyline-editor/polylines-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolylinesEditorService</td>
+            <td align="right" data-sort="4">
+                <span class="coverage-percent">4 %</span>
+                <span class="coverage-count">(1/22)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_POLYLINE_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polyline-editor/polylines-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_POLYLINE_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolylinesManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/polyline-editor/polylines-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolylinesManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/RectanglesEditorService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/rectangles-editor/rectangles-editor.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RectanglesEditorService</td>
+            <td align="right" data-sort="5">
+                <span class="coverage-percent">5 %</span>
+                <span class="coverage-count">(1/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DEFAULT_RECTANGLE_OPTIONS">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/rectangles-editor/rectangles-editor.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DEFAULT_RECTANGLE_OPTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/RectanglesManagerService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/entity-editors/rectangles-editor/rectangles-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RectanglesManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#debounce">projects/angular-cesium/src/lib/angular-cesium-widgets/services/utils.ts</a>
+            </td>
+            <td>function</td>
+            <td>debounce</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#generateKey">projects/angular-cesium/src/lib/angular-cesium-widgets/services/utils.ts</a>
+            </td>
+            <td>function</td>
+            <td>generateKey</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ZoomToRectangleService.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/zoom-to-rectangle.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ZoomToRectangleService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ZoomData.html">projects/angular-cesium/src/lib/angular-cesium-widgets/services/zoom-to-rectangle.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ZoomData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ConfigurationService.html">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/ConfigurationService.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ConfigurationService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ANGULAR_CESIUM_CONFIG">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/ConfigurationService.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ANGULAR_CESIUM_CONFIG</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#Batch">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>function</td>
+            <td>Batch</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#fixCesiumEntitiesShadows">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>function</td>
+            <td>fixCesiumEntitiesShadows</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#colorScratch">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>variable</td>
+            <td>colorScratch</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#defaultDistanceDisplayCondition">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>variable</td>
+            <td>defaultDistanceDisplayCondition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#distanceDisplayConditionScratch">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>variable</td>
+            <td>distanceDisplayConditionScratch</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#wasFixed">projects/angular-cesium/src/lib/angular-cesium/cesium-enhancements/StaticGeometryColorBatch.ts</a>
+            </td>
+            <td>variable</td>
+            <td>wasFixed</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcTileset3dComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-3d-tileset/ac-tileset-3d.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcTileset3dComponent</td>
+            <td align="right" data-sort="45">
+                <span class="coverage-percent">45 %</span>
+                <span class="coverage-count">(5/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/angular-cesium/components/ac-3d-tileset/ac-tileset-3d.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcArcDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-arc-desc/ac-arc-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcArcDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcArcComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-arc/ac-arc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcArcComponent</td>
+            <td align="right" data-sort="6">
+                <span class="coverage-percent">6 %</span>
+                <span class="coverage-count">(1/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcArrayDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-array-desc/ac-array-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcArrayDescComponent</td>
+            <td align="right" data-sort="3">
+                <span class="coverage-percent">3 %</span>
+                <span class="coverage-count">(1/26)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcBillboardPrimitiveDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-billboard-primitive-desc/ac-billboard-primitive-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcBillboardPrimitiveDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcBillboardComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-billboard/ac-billboard.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcBillboardComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcBillboardDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-billborad-desc/ac-billborad-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcBillboardDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcBoxDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-box-desc/ac-box-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcBoxDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcCircleDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-circle-desc/ac-circle-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcCircleDescComponent</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcCircleComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-circle/ac-circle.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcCircleComponent</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcContextMenuWrapperComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-context-menu-wrapper/ac-context-menu-wrapper.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcContextMenuWrapperComponent</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcCorridorDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-corridor-desc/ac-corridor-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcCorridorDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcCylinderDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-cylinder-desc/ac-cylinder-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcCylinderDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcCzmlDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-czml-desc/ac-czml-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcCzmlDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcDefaultPlonterComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-default-plonter/ac-default-plonter.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcDefaultPlonterComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcEllipseDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-ellipse-desc/ac-ellipse-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcEllipseDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcEllipseComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-ellipse/ac-ellipse.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcEllipseComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcEllipsoidDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-ellipsoid-desc/ac-ellipsoid-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcEllipsoidDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcHtmlDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-html-desc/ac-html-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcHtmlDescComponent</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcHtmlComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-html/ac-html.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcHtmlComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcLabelDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-label-desc/ac-label-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcLabelDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcLabelPrimitiveDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-label-primitive-desc/ac-label-primitive-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcLabelPrimitiveDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcLabelComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-label/ac-label.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcLabelComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcLayerComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-layer/ac-layer.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcLayerComponent</td>
+            <td align="right" data-sort="26">
+                <span class="coverage-percent">26 %</span>
+                <span class="coverage-count">(9/34)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcMapLayerProviderComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-map-layer-provider/ac-map-layer-provider.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcMapLayerProviderComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(8/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/angular-cesium/components/ac-map-layer-provider/ac-map-layer-provider.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcMapTerrainProviderComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-map-terrain-provider/ac-map-terrain-provider.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcMapTerrainProviderComponent</td>
+            <td align="right" data-sort="40">
+                <span class="coverage-percent">40 %</span>
+                <span class="coverage-count">(4/10)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcMapComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-map/ac-map.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcMapComponent</td>
+            <td align="right" data-sort="26">
+                <span class="coverage-percent">26 %</span>
+                <span class="coverage-count">(6/23)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcModelDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-model-desc/ac-model-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcModelDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPointDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-point-desc/ac-point-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPointDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPointPrimitiveDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-point-primitive-desc/ac-point-primitive-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPointPrimitiveDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPointComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-point/ac-point.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPointComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolygonDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polygon-desc/ac-polygon-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolygonDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolygonComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polygon/ac-polygon.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolygonComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolylineDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polyline-desc/ac-polyline-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolylineDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolylinePrimitiveDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polyline-primitive-desc/ac-polyline-primitive-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolylinePrimitiveDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolylineVolumeDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polyline-volume-desc/ac-polyline-volume-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolylineVolumeDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPolylineComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-polyline/ac-polyline.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPolylineComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcPrimitivePolylineComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-primitive-polyline/ac-primitive-polyline.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcPrimitivePolylineComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcRectangleDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-rectangle-desc/ac-rectangle-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcRectangleDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcRectangleComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-rectangle/ac-rectangle.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcRectangleComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcWallDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/ac-wall-desc/ac-wall-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcWallDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcDynamicCircleDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-dynamic-circle-desc/ac-dynamic-circle-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcDynamicCircleDescComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcDynamicEllipseDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-dynamic-ellipse-desc/ac-dynamic-ellipse-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcDynamicEllipseDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcDynamicPolylineDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-dynamic-polyline-desc/ac-dynamic-polyline-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcDynamicPolylineDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcStaticCircleDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-static-circle-desc/ac-static-circle-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcStaticCircleDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcStaticEllipseDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-static-ellipse-desc/ac-static-ellipse-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcStaticEllipseDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcStaticPolygonDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-static-polygon-desc/ac-static-polygon-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcStaticPolygonDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/AcStaticPolylineDescComponent.html">projects/angular-cesium/src/lib/angular-cesium/components/static-dynamic/ac-static-polyline-desc/ac-static-polyline-desc.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AcStaticPolylineDescComponent</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./directives/AcHtmlContainerDirective.html">projects/angular-cesium/src/lib/angular-cesium/directives/ac-html-container/ac-html-container.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>AcHtmlContainerDirective</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./directives/AcHtmlDirective.html">projects/angular-cesium/src/lib/angular-cesium/directives/ac-html/ac-html.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>AcHtmlDirective</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/AcHtmlContext.html">projects/angular-cesium/src/lib/angular-cesium/directives/ac-html/ac-html.directive.ts</a>
+            </td>
+            <td>class</td>
+            <td>AcHtmlContext</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/angular-cesium/main.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/AcEntity.html">projects/angular-cesium/src/lib/angular-cesium/models/ac-entity.ts</a>
+            </td>
+            <td>class</td>
+            <td>AcEntity</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/BasicContextMenu.html">projects/angular-cesium/src/lib/angular-cesium/models/basic-context-menu.ts</a>
+            </td>
+            <td>interface</td>
+            <td>BasicContextMenu</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ContextMenuOptions.html">projects/angular-cesium/src/lib/angular-cesium/models/context-menu-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ContextMenuOptions</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/IDescription.html">projects/angular-cesium/src/lib/angular-cesium/models/description.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IDescription</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EntitiesDrawerOptions.html">projects/angular-cesium/src/lib/angular-cesium/models/entities-drawer-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EntitiesDrawerOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/LayerOptions.html">projects/angular-cesium/src/lib/angular-cesium/models/layer-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LayerOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/MapLayerProviderOptions.html">projects/angular-cesium/src/lib/angular-cesium/models/map-layer-provider-options.enum.ts</a>
+            </td>
+            <td>class</td>
+            <td>MapLayerProviderOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/MapTerrainProviderOptions.html">projects/angular-cesium/src/lib/angular-cesium/models/map-terrain-provider-options.enum.ts</a>
+            </td>
+            <td>class</td>
+            <td>MapTerrainProviderOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ModuleConfiguration.html">projects/angular-cesium/src/lib/angular-cesium/models/module-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ModuleConfiguration</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/Rectangle.html">projects/angular-cesium/src/lib/angular-cesium/models/rectangle.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Rectangle</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/Vec2.html">projects/angular-cesium/src/lib/angular-cesium/models/vec2.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Vec2</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/Vec3.html">projects/angular-cesium/src/lib/angular-cesium/models/vec3.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Vec3</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./pipes/PixelOffsetPipe.html">projects/angular-cesium/src/lib/angular-cesium/pipes/pixel-offset/pixel-offset.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>PixelOffsetPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./pipes/RadiansToDegreesPipe.html">projects/angular-cesium/src/lib/angular-cesium/pipes/radians-to-degrees/radians-to-degrees.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>RadiansToDegreesPipe</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/AcHtmlManager.html">projects/angular-cesium/src/lib/angular-cesium/services/ac-html-manager/ac-html-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AcHtmlManager</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CameraService.html">projects/angular-cesium/src/lib/angular-cesium/services/camera/camera.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CameraService</td>
+            <td align="right" data-sort="60">
+                <span class="coverage-percent">60 %</span>
+                <span class="coverage-count">(23/38)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CesiumProperties.html">projects/angular-cesium/src/lib/angular-cesium/services/cesium-properties/cesium-properties.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CesiumProperties</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CesiumService.html">projects/angular-cesium/src/lib/angular-cesium/services/cesium/cesium.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CesiumService</td>
+            <td align="right" data-sort="44">
+                <span class="coverage-percent">44 %</span>
+                <span class="coverage-count">(4/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ContextMenuService.html">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ContextMenuService</td>
+            <td align="right" data-sort="6">
+                <span class="coverage-percent">6 %</span>
+                <span class="coverage-count">(1/15)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CoordinateConverter.html">projects/angular-cesium/src/lib/angular-cesium/services/coordinate-converter/coordinate-converter.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CoordinateConverter</td>
+            <td align="right" data-sort="26">
+                <span class="coverage-percent">26 %</span>
+                <span class="coverage-count">(4/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#LatLonVectors">projects/angular-cesium/src/lib/angular-cesium/services/coordinate-converter/coordinate-converter.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LatLonVectors</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/BasicDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/basic-drawer/basic-drawer.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>BasicDrawerService</td>
+            <td align="right" data-sort="10">
+                <span class="coverage-percent">10 %</span>
+                <span class="coverage-count">(1/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/BillboardPrimitiveDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/billboard-primitive-drawer/billboard-primitive-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BillboardPrimitiveDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/BoxDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/box-dawer/box-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BoxDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CorridorDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/corridor-dawer/corridor-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CorridorDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CylinderDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/cylinder-dawer/cylinder-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CylinderDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CzmlDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/czml-drawer/czml-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CzmlDrawerService</td>
+            <td align="right" data-sort="9">
+                <span class="coverage-percent">9 %</span>
+                <span class="coverage-count">(1/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/EllipsoidDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/ellipoid-drawer/ellipsoid-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>EllipsoidDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/EntitiesDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/entities-drawer/entities-drawer.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>EntitiesDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/GraphicsType.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/entities-drawer/enums/graphics-type.enum.ts</a>
+            </td>
+            <td>class</td>
+            <td>GraphicsType</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/16)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/OptimizedEntityCollection.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/entities-drawer/optimized-entity-collection.ts</a>
+            </td>
+            <td>class</td>
+            <td>OptimizedEntityCollection</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/23)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/HtmlDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/html-drawer/html-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>HtmlDrawerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/angular-cesium/services/drawers/html-drawer/html-drawer.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/LabelPrimitiveDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/label-primitive-drawer/label-primitive-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LabelPrimitiveDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ModelDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/model-drawer/model-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ModelDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PointPrimitiveDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/point-primitive-drawer/point-primitive-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PointPrimitiveDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolylineDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/polyline-drawer/polyline-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolylineDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolylinePrimitiveDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolylinePrimitiveDrawerService</td>
+            <td align="right" data-sort="6">
+                <span class="coverage-percent">6 %</span>
+                <span class="coverage-count">(1/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PolylineVolumeDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/polyline-volume-dawer/polyline-volume-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PolylineVolumeDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PrimitivePolygonDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/primitive-polygon-drawer/primitive-polygon-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PrimitivePolygonDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/PrimitivesDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/primitives-drawer/primitives-drawer.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>PrimitivesDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/RectangleDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/rectangle-dawer/rectangle-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RectangleDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/DynamicPolylineDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/dynamic-polyline-drawer/dynamic-polyline-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DynamicPolylineDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/DynamicEllipseDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/ellipse-drawer/dynamic-ellipse-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DynamicEllipseDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/StaticEllipseDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/ellipse-drawer/ellipse-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StaticEllipseDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/StaticCircleDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/static-circle-drawer/static-circle-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StaticCircleDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/StaticPolygonDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/static-polygon-drawer/polygon-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StaticPolygonDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/StaticPolylineDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/static-polyline-drawer/static-polyline-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StaticPolylineDrawerService</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(2/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/StaticPrimitiveDrawer.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/static-dynamic/static-primitive-drawer/static-primitive-drawer.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>StaticPrimitiveDrawer</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/WallDrawerService.html">projects/angular-cesium/src/lib/angular-cesium/services/drawers/wall-dawer/wall-drawer.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>WallDrawerService</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./directives/EntityOnMapComponent.html">projects/angular-cesium/src/lib/angular-cesium/services/entity-on-map/entity-on-map.component.ts</a>
+            </td>
+            <td>directive</td>
+            <td>EntityOnMapComponent</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/GeoUtilsService.html">projects/angular-cesium/src/lib/angular-cesium/services/geo-utils/geo-utils.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>GeoUtilsService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/KeyboardControlService.html">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>KeyboardControlService</td>
+            <td align="right" data-sort="82">
+                <span class="coverage-percent">82 %</span>
+                <span class="coverage-count">(14/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ActiveDefinition.html">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ActiveDefinition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/KeyboardControlDefinition.html">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>KeyboardControlDefinition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/KeyboardControlParams.html">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>KeyboardControlParams</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#KeyboardControlActionFn">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>KeyboardControlActionFn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#KeyboardControlDoneFn">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>KeyboardControlDoneFn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#KeyboardControlValidationFn">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/keyboard-control.service.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>KeyboardControlValidationFn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CAMERA_LOOK_DEFAULT_FACTOR">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/predefined-actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CAMERA_LOOK_DEFAULT_FACTOR</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CAMERA_MOVEMENT_DEFAULT_FACTOR">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/predefined-actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CAMERA_MOVEMENT_DEFAULT_FACTOR</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CAMERA_ROTATE_DEFAULT_FACTOR">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/predefined-actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CAMERA_ROTATE_DEFAULT_FACTOR</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CAMERA_TWIST_DEFAULT_FACTOR">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/predefined-actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CAMERA_TWIST_DEFAULT_FACTOR</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PREDEFINED_KEYBOARD_ACTIONS">projects/angular-cesium/src/lib/angular-cesium/services/keyboard-control/predefined-actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PREDEFINED_KEYBOARD_ACTIONS</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/DisposableObservable.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/disposable-observable.ts</a>
+            </td>
+            <td>class</td>
+            <td>DisposableObservable</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/CesiumDragDropHelper.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/event-observers/cesium-drag-drop-helper.ts</a>
+            </td>
+            <td>class</td>
+            <td>CesiumDragDropHelper</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/CesiumLongPressObserver.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/event-observers/cesium-long-press-observer.ts</a>
+            </td>
+            <td>class</td>
+            <td>CesiumLongPressObserver</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/CesiumPureEventObserver.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/event-observers/cesium-pure-event-observer.ts</a>
+            </td>
+            <td>class</td>
+            <td>CesiumPureEventObserver</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EventRegistrationInput.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/event-registration-input.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EventRegistrationInput</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/PickConfiguration.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/event-registration-input.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PickConfiguration</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/Registration.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/map-events-manager.ts</a>
+            </td>
+            <td>class</td>
+            <td>Registration</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/MapEventsManagerService.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/map-events-manager.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MapEventsManagerService</td>
+            <td align="right" data-sort="15">
+                <span class="coverage-percent">15 %</span>
+                <span class="coverage-count">(2/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/EventResult.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/map-events-manager.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EventResult</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/Movement.html">projects/angular-cesium/src/lib/angular-cesium/services/map-events-mananger/map-events-manager.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Movement</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/MapLayersService.html">projects/angular-cesium/src/lib/angular-cesium/services/map-layers/map-layers.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MapLayersService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/MapsManagerService.html">projects/angular-cesium/src/lib/angular-cesium/services/maps-manager/maps-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MapsManagerService</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(3/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/PlonterService.html">projects/angular-cesium/src/lib/angular-cesium/services/plonter/plonter.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PlonterService</td>
+            <td align="right" data-sort="11">
+                <span class="coverage-percent">11 %</span>
+                <span class="coverage-count">(1/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ScreenshotService.html">projects/angular-cesium/src/lib/angular-cesium/services/screenshot/screenshot.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ScreenshotService</td>
+            <td align="right" data-sort="20">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(1/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/SelectionManagerService.html">projects/angular-cesium/src/lib/angular-cesium/services/selection-manager/selection-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>SelectionManagerService</td>
+            <td align="right" data-sort="8">
+                <span class="coverage-percent">8 %</span>
+                <span class="coverage-count">(1/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/SelectionOptions.html">projects/angular-cesium/src/lib/angular-cesium/services/selection-manager/selection-manager.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>SelectionOptions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/SmartAssigner.html">projects/angular-cesium/src/lib/angular-cesium/services/smart-assigner/smart-assigner.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>SmartAssigner</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ViewerConfiguration.html">projects/angular-cesium/src/lib/angular-cesium/services/viewer-configuration/viewer-configuration.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ViewerConfiguration</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(2/8)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/ViewerFactory.html">projects/angular-cesium/src/lib/angular-cesium/services/viewer-factory/viewer-factory.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ViewerFactory</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#mockProvider">projects/angular-cesium/src/lib/angular-cesium/utils/testingUtils.ts</a>
+            </td>
+            <td>function</td>
+            <td>mockProvider</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#provider">projects/angular-cesium/src/lib/angular-cesium/utils/testingUtils.ts</a>
+            </td>
+            <td>function</td>
+            <td>provider</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#providerFromMock">projects/angular-cesium/src/lib/angular-cesium/utils/testingUtils.ts</a>
+            </td>
+            <td>function</td>
+            <td>providerFromMock</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/HtmlCollection.html">projects/angular-cesium/src/lib/cesium-extender/collections/html.ts</a>
+            </td>
+            <td>class</td>
+            <td>HtmlCollection</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/CesiumExtender.html">projects/angular-cesium/src/lib/cesium-extender/extender.ts</a>
+            </td>
+            <td>class</td>
+            <td>CesiumExtender</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Cesium">projects/angular-cesium/src/lib/cesium-extender/extender.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Cesium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/HtmlPrimitive.html">projects/angular-cesium/src/lib/cesium-extender/primitives/html.ts</a>
+            </td>
+            <td>class</td>
+            <td>HtmlPrimitive</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./injectables/CesiumHeatMapMaterialCreator.html">projects/angular-cesium/src/lib/heatmap/cesium-heatmap-material-creator.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CesiumHeatMapMaterialCreator</td>
+            <td align="right" data-sort="31">
+                <span class="coverage-percent">31 %</span>
+                <span class="coverage-count">(9/29)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HeatmapDataSet.html">projects/angular-cesium/src/lib/heatmap/cesium-heatmap-material-creator.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HeatmapDataSet</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HeatMapOptions.html">projects/angular-cesium/src/lib/heatmap/cesium-heatmap-material-creator.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HeatMapOptions</td>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(1/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HeatPointDataPoint.html">projects/angular-cesium/src/lib/heatmap/cesium-heatmap-material-creator.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HeatPointDataPoint</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

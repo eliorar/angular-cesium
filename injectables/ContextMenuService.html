@@ -1,0 +1,1200 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ContextMenuService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The Service manages a singleton context menu over the map. It should be initialized with MapEventsManager.
+The Service allows opening and closing of the context menu and passing data to the context menu inner component.</p>
+<p>notice, <code>data</code> will be injected to your custom menu component into the <code>data</code> field in the component.
+<strong>Usage :</strong></p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none"> ngOnInit() {
+  this.clickEvent$ = this.eventsManager.register({ event: CesiumEvent.RIGHT_CLICK, pick: PickOptions.PICK_ONE });
+  this.clickEvent$.subscribe(result =&gt; {
+   if (result.entities) {
+     const pickedMarker = result.entities[0];
+     this.contextMenuService.open(MapContextmenuComponent, pickedMarker.position, {
+       data: {
+         myData: data,
+         onDelete: () =&gt; this.delete(pickedMarker.id)
+       }
+     });
+   }
+  });
+ }
+
+
+ private delete(id) {
+   this.mapMenu.close();
+   this.detailedSiteService.removeMarker(id);
+ }</code></pre></div>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_content" >_content</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_contextMenuChangeNotifier" >_contextMenuChangeNotifier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_defaultContextMenuOptions" >_defaultContextMenuOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_onClose" >_onClose</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_onOpen" >_onOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_options" >_options</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_position" >_position</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_showContextMenu" >_showContextMenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#leftClickRegistration" >leftClickRegistration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#leftClickSubscription" >leftClickSubscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapEventsManager" >mapEventsManager</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#close" >close</a>
+                            </li>
+                            <li>
+                                <a href="#init" >init</a>
+                            </li>
+                            <li>
+                                <a href="#open" >open</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#contextMenuChangeNotifier" >contextMenuChangeNotifier</a>
+                                </li>
+                                <li>
+                                    <a href="#showContextMenu" >showContextMenu</a>
+                                </li>
+                                <li>
+                                    <a href="#options" >options</a>
+                                </li>
+                                <li>
+                                    <a href="#position" >position</a>
+                                </li>
+                                <li>
+                                    <a href="#content" >content</a>
+                                </li>
+                                <li>
+                                    <a href="#onOpen" >onOpen</a>
+                                </li>
+                                <li>
+                                    <a href="#onClose" >onClose</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="close"></a>
+                    <span class="name">
+                        <span ><b>close</b></span>
+                        <a href="#close"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>close()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="init"></a>
+                    <span class="name">
+                        <span ><b>init</b></span>
+                        <a href="#init"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>init(mapEventsManager: <a href="../injectables/MapEventsManagerService.html" target="_self">MapEventsManagerService</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mapEventsManager</td>
+                                            <td>
+                                                            <code><a href="../injectables/MapEventsManagerService.html" target="_self" >MapEventsManagerService</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="open"></a>
+                    <span class="name">
+                        <span ><b>open</b></span>
+                        <a href="#open"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>open(contentComponent: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, position: Cartesian3, options: <a href="../interfaces/ContextMenuOptions.html" target="_self">ContextMenuOptions&lt;D&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:91</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>D</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contentComponent</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>position</td>
+                                            <td>
+                                                        <code>Cartesian3</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ContextMenuOptions.html" target="_self" >ContextMenuOptions&lt;D&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>{}</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_content"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_content</b></span>
+                        <a href="#_content"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BasicContextMenu.html" target="_self" >BasicContextMenu</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_contextMenuChangeNotifier"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_contextMenuChangeNotifier</b></span>
+                        <a href="#_contextMenuChangeNotifier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_defaultContextMenuOptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_defaultContextMenuOptions</b></span>
+                        <a href="#_defaultContextMenuOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ContextMenuOptions.html" target="_self" >ContextMenuOptions</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    closeOnLeftCLick: true,
+    closeOnLeftClickPriority: 10,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_onClose"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_onClose</b></span>
+                        <a href="#_onClose"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_onOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_onOpen</b></span>
+                        <a href="#_onOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_options"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_options</b></span>
+                        <a href="#_options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ContextMenuOptions.html" target="_self" >ContextMenuOptions</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_position"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_position</b></span>
+                        <a href="#_position"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Cartesian3</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_showContextMenu"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_showContextMenu</b></span>
+                        <a href="#_showContextMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leftClickRegistration"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>leftClickRegistration</b></span>
+                        <a href="#leftClickRegistration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DisposableObservable.html" target="_self" >DisposableObservable&lt;any&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leftClickSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>leftClickSubscription</b></span>
+                        <a href="#leftClickSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapEventsManager"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapEventsManager</b></span>
+                        <a href="#mapEventsManager"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/MapEventsManagerService.html" target="_self" >MapEventsManagerService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contextMenuChangeNotifier"></a>
+                        <span class="name"><b>contextMenuChangeNotifier</b><a href="#contextMenuChangeNotifier"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>contextMenuChangeNotifier()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:58</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showContextMenu"></a>
+                        <span class="name"><b>showContextMenu</b><a href="#showContextMenu"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>showContextMenu()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:62</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name"><b>options</b><a href="#options"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>options()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:66</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="position"></a>
+                        <span class="name"><b>position</b><a href="#position"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>position()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:70</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="content"></a>
+                        <span class="name"><b>content</b><a href="#content"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>content()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:74</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onOpen"></a>
+                        <span class="name"><b>onOpen</b><a href="#onOpen"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>onOpen()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:78</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onClose"></a>
+                        <span class="name"><b>onClose</b><a href="#onClose"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>onClose()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/angular-cesium/src/lib/angular-cesium/services/context-menu/context-menu.service.ts:82</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Injectable } from &#x27;@angular/core&#x27;;
+import { Cartesian3 } from &#x27;cesium&#x27;;
+import { ContextMenuOptions } from &#x27;../../models/context-menu-options&#x27;;
+import { MapEventsManagerService } from &#x27;../map-events-mananger/map-events-manager&#x27;;
+import { CesiumEvent } from &#x27;../map-events-mananger/consts/cesium-event.enum&#x27;;
+import { PickOptions } from &#x27;../map-events-mananger/consts/pickOptions.enum&#x27;;
+import { DisposableObservable } from &#x27;../map-events-mananger/disposable-observable&#x27;;
+import { BasicContextMenu } from &#x27;../../models/basic-context-menu&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+
+
+/**
+ * The Service manages a singleton context menu over the map. It should be initialized with MapEventsManager.
+ * The Service allows opening and closing of the context menu and passing data to the context menu inner component.
+ *
+ * notice, &#x60;data&#x60; will be injected to your custom menu component into the &#x60;data&#x60; field in the component.
+ * __Usage :__
+ * &#x60;&#x60;&#x60;
+ *  ngOnInit() {
+ *   this.clickEvent$ &#x3D; this.eventsManager.register({ event: CesiumEvent.RIGHT_CLICK, pick: PickOptions.PICK_ONE });
+ *   this.clickEvent$.subscribe(result &#x3D;&gt; {
+ *    if (result.entities) {
+ *      const pickedMarker &#x3D; result.entities[0];
+ *      this.contextMenuService.open(MapContextmenuComponent, pickedMarker.position, {
+ *        data: {
+ *          myData: data,
+ *          onDelete: () &#x3D;&gt; this.delete(pickedMarker.id)
+ *        }
+ *      });
+ *    }
+ *   });
+ *  }
+ *
+ *
+ *  private delete(id) {
+ *    this.mapMenu.close();
+ *    this.detailedSiteService.removeMarker(id);
+ *  }
+ * &#x60;&#x60;&#x60;
+ */
+@Injectable()
+export class ContextMenuService {
+  private _showContextMenu &#x3D; false;
+  private _options: ContextMenuOptions;
+  private _position: Cartesian3;
+  private _content: BasicContextMenu;
+  private mapEventsManager: MapEventsManagerService;
+  private leftClickRegistration: DisposableObservable&lt;any&gt;;
+  private leftClickSubscription: Subscription;
+  private _contextMenuChangeNotifier &#x3D; new EventEmitter();
+  private _onOpen &#x3D; new EventEmitter();
+  private _onClose &#x3D; new EventEmitter();
+  private _defaultContextMenuOptions: ContextMenuOptions &#x3D; {
+    closeOnLeftCLick: true,
+    closeOnLeftClickPriority: 10,
+  };
+
+  get contextMenuChangeNotifier(): EventEmitter&lt;any&gt; {
+    return this._contextMenuChangeNotifier;
+  }
+
+  get showContextMenu(): boolean {
+    return this._showContextMenu;
+  }
+
+  get options(): ContextMenuOptions {
+    return this._options;
+  }
+
+  get position(): Cartesian3 {
+    return this._position;
+  }
+
+  get content(): BasicContextMenu {
+    return this._content;
+  }
+
+  get onOpen(): EventEmitter&lt;any&gt; {
+    return this._onOpen;
+  }
+
+  get onClose(): EventEmitter&lt;any&gt; {
+    return this._onClose;
+  }
+
+
+  init(mapEventsManager: MapEventsManagerService) {
+    this.mapEventsManager &#x3D; mapEventsManager;
+  }
+
+  open&lt;D&gt;(contentComponent: any, position: Cartesian3, options: ContextMenuOptions&lt;D&gt; &#x3D; {}) {
+    this.close();
+    this._content &#x3D; contentComponent;
+    this._position &#x3D; position;
+    this._options &#x3D; Object.assign({}, this._defaultContextMenuOptions, options);
+    this._showContextMenu &#x3D; true;
+    if (this.mapEventsManager &amp;&amp; this._options.closeOnLeftCLick) {
+      this.leftClickRegistration &#x3D; this.mapEventsManager.register({
+        event: CesiumEvent.LEFT_CLICK,
+        pick: PickOptions.NO_PICK,
+        priority: this._options.closeOnLeftClickPriority,
+      });
+      this.leftClickSubscription &#x3D; this.leftClickRegistration.subscribe(() &#x3D;&gt; {
+        this.leftClickSubscription.unsubscribe();
+        this.close();
+      });
+    }
+
+    this._contextMenuChangeNotifier.emit();
+    this._onOpen.emit();
+  }
+
+  close() {
+    this._content &#x3D; undefined;
+    this._position &#x3D; undefined;
+    this._options &#x3D; undefined;
+    this._showContextMenu &#x3D; false;
+    if (this.leftClickRegistration) {
+      this.leftClickRegistration.dispose();
+      this.leftClickRegistration &#x3D; undefined;
+    }
+    if (this.leftClickSubscription) {
+      this.leftClickSubscription.unsubscribe();
+      this.leftClickSubscription &#x3D; undefined;
+    }
+
+    this._contextMenuChangeNotifier.emit();
+    this._onClose.emit();
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContextMenuService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

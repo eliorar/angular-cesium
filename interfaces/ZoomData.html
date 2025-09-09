@@ -1,0 +1,668 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Cesium</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Angular Cesium</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ZoomData</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/angular-cesium/src/lib/angular-cesium-widgets/services/zoom-to-rectangle.service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#borderElement" 
+>
+                                            borderElement
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#container" 
+>
+                                            container
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#resetOnEscapePressFunc" 
+>
+                                            resetOnEscapePressFunc
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="borderElement"></a>
+                                        <span class="name "><b>borderElement</b>
+                                            <a href="#borderElement">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>borderElement:     <code>HTMLElement</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>HTMLElement</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="container"></a>
+                                        <span class="name "><b>container</b>
+                                            <a href="#container">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>container:     <code>HTMLElement</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>HTMLElement</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="resetOnEscapePressFunc"></a>
+                                        <span class="name "><b>resetOnEscapePressFunc</b>
+                                            <a href="#resetOnEscapePressFunc">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>resetOnEscapePressFunc:     <code>EventListenerOrEventListenerObject</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>EventListenerOrEventListenerObject</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Optional } from &#x27;@angular/core&#x27;;
+import { Cartographic, Rectangle } from &#x27;cesium&#x27;;
+import { MapsManagerService } from &#x27;../../angular-cesium/services/maps-manager/maps-manager.service&#x27;;
+import { CameraService } from &#x27;../../angular-cesium/services/camera/camera.service&#x27;;
+import { CesiumService } from &#x27;../../angular-cesium/services/cesium/cesium.service&#x27;;
+import { AcMapComponent } from &#x27;../../angular-cesium/components/ac-map/ac-map.component&#x27;;
+
+interface ZoomData {
+  container: HTMLElement;
+  borderElement?: HTMLElement;
+  resetOnEscapePressFunc?: EventListenerOrEventListenerObject;
+}
+
+/**
+ * The Service is as a &quot;zoom to rectangle&quot; tool
+ *
+ * example:
+ * &#x60;&#x60;&#x60;
+ * constructor(
+ *   private cameraService: CameraService,
+ *   private cesiumService: CesiumService,
+ *   private zoomToRectangleService: ZoomToRectangleService,
+ * ) {
+ *   this.zoomToRectangleService.init(cesiumService, cameraService);
+ * }
+ * ...
+ * this.zoomToRectangleService.activate({onComplete: () &#x3D;&gt; this.zoomToRectangleService.disable()});
+ * &#x60;&#x60;&#x60;
+ *
+ * &#x60;init()&#x60; - initialize the service with CameraService and CesiumService.
+ * If no mapId is provided to activate() - must be called before calling &#x60;activate()&#x60;.
+ *
+ * &#x60;disable()&#x60; - disables the tool.
+ *
+ * &#x60;activate()&#x60; -
+ * @param options
+ * {
+ *  onStart - optional - a callback that will be called when the user start drawing the rectangle
+ *  onComplete - optional - a callback that will be called when the tool zoom in
+ *  autoDisableOnZoom - optional - determines if the tool should auto disable after zoom - default: true
+ *  animationDurationInSeconds - optional - zoom animation duration in seconds - default: 0.5
+ *  borderStyle - optional - the style of the rectangle element border - default: &#x27;3px dashed #FFFFFF&#x27;
+ *  backgroundColor - optional - the background color of the rectangle element - default: &#x27;transparent&#x27;
+ *  resetKeyCode - optional - the key code of the key that is used to reset the drawing of the rectangle - default: 27 (ESC key)
+ *  threshold - optional - the minimum area of the screen rectangle (in pixels) that is required to perform zoom - default: 9
+ *  keepRotation - optional - whether or not to keep the rotation when zooming in - default: true
+ *  mouseButton - optional - sets the mouse button for drawing the rectangle - default: left mouse button (0)
+ * }
+ * @param mapId - optional - the mapId of the map that the tool will be used in.
+ *
+ */
+
+export enum MouseButtons {
+  LEFT &#x3D; 0,
+  MIDDLE &#x3D; 1,
+  RIGHT &#x3D; 2,
+}
+
+@Injectable()
+export class ZoomToRectangleService {
+  constructor(
+    private mapsManager: MapsManagerService,
+    @Optional() cameraService: CameraService,
+    @Optional() cesiumService: CesiumService,
+  ) {}
+
+  private cameraService: CameraService;
+  private cesiumService: CesiumService;
+
+  private mapsZoomElements &#x3D; new Map&lt;string, ZoomData&gt;();
+  private defaultOptions &#x3D; {
+    animationDurationInSeconds: 0.5,
+    resetKeyCode: 27,
+    borderStyle: &#x27;2px solid rgba(0,0,0,0.5)&#x27;,
+    backgroundColor: &#x27;rgba(0,0,0,0.2)&#x27;,
+    autoDisableOnZoom: true,
+    threshold: 9,
+    keepRotation: true,
+    mouseButton: MouseButtons.LEFT,
+  };
+
+  init(cesiumService: CesiumService, cameraService: CameraService) {
+    this.cameraService &#x3D; cameraService;
+    this.cesiumService &#x3D; cesiumService;
+  }
+
+  activate(
+    options: {
+      onStart?: (acMap?: AcMapComponent) &#x3D;&gt; any;
+      onComplete?: (acMap?: AcMapComponent) &#x3D;&gt; any;
+      mouseButton?: MouseButtons;
+      autoDisableOnZoom?: boolean;
+      animationDurationInSeconds?: number;
+      threshold?: number;
+      keepRotation?: boolean;
+      borderStyle?: string;
+      backgroundColor?: string;
+      resetKeyCode?: number;
+    } &#x3D; {},
+    mapId?: string,
+  ) {
+    if ((!this.cameraService || !this.cesiumService) &amp;&amp; !mapId) {
+      throw new Error(&#x60;The function must receive a mapId if the service wasn&#x27;t initialized&#x60;);
+    }
+    const finalOptions &#x3D; Object.assign({}, this.defaultOptions, options);
+    let cameraService &#x3D; this.cameraService;
+    let mapContainer;
+    let map;
+    if (!mapId) {
+      map &#x3D; this.mapsManager.getMap();
+      if (!map) {
+        throw new Error(&#x60;Map not found&#x60;);
+      }
+      mapId &#x3D; map.getId();
+      mapContainer &#x3D; this.cesiumService.getViewer().container;
+    } else {
+      map &#x3D; this.mapsManager.getMap(mapId);
+      if (!map) {
+        throw new Error(&#x60;Map not found with id: ${mapId}&#x60;);
+      }
+      cameraService &#x3D; map.getCameraService();
+      mapContainer &#x3D; map.getCesiumViewer().container;
+    }
+
+    if (!cameraService || !mapContainer) {
+      throw new Error(&#x60;The function must receive a mapId if the service wasn&#x27;t initialized&#x60;);
+    }
+    this.disable(mapId);
+    const container &#x3D; document.createElement(&#x27;div&#x27;);
+    mapContainer.style.position &#x3D; &#x27;relative&#x27;;
+    container.style.position &#x3D; &#x27;absolute&#x27;;
+    container.style.width &#x3D; &#x27;100%&#x27;;
+    container.style.height &#x3D; &#x27;100%&#x27;;
+    container.style.top &#x3D; &#x27;0&#x27;;
+    container.style.left &#x3D; &#x27;0&#x27;;
+    mapContainer.appendChild(container);
+    const mapZoomData: ZoomData &#x3D; { container };
+    this.mapsZoomElements.set(mapId, mapZoomData);
+    let mouse &#x3D; {
+      endX: 0,
+      endY: 0,
+      startX: 0,
+      startY: 0,
+    };
+    let borderElement: HTMLElement | undefined;
+
+    container.onmousedown &#x3D; e &#x3D;&gt; {
+      if (e.button !&#x3D;&#x3D; finalOptions.mouseButton) {
+        return;
+      }
+      if (!borderElement) {
+        if (options &amp;&amp; options.onStart) {
+          options.onStart(map);
+        }
+
+        const rect &#x3D; (e.currentTarget as any).getBoundingClientRect();
+        const offsetX &#x3D; e.clientX - rect.left;
+        const offsetY &#x3D; e.clientY - rect.top;
+        mouse.startX &#x3D; offsetX;
+        mouse.startY &#x3D; offsetY;
+        borderElement &#x3D; document.createElement(&#x27;div&#x27;);
+        borderElement.className &#x3D; &#x27;zoom-to-rectangle-border&#x27;;
+        borderElement.style.position &#x3D; &#x27;absolute&#x27;;
+        borderElement.style.border &#x3D; finalOptions.borderStyle;
+        borderElement.style.backgroundColor &#x3D; finalOptions.backgroundColor;
+        borderElement.style.left &#x3D; mouse.startX + &#x27;px&#x27;;
+        borderElement.style.top &#x3D; mouse.startY + &#x27;px&#x27;;
+        container.appendChild(borderElement);
+        mapZoomData.borderElement &#x3D; borderElement;
+      }
+    };
+
+    container.onmouseup &#x3D; e &#x3D;&gt; {
+      if (borderElement) {
+        let zoomApplied;
+        if (mouse &amp;&amp; Math.abs(mouse.endX - mouse.startX) * Math.abs(mouse.endY - mouse.startY) &gt; finalOptions.threshold) {
+          zoomApplied &#x3D; this.zoomCameraToRectangle(
+            cameraService,
+            mouse,
+            finalOptions.animationDurationInSeconds,
+            finalOptions,
+          );
+        }
+        borderElement.remove();
+        borderElement &#x3D; undefined;
+        mapZoomData.borderElement &#x3D; undefined;
+        mouse &#x3D; {
+          endX: 0,
+          endY: 0,
+          startX: 0,
+          startY: 0,
+        };
+        if (!!finalOptions.onComplete) {
+          finalOptions.onComplete(map);
+        }
+        if (finalOptions.autoDisableOnZoom &amp;&amp; zoomApplied) {
+          this.disable(mapId);
+        }
+      }
+    };
+
+    container.onmousemove &#x3D; e &#x3D;&gt; {
+      if (borderElement) {
+        const rect &#x3D; (e.currentTarget as any).getBoundingClientRect();
+        const offsetX &#x3D; e.clientX - rect.left;
+        const offsetY &#x3D; e.clientY - rect.top;
+        mouse.endX &#x3D; offsetX;
+        mouse.endY &#x3D; offsetY;
+        borderElement.style.width &#x3D; Math.abs(mouse.endX - mouse.startX) + &#x27;px&#x27;;
+        borderElement.style.height &#x3D; Math.abs(mouse.endY - mouse.startY) + &#x27;px&#x27;;
+        borderElement.style.left &#x3D; Math.min(mouse.startX, mouse.endX) + &#x27;px&#x27;;
+        borderElement.style.top &#x3D; Math.min(mouse.startY, mouse.endY) + &#x27;px&#x27;;
+      }
+    };
+
+    const resetOnEscapePress &#x3D; e &#x3D;&gt; {
+      if (e.keyCode &#x3D;&#x3D;&#x3D; finalOptions.resetKeyCode &amp;&amp; borderElement) {
+        borderElement.remove();
+        borderElement &#x3D; undefined;
+        mapZoomData.borderElement &#x3D; undefined;
+        mouse &#x3D; {
+          endX: 0,
+          endY: 0,
+          startX: 0,
+          startY: 0,
+        };
+      }
+    };
+    document.addEventListener(&#x27;keydown&#x27;, resetOnEscapePress);
+    mapZoomData.resetOnEscapePressFunc &#x3D; resetOnEscapePress;
+  }
+
+  public disable(mapId?: string) {
+    if (!this.mapsManager &amp;&amp; !mapId) {
+      throw new Error(&#x27;If the service was not initialized with MapsManager, mapId must be provided&#x27;);
+    }
+    if (!mapId) {
+      const map &#x3D; this.mapsManager.getMap();
+      mapId &#x3D; map.getId();
+    }
+    const data &#x3D; this.mapsZoomElements.get(mapId);
+    if (data) {
+      data.container.remove();
+      if (data.borderElement) {
+        data.borderElement.remove();
+      }
+      if (data.resetOnEscapePressFunc) {
+        document.removeEventListener(&#x27;keydown&#x27;, data.resetOnEscapePressFunc);
+      }
+    }
+    this.mapsZoomElements.delete(mapId);
+  }
+
+  private zoomCameraToRectangle(
+    cameraService: CameraService,
+    positions: { endX: number; endY: number; startX: number; startY: number },
+    animationDuration,
+    options,
+  ): boolean {
+    const camera &#x3D; cameraService.getCamera();
+    const cartesian1 &#x3D; camera.pickEllipsoid({ x: positions.startX, y: positions.startY });
+    const cartesian2 &#x3D; camera.pickEllipsoid({ x: positions.endX, y: positions.endY });
+    if (!cartesian1 || !cartesian2) {
+      return false;
+    }
+    const cartographic1 &#x3D; Cartographic.fromCartesian(cartesian1);
+    const cartographic2 &#x3D; Cartographic.fromCartesian(cartesian2);
+    cameraService.cameraFlyTo({
+      destination: new Rectangle(
+        Math.min(cartographic1.longitude, cartographic2.longitude),
+        Math.min(cartographic1.latitude, cartographic2.latitude),
+        Math.max(cartographic1.longitude, cartographic2.longitude),
+        Math.max(cartographic1.latitude, cartographic2.latitude),
+      ),
+      orientation: options.keepRotation ? { heading: camera.heading } : undefined,
+      duration: animationDuration,
+    });
+    return true;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ZoomData.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
