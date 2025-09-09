@@ -1,4 +1,4 @@
-import {PolylineEditOptions} from './polyline-edit-options';
+import { PolylineEditOptions } from './polyline-edit-options';
 
 export interface PolygonProps {
   material?: any;

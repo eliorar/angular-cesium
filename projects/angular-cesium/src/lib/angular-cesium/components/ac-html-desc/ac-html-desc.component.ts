@@ -1,11 +1,11 @@
-import {Component, ContentChild, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {HtmlDrawerService} from '../../services/drawers/html-drawer/html-drawer.service';
-import {AcHtmlDirective} from '../../directives/ac-html/ac-html.directive';
-import {AcHtmlManager} from '../../services/ac-html-manager/ac-html-manager.service';
+import { Component, ContentChild, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { HtmlDrawerService } from '../../services/drawers/html-drawer/html-drawer.service';
+import { AcHtmlDirective } from '../../directives/ac-html/ac-html.directive';
+import { AcHtmlManager } from '../../services/ac-html-manager/ac-html-manager.service';
 
 /**
  *  This is an html implementation.
@@ -30,15 +30,16 @@ import {AcHtmlManager} from '../../services/ac-html-manager/ac-html-manager.serv
  *  ```
  */
 @Component({
-  selector: 'ac-html-desc',
-  providers: [AcHtmlManager],
-  template: `
+    selector: 'ac-html-desc',
+    providers: [AcHtmlManager],
+    template: `
       <div *acHtml="let acHtmlEntityId = id; let acHtmlContext = context">
           <div [acHtmlContainer]="acHtmlEntityId">
               <ng-template [ngTemplateOutlet]="acHtmlTemplate"
                            [ngTemplateOutletContext]="acHtmlContext"></ng-template>
           </div>
-      </div>`
+      </div>`,
+    standalone: false
 })
 export class AcHtmlDescComponent extends BasicDesc implements OnInit {
 

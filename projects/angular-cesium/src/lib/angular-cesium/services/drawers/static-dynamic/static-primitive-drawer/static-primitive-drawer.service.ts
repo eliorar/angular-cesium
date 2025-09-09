@@ -1,6 +1,6 @@
-import {GeometryInstance, Primitive, PrimitiveCollection} from 'cesium';
-import {PrimitivesDrawerService} from '../../primitives-drawer/primitives-drawer.service';
-import {CesiumService} from '../../../cesium/cesium.service';
+import { PrimitiveCollection, GeometryInstance, Primitive } from 'cesium';
+import { PrimitivesDrawerService } from '../../primitives-drawer/primitives-drawer.service';
+import { CesiumService } from '../../../cesium/cesium.service';
 
 /**
  *

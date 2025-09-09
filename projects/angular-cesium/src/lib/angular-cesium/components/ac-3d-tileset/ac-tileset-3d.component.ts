@@ -1,7 +1,8 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {Cesium3DTileset, Cesium3DTileStyle, PrimitiveCollection} from 'cesium';
-import {CesiumService} from '../../services/cesium/cesium.service';
-import {Checker} from '../../utils/checker';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { PrimitiveCollection, Cesium3DTileStyle } from 'cesium';
+import { CesiumService } from '../../services/cesium/cesium.service';
+import { Checker } from '../../utils/checker';
+declare var Cesium: any;
 
 /**
  *  This component is used for adding a 3d tileset layer to the map (ac-map).
@@ -16,8 +17,9 @@ import {Checker} from '../../utils/checker';
  *  ```
  */
 @Component({
-  selector: 'ac-3d-tile-layer',
-  template: '',
+    selector: 'ac-3d-tile-layer',
+    template: '',
+    standalone: false
 })
 export class AcTileset3dComponent implements OnInit, OnChanges, OnDestroy {
   /**
@@ -58,8 +60,9 @@ export class AcTileset3dComponent implements OnInit, OnChanges, OnDestroy {
     this._3dtilesCollection = new PrimitiveCollection();
     this.cesiumService.getScene().primitives.add(this._3dtilesCollection);
 
+
     if (this.show) {
-      this.tilesetInstance = this._3dtilesCollection.add(Cesium3DTileset.fromUrl(this.options.url, {}), this.index);
+      this.tilesetInstance = this._3dtilesCollection.add(Cesium.Cesium3DTileset.fromUrl(this.options.url), this.index);
       if (this.style) {
         this.tilesetInstance.style = new Cesium3DTileStyle(this.style);
       }
@@ -74,7 +77,7 @@ export class AcTileset3dComponent implements OnInit, OnChanges, OnDestroy {
         if (this.tilesetInstance) {
           this._3dtilesCollection.add(this.tilesetInstance, this.index);
         } else {
-          this.tilesetInstance = this._3dtilesCollection.add(Cesium3DTileset.fromUrl(this.options.url, {}), this.index);
+          this.tilesetInstance = this._3dtilesCollection.add(Cesium.Cesium3DTileset.fromUrl(this.options.url), this.index);
           if (this.style) {
             this.tilesetInstance.style = new Cesium3DTileStyle(this.style);
           }

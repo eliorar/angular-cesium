@@ -1,9 +1,9 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {ModelDrawerService} from '../../services/drawers/model-drawer/model-drawer.service';
+import { Component, forwardRef, OnInit } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ModelDrawerService } from '../../services/drawers/model-drawer/model-drawer.service';
 
 /**
  *  This is a model implementation.
@@ -23,9 +23,10 @@ import {ModelDrawerService} from '../../services/drawers/model-drawer/model-draw
  *  ```
  */
 @Component({
-  selector: 'ac-model-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcModelDescComponent)}],
+    selector: 'ac-model-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcModelDescComponent) }],
+    standalone: false
 })
 export class AcModelDescComponent extends BasicDesc implements OnInit {
 

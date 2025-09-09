@@ -1,10 +1,10 @@
-import {ConnectableObservable, merge, of as observableOf} from 'rxjs';
-import {delay, filter, mergeMap, publish, takeUntil, tap} from 'rxjs/operators';
-import {Cartesian2} from 'cesium';
-import {CesiumPureEventObserver} from './cesium-pure-event-observer';
-import {CesiumEvent} from '../consts/cesium-event.enum';
-import {CesiumEventModifier} from '../consts/cesium-event-modifier.enum';
-import {CesiumEventBuilder} from '../cesium-event-builder';
+import { ConnectableObservable, merge, of as observableOf } from 'rxjs';
+import { delay, filter, mergeMap, publish, takeUntil, tap } from 'rxjs/operators';
+import { Cartesian2 } from 'cesium';
+import { CesiumPureEventObserver } from './cesium-pure-event-observer';
+import { CesiumEvent } from '../consts/cesium-event.enum';
+import { CesiumEventModifier } from '../consts/cesium-event-modifier.enum';
+import { CesiumEventBuilder } from '../cesium-event-builder';
 
 export class CesiumLongPressObserver extends CesiumPureEventObserver {
   public static LONG_PRESS_EVENTS_DURATION = 250;
@@ -39,7 +39,7 @@ export class CesiumLongPressObserver extends CesiumPureEventObserver {
     // Prevent drag mistaken for long press by observing mouse move far from start event position
     const mouseMoveEventObservable = this.eventFactory.get(CesiumEvent.MOUSE_MOVE)
       .pipe(
-        filter((movement) =>
+        filter((movement) => 
           Math.abs(movement.endPosition.x - startEventPosition.x) > CesiumLongPressObserver.LONG_PRESS_EVENTS_MIN_DISTANCE_PX ||
           Math.abs(movement.endPosition.y - startEventPosition.y) > CesiumLongPressObserver.LONG_PRESS_EVENTS_MIN_DISTANCE_PX
         )
@@ -47,7 +47,7 @@ export class CesiumLongPressObserver extends CesiumPureEventObserver {
 
     const stopEventObservable = merge(
       this.eventFactory.get(stopEvent, this.modifier),
-      mouseMoveEventObservable
+      mouseMoveEventObservable 
     );
 
     // publish for preventing side effect

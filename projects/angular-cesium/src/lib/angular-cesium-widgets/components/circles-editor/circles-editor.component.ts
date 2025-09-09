@@ -1,22 +1,22 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {EditModes} from '../../models/edit-mode.enum';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {CirclesManagerService} from '../../services/entity-editors/circles-editor/circles-manager.service';
-import {CirclesEditorService} from '../../services/entity-editors/circles-editor/circles-editor.service';
-import {CircleEditUpdate} from '../../models/circle-edit-update';
-import {LabelProps} from '../../models/label-props';
-import {EditableCircle} from '../../models/editable-circle';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { EditModes } from '../../models/edit-mode.enum';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { CirclesManagerService } from '../../services/entity-editors/circles-editor/circles-manager.service';
+import { CirclesEditorService } from '../../services/entity-editors/circles-editor/circles-editor.service';
+import { CircleEditUpdate } from '../../models/circle-edit-update';
+import { LabelProps } from '../../models/label-props';
+import { EditableCircle } from '../../models/editable-circle';
 
 @Component({
-  selector: 'circles-editor',
-  template: /*html*/ `
+    selector: 'circles-editor',
+    template: /*html*/ `
       <ac-layer #editArcsLayer acFor="let arc of editArcs$" [context]="this">
           <ac-arc-desc
                   props="{
@@ -97,8 +97,9 @@ import {EditableCircle} from '../../models/editable-circle';
           </ac-array-desc>
       </ac-layer>
   `,
-  providers: [CoordinateConverter, CirclesManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [CoordinateConverter, CirclesManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CirclesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: CircleEditUpdate, labels: LabelProps[]) => LabelProps[];

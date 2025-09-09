@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import { Component } from '@angular/core';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { EllipseDrawerService } from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is a circle implementation.
@@ -23,8 +23,9 @@ import {MapLayersService} from '../../services/map-layers/map-layers.service';
  */
 
 @Component({
-  selector: 'ac-circle',
-  template: '',
+    selector: 'ac-circle',
+    template: '',
+    standalone: false
 })
 export class AcCircleComponent extends EntityOnMapComponent {
 

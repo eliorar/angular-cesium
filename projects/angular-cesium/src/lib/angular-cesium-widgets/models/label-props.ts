@@ -1,4 +1,4 @@
-import {Cartesian2, Cartesian3, Color, HeightReference, HorizontalOrigin, LabelStyle as cLabelStyle, VerticalOrigin} from 'cesium';
+import { Cartesian3, Cartesian2, Color, HeightReference, HorizontalOrigin, LabelStyle as cLabelStyle, VerticalOrigin } from 'cesium';
 
 export interface LabelStyle {
   show?: boolean;

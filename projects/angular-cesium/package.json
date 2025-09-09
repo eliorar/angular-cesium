@@ -1,6 +1,6 @@
 {
   "name": "@eliorar/angular-cesium",
-  "version": "11.0.8",
+  "version": "12.0.0",
   "license": "MIT",
   "description": "Angular library for working with Cesium.",
   "repository": "https://github.com/eliorar/angular-cesium",
@@ -10,13 +10,13 @@
     "Angular Cesium"
   ],
   "peerDependencies": {
-    "@angular/common": "~13.3.11",
-    "@angular/core": "~13.3.11",
+    "@angular/common": "^20.1.7",
+    "@angular/core": "^20.1.7",
     "lodash": "^4.17.21",
-    "cesium": ">= 1.93.0"
+    "cesium": "1.133.0"
   },
   "dependencies": {
-    "@auscope/angular2parse": "^2.0.4",
+    "@auscope/angular2parse": "^19.0.1",
     "geodesy": "^1.1.3",
     "@types/geodesy": "^1.1.3",
     "json-string-mapper": "^1.0.0",
@@ -27,6 +27,7 @@
     "heatmap.js": "^2.0.5"
   },
   "scripts": {
+    "rebuild": "rm -rf node_modules && rm -f package-lock.json && rm -f yarn.lock && rm -rf ../../dist && yarn install && yarn build",
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:files": "cp -a ./schematics/ng-add ../../dist/angular-cesium/schematics",
     "copy:collection": "cp ./schematics/collection.json ../../dist/angular-cesium/schematics/collection.json",

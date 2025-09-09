@@ -1,5 +1,5 @@
-import {defined} from 'cesium';
-import {HtmlPrimitive} from '../primitives';
+import { defined } from 'cesium';
+import { HtmlPrimitive } from '../primitives';
 
 export class HtmlCollection {
   private _collection: HtmlPrimitive[] = [];

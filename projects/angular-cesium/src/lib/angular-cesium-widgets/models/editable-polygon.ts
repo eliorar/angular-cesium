@@ -1,23 +1,14 @@
-import {
-  CallbackProperty,
-  Cartesian3,
-  ColorGeometryInstanceAttribute,
-  GeometryInstance,
-  GroundPolylineGeometry,
-  GroundPolylinePrimitive,
-  PolygonHierarchy,
-  PolylineColorAppearance
-} from 'cesium';
-import {AcEntity} from '../../angular-cesium';
-import {EditPoint} from './edit-point';
-import {EditPolyline} from './edit-polyline';
-import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {GeoUtilsService} from '../../angular-cesium/services/geo-utils/geo-utils.service';
-import {PolygonEditOptions, PolygonProps} from './polygon-edit-options';
-import {PointProps} from './point-edit-options';
-import {PolylineProps} from './polyline-edit-options';
-import {defaultLabelProps, LabelProps} from './label-props';
+import { Cartesian3, PolygonHierarchy, CallbackProperty } from 'cesium';
+import { AcEntity } from '../../angular-cesium/models/ac-entity';
+import { EditPoint } from './edit-point';
+import { EditPolyline } from './edit-polyline';
+import { AcLayerComponent } from '../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { GeoUtilsService } from '../../angular-cesium/services/geo-utils/geo-utils.service';
+import { PolygonEditOptions, PolygonProps } from './polygon-edit-options';
+import { PointProps } from './point-edit-options';
+import { PolylineProps } from './polyline-edit-options';
+import { defaultLabelProps, LabelProps } from './label-props';
 
 export class EditablePolygon extends AcEntity {
   private positions: EditPoint[] = [];
@@ -30,14 +21,12 @@ export class EditablePolygon extends AcEntity {
   private _defaultPolylineProps: PolylineProps;
   private lastDraggedToPosition: Cartesian3;
   private _labels: LabelProps[] = [];
-  private _outlineInstance = null;
 
   constructor(private id: string,
               private polygonsLayer: AcLayerComponent,
               private pointsLayer: AcLayerComponent,
               private polylinesLayer: AcLayerComponent,
               private coordinateConverter: CoordinateConverter,
-              private scene: any,
               private polygonOptions: PolygonEditOptions,
               positions?: Cartesian3[]) {
     super();
@@ -180,41 +169,16 @@ export class EditablePolygon extends AcEntity {
   }
 
   private renderPolylines() {
+    this.polylines.forEach(polyline => this.polylinesLayer.remove(polyline.getId()));
+    this.polylines = [];
     const realPoints = this.positions.filter(pos => !pos.isVirtualEditPoint());
-    if (this.defaultPolylineProps.useGroundPrimitiveOutline) {
-      if (realPoints.length < 2) {
-        return;
-      }
-      this.scene.groundPrimitives.remove(this._outlineInstance);
-      const instance = new GeometryInstance({
-        geometry: new GroundPolylineGeometry({
-          positions: this.positions.map(p => p.getPosition()),
-          width: this.defaultPolylineProps.width,
-          loop: true
-        }),
-        id: 'edit-ground-primitive-' + this.id,
-        attributes: {
-          color: ColorGeometryInstanceAttribute.fromColor(this.defaultPolylineProps.material())
-        }
-      });
-      this._outlineInstance = this.scene.groundPrimitives.add(
-        new GroundPolylinePrimitive({
-          geometryInstances: instance,
-          asynchronous: false,
-          appearance: new PolylineColorAppearance()
-        })
-      );
-    } else {
-      this.polylines.forEach(polyline => this.polylinesLayer.remove(polyline.getId()));
-      this.polylines = [];
-      realPoints.forEach((point, index) => {
-        const nextIndex = (index + 1) % (realPoints.length);
-        const nextPoint = realPoints[nextIndex];
-        const polyline = new EditPolyline(this.id, point.getPosition(), nextPoint.getPosition(), this.defaultPolylineProps);
-        this.polylines.push(polyline);
-        this.polylinesLayer.update(polyline, polyline.getId());
-      });
-    }
+    realPoints.forEach((point, index) => {
+      const nextIndex = (index + 1) % (realPoints.length);
+      const nextPoint = realPoints[nextIndex];
+      const polyline = new EditPolyline(this.id, point.getPosition(), nextPoint.getPosition(), this.defaultPolylineProps);
+      this.polylines.push(polyline);
+      this.polylinesLayer.update(polyline, polyline.getId());
+    });
   }
 
   addPointFromExisting(position: Cartesian3) {
@@ -369,7 +333,7 @@ export class EditablePolygon extends AcEntity {
 
   dispose() {
     this.polygonsLayer.remove(this.id);
-    this.scene.groundPrimitives.remove(this._outlineInstance);
+
     this.positions.forEach(editPoint => {
       this.pointsLayer.remove(editPoint.getId());
     });

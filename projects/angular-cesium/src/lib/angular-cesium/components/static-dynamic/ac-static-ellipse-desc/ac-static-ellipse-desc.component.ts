@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {LayerService} from '../../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../../services/cesium-properties/cesium-properties.service';
-import {BasicStaticPrimitiveDesc} from '../../../services/basic-primitive-desc/basic-static-primitive-desc.service';
-import {StaticEllipseDrawerService} from '../../../services/drawers/static-dynamic/ellipse-drawer/ellipse-drawer.service';
+import { Component } from '@angular/core';
+import { LayerService } from '../../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../../services/cesium-properties/cesium-properties.service';
+import { BasicStaticPrimitiveDesc } from '../../../services/basic-primitive-desc/basic-static-primitive-desc.service';
+import { StaticEllipseDrawerService } from '../../../services/drawers/static-dynamic/ellipse-drawer/ellipse-drawer.service';
 
 /**
  *
@@ -30,8 +30,9 @@ import {StaticEllipseDrawerService} from '../../../services/drawers/static-dynam
  *  ```
  */
 @Component({
-  selector: 'ac-static-ellipse-desc',
-  template: ''
+    selector: 'ac-static-ellipse-desc',
+    template: '',
+    standalone: false
 })
 export class AcStaticEllipseDescComponent extends BasicStaticPrimitiveDesc {
   constructor(ellipseDrawer: StaticEllipseDrawerService, layerService: LayerService,

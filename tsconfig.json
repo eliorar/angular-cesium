@@ -3,19 +3,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
     "module": "es2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2018",
-    "types": [
-      "node"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "target": "ES2022",
     "lib": [
       "es2018",
       "dom",
@@ -31,13 +26,26 @@
       "core-js/es7/reflect": [
         "node_modules/core-js/proposals/reflect-metadata"
       ],
-      "http": ["./node_modules/stream-http"],
-      "url": ["./node_modules/url"],
-      "zlib": ["./node_modules/browserify-zlib"],
-      "https": ["./node_modules/https-browserify"],
-      "assert": ["./node_modules/assert"],
-      "stream": ["./node_modules/stream-browserify"]
-    }
+      "http": [
+        "./node_modules/stream-http"
+      ],
+      "url": [
+        "./node_modules/url"
+      ],
+      "zlib": [
+        "./node_modules/browserify-zlib"
+      ],
+      "https": [
+        "./node_modules/https-browserify"
+      ],
+      "assert": [
+        "./node_modules/assert"
+      ],
+      "stream": [
+        "./node_modules/stream-browserify"
+      ]
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableIvy": true,

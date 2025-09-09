@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {CzmlDataSource} from 'cesium';
-import {CesiumService} from '../../cesium/cesium.service';
-import {BasicDrawerService} from '../basic-drawer/basic-drawer.service';
-import {EntitiesDrawerOptions} from '../../../models/entities-drawer-options';
+import { Injectable } from '@angular/core';
+import { CzmlDataSource } from 'cesium';
+import { CesiumService } from '../../cesium/cesium.service';
+import { BasicDrawerService } from '../basic-drawer/basic-drawer.service';
+import { EntitiesDrawerOptions } from '../../../models/entities-drawer-options';
 
 /**
  *  This drawer is responsible for drawing czml dataSources.

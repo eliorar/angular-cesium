@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {EllipseDrawerService} from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
+import { Component } from '@angular/core';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { EllipseDrawerService } from '../../services/drawers/ellipse-drawer/ellipse-drawer.service';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
 
 /**
  *  This is an ellipse implementation.
@@ -23,8 +23,9 @@ import {MapLayersService} from '../../services/map-layers/map-layers.service';
  */
 
 @Component({
-  selector: 'ac-ellipse',
-  template: '',
+    selector: 'ac-ellipse',
+    template: '',
+    standalone: false
 })
 export class AcEllipseComponent extends EntityOnMapComponent {
 

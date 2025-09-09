@@ -1,25 +1,25 @@
-import {publish, tap} from 'rxjs/operators';
-import {Injectable} from '@angular/core';
-import {Cartesian3, Cartographic, ClassificationType, Color, HeightReference, sampleTerrain} from 'cesium';
-import {MapEventsManagerService} from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {CesiumEvent} from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
-import {PickOptions} from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
-import {EditModes} from '../../../models/edit-mode.enum';
-import {EditActions} from '../../../models/edit-actions.enum';
-import {DisposableObservable} from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
-import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {EditPoint} from '../../../models/edit-point';
-import {CameraService} from '../../../../angular-cesium/services/camera/camera.service';
-import {PolylinesManagerService} from './polylines-manager.service';
-import {ClampTo3DOptions, PolylineEditOptions, PolylineProps} from '../../../models/polyline-edit-options';
-import {PointProps} from '../../../models/point-edit-options';
-import {PolylineEditUpdate} from '../../../models/polyline-edit-update';
-import {PolylineEditorObservable} from '../../../models/polyline-editor-observable';
-import {EditPolyline} from '../../../models';
-import {LabelProps} from '../../../models/label-props';
-import {debounce, generateKey} from '../../utils';
-import {CesiumService} from '../../../../angular-cesium';
+import { publish, tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Color, ClassificationType, sampleTerrain, Cartographic, HeightReference, Cartesian3 } from 'cesium';
+import { MapEventsManagerService } from '../../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { CesiumEvent } from '../../../../angular-cesium/services/map-events-mananger/consts/cesium-event.enum';
+import { PickOptions } from '../../../../angular-cesium/services/map-events-mananger/consts/pickOptions.enum';
+import { EditModes } from '../../../models/edit-mode.enum';
+import { EditActions } from '../../../models/edit-actions.enum';
+import { DisposableObservable } from '../../../../angular-cesium/services/map-events-mananger/disposable-observable';
+import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { EditPoint } from '../../../models/edit-point';
+import { CameraService } from '../../../../angular-cesium/services/camera/camera.service';
+import { PolylinesManagerService } from './polylines-manager.service';
+import { ClampTo3DOptions, PolylineEditOptions, PolylineProps } from '../../../models/polyline-edit-options';
+import { PointProps } from '../../../models/point-edit-options';
+import { PolylineEditUpdate } from '../../../models/polyline-edit-update';
+import { PolylineEditorObservable } from '../../../models/polyline-editor-observable';
+import { EditPolyline } from '../../../models';
+import { LabelProps } from '../../../models/label-props';
+import { debounce, generateKey } from '../../utils';
+import { CesiumService } from '../../../../angular-cesium';
 
 export const DEFAULT_POLYLINE_OPTIONS: PolylineEditOptions = {
   addPointEvent: CesiumEvent.LEFT_CLICK,
@@ -44,7 +44,6 @@ export const DEFAULT_POLYLINE_OPTIONS: PolylineEditOptions = {
     clampToGround: false,
     zIndex: 0,
     classificationType: ClassificationType.BOTH,
-    useGroundPrimitiveOutline: false
   },
   clampHeightTo3D: false,
   clampHeightTo3DOptions: {

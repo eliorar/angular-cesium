@@ -1,4 +1,4 @@
-import {instance, mock} from 'ts-mockito';
+import { instance, mock } from 'ts-mockito';
 
 export function mockProvider(clazz) {
   return {provide: clazz, useValue: instance(mock(clazz))};

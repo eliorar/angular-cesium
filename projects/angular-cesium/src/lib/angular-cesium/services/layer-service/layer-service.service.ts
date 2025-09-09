@@ -1,6 +1,6 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {IDescription} from '../../models/description';
-import {LayerOptions} from '../../models/layer-options';
+import { EventEmitter, Injectable } from '@angular/core';
+import { IDescription } from '../../models/description';
+import { LayerOptions } from '../../models/layer-options';
 
 @Injectable()
 export class LayerService {

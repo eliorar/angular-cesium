@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {CorridorDrawerService} from '../../services/drawers/corridor-dawer/corridor-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { CorridorDrawerService } from '../../services/drawers/corridor-dawer/corridor-drawer.service';
 
 /**
  *  This is a point implementation.
@@ -24,9 +24,10 @@ import {CorridorDrawerService} from '../../services/drawers/corridor-dawer/corri
  *  ```
  */
 @Component({
-  selector: 'ac-corridor-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcCorridorDescComponent)}],
+    selector: 'ac-corridor-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcCorridorDescComponent) }],
+    standalone: false
 })
 export class AcCorridorDescComponent extends BasicDesc {
 

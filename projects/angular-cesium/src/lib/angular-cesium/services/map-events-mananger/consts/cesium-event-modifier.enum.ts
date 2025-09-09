@@ -1,5 +1,4 @@
-import {KeyboardEventModifier} from 'cesium';
-
+import { KeyboardEventModifier } from 'cesium';
 /**
  * EventModifier options for registration on map-event-manager.
  */

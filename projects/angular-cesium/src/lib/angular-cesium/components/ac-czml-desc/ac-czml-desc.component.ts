@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {CzmlDrawerService} from '../../services/drawers/czml-drawer/czml-drawer.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { CzmlDrawerService } from '../../services/drawers/czml-drawer/czml-drawer.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
 
 /**
  *  This is a czml implementation.
@@ -31,8 +31,9 @@ import {LayerService} from '../../services/layer-service/layer-service.service';
  *  ```
  */
 @Component({
-  selector: 'ac-czml-desc',
-  template: '',
+    selector: 'ac-czml-desc',
+    template: '',
+    standalone: false
 })
 export class AcCzmlDescComponent extends BasicDesc implements OnInit {
   constructor(czmlDrawer: CzmlDrawerService, layerService: LayerService,

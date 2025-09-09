@@ -1,4 +1,4 @@
-import {EntitiesDrawerOptions} from './entities-drawer-options';
+import { EntitiesDrawerOptions } from './entities-drawer-options';
 
 export interface LayerOptions {
   ellipse?: EntitiesDrawerOptions;

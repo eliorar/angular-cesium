@@ -1,23 +1,23 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {RectangleEditUpdate} from '../../models/rectangle-edit-update';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {RectanglesManagerService} from '../../services/entity-editors/rectangles-editor/rectangles-manager.service';
-import {RectanglesEditorService} from '../../services/entity-editors/rectangles-editor/rectangles-editor.service';
-import {LabelProps} from '../../models/label-props';
-import {EditableRectangle} from '../../models/editable-rectangle';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { RectangleEditUpdate } from '../../models/rectangle-edit-update';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { RectanglesManagerService } from '../../services/entity-editors/rectangles-editor/rectangles-manager.service';
+import { RectanglesEditorService } from '../../services/entity-editors/rectangles-editor/rectangles-editor.service';
+import { LabelProps } from '../../models/label-props';
+import { EditableRectangle } from '../../models/editable-rectangle';
 
 @Component({
-  selector: 'rectangles-editor',
-  template: /*html*/ `
+    selector: 'rectangles-editor',
+    template: /*html*/ `
     <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
       <ac-point-desc
         props="{
@@ -80,8 +80,9 @@ import {EditableRectangle} from '../../models/editable-rectangle';
       </ac-array-desc>
     </ac-layer>
   `,
-  providers: [CoordinateConverter, RectanglesManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [CoordinateConverter, RectanglesManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class RectanglesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: RectangleEditUpdate, labels: LabelProps[]) => LabelProps[];

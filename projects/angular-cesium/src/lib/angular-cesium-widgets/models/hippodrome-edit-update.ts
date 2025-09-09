@@ -1,7 +1,7 @@
-import {Cartesian3} from 'cesium';
-import {EditPoint} from './edit-point';
-import {BasicEditUpdate} from './basic-edit-update';
-import {HippodromeEditOptions} from './hippodrome-edit-options';
+import { Cartesian3 } from 'cesium';
+import { EditPoint } from './edit-point';
+import { BasicEditUpdate } from './basic-edit-update';
+import { HippodromeEditOptions } from './hippodrome-edit-options';
 
 export interface HippodromeEditUpdate extends BasicEditUpdate<HippodromeEditUpdate> {
   positions?: Cartesian3[];

@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {CesiumService} from '../../services/cesium/cesium.service';
-import {Checker} from '../../utils/checker';
-import {MapTerrainProviderOptions} from '../../models/map-terrain-provider-options.enum';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { CesiumService } from '../../services/cesium/cesium.service';
+import { Checker } from '../../utils/checker';
+import { MapTerrainProviderOptions } from '../../models/map-terrain-provider-options.enum';
 
 /**
  *  This component is used for adding a terrain provider service to the map (ac-map)
@@ -15,8 +15,9 @@ import {MapTerrainProviderOptions} from '../../models/map-terrain-provider-optio
  *  ```
  */
 @Component({
-  selector: 'ac-map-terrain-provider',
-  template: '',
+    selector: 'ac-map-terrain-provider',
+    template: '',
+    standalone: false
 })
 export class AcMapTerrainProviderComponent implements OnInit, OnChanges, OnDestroy {
 
@@ -46,8 +47,7 @@ export class AcMapTerrainProviderComponent implements OnInit, OnChanges, OnDestr
 
   ngOnInit(): void {
     if (!Checker.present(this.options.url)
-      && this.provider !== MapTerrainProviderOptions.Ellipsoid
-      && this.provider !== MapTerrainProviderOptions.WorldTerrain) {
+      && this.provider !== MapTerrainProviderOptions.Ellipsoid) {
       throw new Error('options must have a url');
     }
     this.defaultTerrainProvider = this.cesiumService.getViewer().terrainProvider;
@@ -58,9 +58,6 @@ export class AcMapTerrainProviderComponent implements OnInit, OnChanges, OnDestr
       case MapTerrainProviderOptions.VRTheWorld:
       case MapTerrainProviderOptions.Ellipsoid:
         this.terrainProvider = new this.provider(this.options);
-        break;
-      case MapTerrainProviderOptions.WorldTerrain:
-        this.terrainProvider = this.provider(this.options);
         break;
       default:
         console.log('ac-map-terrain-provider: [provider] wasn\'t found. setting OFFLINE provider as default');

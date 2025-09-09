@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Directive, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {AcHtmlManager} from '../../services/ac-html-manager/ac-html-manager.service';
+import { ChangeDetectorRef, Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { AcHtmlManager } from '../../services/ac-html-manager/ac-html-manager.service';
 
 export class AcHtmlContext {
   constructor(
@@ -11,7 +11,8 @@ export class AcHtmlContext {
 }
 
 @Directive({
-  selector: '[acHtml]',
+    selector: '[acHtml]',
+    standalone: false
 })
 export class AcHtmlDirective implements OnInit {
 

@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {EntityOnMapComponent} from '../../services/entity-on-map/entity-on-map.component';
-import {MapLayersService} from '../../services/map-layers/map-layers.service';
-import {PolylinePrimitiveDrawerService} from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
+import { Component } from '@angular/core';
+import { EntityOnMapComponent } from '../../services/entity-on-map/entity-on-map.component';
+import { MapLayersService } from '../../services/map-layers/map-layers.service';
+import { PolylinePrimitiveDrawerService } from '../../services/drawers/polyline-primitive-drawer/polyline-primitive-drawer.service';
 
 /**
  *  This is a polyline implementation.
@@ -22,8 +22,9 @@ import {PolylinePrimitiveDrawerService} from '../../services/drawers/polyline-pr
  */
 
 @Component({
-  selector: 'ac-primitive-polyline',
-  template: '',
+    selector: 'ac-primitive-polyline',
+    template: '',
+    standalone: false
 })
 export class AcPrimitivePolylineComponent extends EntityOnMapComponent {
 

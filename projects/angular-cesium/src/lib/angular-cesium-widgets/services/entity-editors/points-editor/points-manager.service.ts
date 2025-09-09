@@ -1,9 +1,9 @@
-import {Cartesian3} from 'cesium';
-import {CoordinateConverter} from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {AcLayerComponent} from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {Injectable} from '@angular/core';
-import {PointEditOptions} from '../../../models/point-edit-options';
-import {EditablePoint} from '../../../models/editable-point';
+import { Cartesian3 } from 'cesium';
+import { CoordinateConverter } from '../../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { AcLayerComponent } from '../../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { Injectable } from '@angular/core';
+import { PointEditOptions } from '../../../models/point-edit-options';
+import { EditablePoint } from '../../../models/editable-point';
 
 @Injectable()
 export class PointsManagerService {

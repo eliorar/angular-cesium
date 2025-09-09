@@ -10,7 +10,7 @@ import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { addImportToModule } from '@schematics/angular/utility/ast-utils';
 import { InsertChange } from '@schematics/angular/utility/change';
 import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
-import * as ts from 'typescript';
+import * as ts from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 
 export function ngAdd(_options: any): Rule {
   return (_: Tree, _context: SchematicContext) => {

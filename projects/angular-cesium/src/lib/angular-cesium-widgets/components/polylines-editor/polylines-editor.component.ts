@@ -1,23 +1,24 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {PolylinesEditorService} from '../../services/entity-editors/polyline-editor/polylines-editor.service';
-import {PolylinesManagerService} from '../../services/entity-editors/polyline-editor/polylines-manager.service';
-import {PolylineEditUpdate} from '../../models/polyline-edit-update';
-import {EditablePolyline} from '../../models/editable-polyline';
-import {LabelProps} from '../../models/label-props';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import * as Cesium from 'cesium';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { PolylinesEditorService } from '../../services/entity-editors/polyline-editor/polylines-editor.service';
+import { PolylinesManagerService } from '../../services/entity-editors/polyline-editor/polylines-manager.service';
+import { PolylineEditUpdate } from '../../models/polyline-edit-update';
+import { EditablePolyline } from '../../models/editable-polyline';
+import { LabelProps } from '../../models/label-props';
 
 @Component({
-  selector: 'polylines-editor',
-  template: /*html*/ `
+    selector: 'polylines-editor',
+    template: /*html*/ `
     <ac-layer #editPolylinesLayer acFor="let polyline of editPolylines$" [context]="this">
       <ac-polyline-desc
         props="{
@@ -79,8 +80,9 @@ import {LabelProps} from '../../models/label-props';
       </ac-array-desc>
     </ac-layer>
   `,
-  providers: [CoordinateConverter, PolylinesManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [CoordinateConverter, PolylinesManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PolylinesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: PolylineEditUpdate, labels: LabelProps[]) => LabelProps[];
@@ -149,7 +151,6 @@ export class PolylinesEditorComponent implements OnDestroy {
           this.editPointsLayer,
           this.editPolylinesLayer,
           this.coordinateConverter,
-          this.cesiumService.getScene(),
           update.polylineOptions,
         );
         break;
@@ -218,7 +219,6 @@ export class PolylinesEditorComponent implements OnDestroy {
           this.editPointsLayer,
           this.editPolylinesLayer,
           this.coordinateConverter,
-          this.cesiumService.getScene(),
           update.polylineOptions,
           update.positions,
         );

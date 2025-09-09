@@ -1,23 +1,23 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, ViewChild} from '@angular/core';
-import {CesiumService} from '../../../angular-cesium/services/cesium/cesium.service';
-import {EditModes} from '../../models/edit-mode.enum';
-import {AcNotification} from '../../../angular-cesium/models/ac-notification';
-import {EditActions} from '../../models/edit-actions.enum';
-import {AcLayerComponent} from '../../../angular-cesium/components/ac-layer/ac-layer.component';
-import {CoordinateConverter} from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {MapEventsManagerService} from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
-import {Subject} from 'rxjs';
-import {CameraService} from '../../../angular-cesium/services/camera/camera.service';
-import {EditPoint} from '../../models/edit-point';
-import {EllipsesManagerService} from '../../services/entity-editors/ellipses-editor/ellipses-manager.service';
-import {EllipsesEditorService} from '../../services/entity-editors/ellipses-editor/ellipses-editor.service';
-import {EllipseEditUpdate} from '../../models/ellipse-edit-update';
-import {LabelProps} from '../../models/label-props';
-import {EditableEllipse} from '../../models/editable-ellipse';
+import { ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
+import { CesiumService } from '../../../angular-cesium/services/cesium/cesium.service';
+import { EditModes } from '../../models/edit-mode.enum';
+import { AcNotification } from '../../../angular-cesium/models/ac-notification';
+import { EditActions } from '../../models/edit-actions.enum';
+import { AcLayerComponent } from '../../../angular-cesium/components/ac-layer/ac-layer.component';
+import { CoordinateConverter } from '../../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { MapEventsManagerService } from '../../../angular-cesium/services/map-events-mananger/map-events-manager';
+import { Subject } from 'rxjs';
+import { CameraService } from '../../../angular-cesium/services/camera/camera.service';
+import { EditPoint } from '../../models/edit-point';
+import { EllipsesManagerService } from '../../services/entity-editors/ellipses-editor/ellipses-manager.service';
+import { EllipsesEditorService } from '../../services/entity-editors/ellipses-editor/ellipses-editor.service';
+import { EllipseEditUpdate } from '../../models/ellipse-edit-update';
+import { LabelProps } from '../../models/label-props';
+import { EditableEllipse } from '../../models/editable-ellipse';
 
 @Component({
-  selector: 'ellipses-editor',
-  template: /*html*/ `
+    selector: 'ellipses-editor',
+    template: /*html*/ `
       <ac-layer #editPointsLayer acFor="let point of editPoints$" [context]="this">
           <ac-point-desc
                   props="{
@@ -85,8 +85,9 @@ import {EditableEllipse} from '../../models/editable-ellipse';
           </ac-array-desc>
       </ac-layer>
   `,
-  providers: [CoordinateConverter, EllipsesManagerService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [CoordinateConverter, EllipsesManagerService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class EllipsesEditorComponent implements OnDestroy {
   private editLabelsRenderFn: (update: EllipseEditUpdate, labels: LabelProps[]) => LabelProps[];

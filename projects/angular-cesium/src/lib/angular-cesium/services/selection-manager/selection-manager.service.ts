@@ -1,12 +1,12 @@
-import {filter, map} from 'rxjs/operators';
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {AcEntity} from '../../models/ac-entity';
-import {CesiumEvent} from '../map-events-mananger/consts/cesium-event.enum';
-import {MapEventsManagerService} from '../map-events-mananger/map-events-manager';
-import {PickOptions} from '../map-events-mananger/consts/pickOptions.enum';
-import {CesiumEventModifier} from '../map-events-mananger/consts/cesium-event-modifier.enum';
-import {MapsManagerService} from '../maps-manager/maps-manager.service';
+import { filter, map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { AcEntity } from '../../models/ac-entity';
+import { CesiumEvent } from '../map-events-mananger/consts/cesium-event.enum';
+import { MapEventsManagerService } from '../map-events-mananger/map-events-manager';
+import { PickOptions } from '../map-events-mananger/consts/pickOptions.enum';
+import { CesiumEventModifier } from '../map-events-mananger/consts/cesium-event-modifier.enum';
+import { MapsManagerService } from '../maps-manager/maps-manager.service';
 
 
 export interface SelectionOptions {

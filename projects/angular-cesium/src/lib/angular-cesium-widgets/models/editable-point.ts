@@ -1,10 +1,10 @@
-import {CallbackProperty, Cartesian3, Color} from 'cesium';
-import {AcLayerComponent} from '../../angular-cesium/components/ac-layer/ac-layer.component';
-import {AcEntity} from '../../angular-cesium/models/ac-entity';
-import {CoordinateConverter} from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
-import {EditPoint} from './edit-point';
-import {defaultLabelProps, LabelProps} from './label-props';
-import {PointEditOptions, PointProps} from './point-edit-options';
+import { Color, CallbackProperty, Cartesian3 } from 'cesium';
+import { AcLayerComponent } from '../../angular-cesium/components/ac-layer/ac-layer.component';
+import { AcEntity } from '../../angular-cesium/models/ac-entity';
+import { CoordinateConverter } from '../../angular-cesium/services/coordinate-converter/coordinate-converter.service';
+import { EditPoint } from './edit-point';
+import { defaultLabelProps, LabelProps } from './label-props';
+import { PointEditOptions, PointProps } from './point-edit-options';
 
 interface PositionWithPointProps {
   position: Cartesian3;

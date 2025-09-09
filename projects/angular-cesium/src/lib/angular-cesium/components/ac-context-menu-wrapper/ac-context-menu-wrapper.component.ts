@@ -8,9 +8,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {ContextMenuService} from '../../services/context-menu/context-menu.service';
-import {Subscription} from 'rxjs';
-import {BasicContextMenu} from '../../models/basic-context-menu';
+import { ContextMenuService } from '../../services/context-menu/context-menu.service';
+import { Subscription } from 'rxjs';
+import { BasicContextMenu } from '../../models/basic-context-menu';
 
 /**
  * This component is used to inject the component that is passed to the ContextMenuService when opening a context menu.
@@ -38,14 +38,17 @@ import {BasicContextMenu} from '../../models/basic-context-menu';
  */
 
 @Component({
-  selector: 'ac-context-menu-wrapper',
-  template: `
-    <ac-html *ngIf="contextMenuService.showContextMenu" [props]="{position: contextMenuService.position}">
-      <ng-template #contextMenuContainer></ng-template>
-    </ac-html>
-  `,
-  styles: [],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ac-context-menu-wrapper',
+    template: `
+    @if (contextMenuService.showContextMenu) {
+      <ac-html [props]="{position: contextMenuService.position}">
+        <ng-template #contextMenuContainer></ng-template>
+      </ac-html>
+    }
+    `,
+    styles: [],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AcContextMenuWrapperComponent implements OnInit, OnDestroy {
 

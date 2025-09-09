@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {CesiumProperties} from '../../../services/cesium-properties/cesium-properties.service';
-import {ComputationCache} from '../../../services/computation-cache/computation-cache.service';
-import {LayerService} from '../../../services/layer-service/layer-service.service';
-import {BasicDesc} from '../../../services/basic-desc/basic-desc.service';
-import {DynamicEllipseDrawerService} from '../../../services/drawers/static-dynamic/ellipse-drawer/dynamic-ellipse-drawer.service';
+import { Component } from '@angular/core';
+import { CesiumProperties } from '../../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../../services/computation-cache/computation-cache.service';
+import { LayerService } from '../../../services/layer-service/layer-service.service';
+import { BasicDesc } from '../../../services/basic-desc/basic-desc.service';
+import { DynamicEllipseDrawerService } from '../../../services/drawers/static-dynamic/ellipse-drawer/dynamic-ellipse-drawer.service';
 
 /**
  *
@@ -31,8 +31,9 @@ import {DynamicEllipseDrawerService} from '../../../services/drawers/static-dyna
  *   __param__: {number} [0.003] granularity
  */
 @Component({
-  selector: 'ac-dynamic-ellipse-desc',
-  template: '',
+    selector: 'ac-dynamic-ellipse-desc',
+    template: '',
+    standalone: false
 })
 export class AcDynamicEllipseDescComponent extends BasicDesc {
   constructor(ellipseDrawer: DynamicEllipseDrawerService, layerService: LayerService,

@@ -1,9 +1,9 @@
-import {BasicDrawerService} from '../basic-drawer/basic-drawer.service';
-import {CallbackProperty, CustomDataSource} from 'cesium';
-import {CesiumService} from '../../cesium/cesium.service';
-import {GraphicsType} from './enums/graphics-type.enum';
-import {EntitiesDrawerOptions} from '../../../models/entities-drawer-options';
-import {OptimizedEntityCollection} from './optimized-entity-collection';
+import { BasicDrawerService } from '../basic-drawer/basic-drawer.service';
+import { CustomDataSource, CallbackProperty } from 'cesium';
+import { CesiumService } from '../../cesium/cesium.service';
+import { GraphicsType } from './enums/graphics-type.enum';
+import { EntitiesDrawerOptions } from '../../../models/entities-drawer-options';
+import { OptimizedEntityCollection } from './optimized-entity-collection';
 
 /**
  *  General primitives drawer responsible of drawing Cesium primitives.
@@ -24,7 +24,7 @@ export class EntitiesDrawerService extends BasicDrawerService {
     },
   ) {
     super();
-    this.graphicsTypeName = 'Unknown';
+    this.graphicsTypeName = "Unknown";
 
     // Fix bad enum compilation
     for (const i in GraphicsType) {
@@ -36,13 +36,11 @@ export class EntitiesDrawerService extends BasicDrawerService {
 
   private getFreeEntitiesCollection(): OptimizedEntityCollection {
     let freeEntityCollection = null;
-    if (this.entityCollections != null) {
-      this.entityCollections.forEach(entityCollection => {
-        if (entityCollection.isFree()) {
-          freeEntityCollection = entityCollection;
-        }
-      });
-    }
+    this.entityCollections.forEach(entityCollection => {
+      if (entityCollection.isFree()) {
+        freeEntityCollection = entityCollection;
+      }
+    });
 
     return freeEntityCollection;
   }
@@ -111,9 +109,7 @@ export class EntitiesDrawerService extends BasicDrawerService {
 
   remove(entity: any) {
     const optimizedEntityCollection = this.entityCollections.get(entity.entityCollection);
-    if (optimizedEntityCollection != null) {
-      optimizedEntityCollection.remove(entity);
-    }
+    optimizedEntityCollection.remove(entity);
   }
 
   removeAll() {

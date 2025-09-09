@@ -1,9 +1,9 @@
-import {Component, forwardRef} from '@angular/core';
-import {BasicDesc} from '../../services/basic-desc/basic-desc.service';
-import {CesiumProperties} from '../../services/cesium-properties/cesium-properties.service';
-import {ComputationCache} from '../../services/computation-cache/computation-cache.service';
-import {LayerService} from '../../services/layer-service/layer-service.service';
-import {LabelPrimitiveDrawerService} from '../../services/drawers/label-primitive-drawer/label-primitive-drawer.service';
+import { Component, forwardRef } from '@angular/core';
+import { BasicDesc } from '../../services/basic-desc/basic-desc.service';
+import { CesiumProperties } from '../../services/cesium-properties/cesium-properties.service';
+import { ComputationCache } from '../../services/computation-cache/computation-cache.service';
+import { LayerService } from '../../services/layer-service/layer-service.service';
+import { LabelPrimitiveDrawerService } from '../../services/drawers/label-primitive-drawer/label-primitive-drawer.service';
 
 /**
  *  This is a label primitive implementation.
@@ -24,9 +24,10 @@ import {LabelPrimitiveDrawerService} from '../../services/drawers/label-primitiv
  */
 
 @Component({
-  selector: 'ac-label-primitive-desc',
-  template: '',
-  providers: [{provide: BasicDesc, useExisting: forwardRef(() => AcLabelPrimitiveDescComponent)}],
+    selector: 'ac-label-primitive-desc',
+    template: '',
+    providers: [{ provide: BasicDesc, useExisting: forwardRef(() => AcLabelPrimitiveDescComponent) }],
+    standalone: false
 })
 export class AcLabelPrimitiveDescComponent extends BasicDesc {
 

@@ -1,9 +1,9 @@
-import {inject, TestBed} from '@angular/core/testing';
-import {Cartesian3, PrimitiveCollection} from 'cesium';
-import {DynamicEllipseDrawerService} from './dynamic-ellipse-drawer.service';
-import {anything, instance, mock, verify, when} from 'ts-mockito';
-import {CesiumService} from '../../../cesium/cesium.service';
-import {providerFromMock} from '../../../../utils/testingUtils';
+import { inject, TestBed } from '@angular/core/testing';
+import { Cartesian3, PrimitiveCollection } from 'cesium';
+import { DynamicEllipseDrawerService } from './dynamic-ellipse-drawer.service';
+import { anything, instance, mock, verify, when } from 'ts-mockito';
+import { CesiumService } from '../../../cesium/cesium.service';
+import { providerFromMock } from '../../../../utils/testingUtils';
 
 describe('DynamicEllipseDrawerService', () => {
   let ellipseProps;

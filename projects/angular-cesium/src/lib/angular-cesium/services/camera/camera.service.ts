@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {Cartesian3, Cartographic, JulianDate, Math as cMath} from 'cesium';
+import { Cartesian3, Cartographic, JulianDate } from 'cesium';
+import { Math as cMath} from 'cesium';
 
-import {CesiumService} from '../cesium/cesium.service';
-import {SceneMode} from '../../models/scene-mode.enum';
+import { CesiumService } from '../cesium/cesium.service';
+import { SceneMode } from '../../models/scene-mode.enum';
 
 /**
  *  The service exposes the scene's camera and screenSpaceCameraController
